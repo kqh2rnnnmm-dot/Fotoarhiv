@@ -27,7 +27,6 @@ def main():
             raise RuntimeError("NOT RUN: requires disposable interactive Windows GitHub runner")
         from PIL import Image
         from pywinauto import Application
-        from pywinauto.keyboard import send_keys
 
         db = Path(os.environ["LOCALAPPDATA"]) / "Fotoarhiv" / "catalog.sqlite"
         def rows(sql):
@@ -88,6 +87,7 @@ def main():
             app = Application(backend="uia").connect(process=process.pid, timeout=30)
             window = app.window(title="Фотоархив")
             window.wait("visible ready", timeout=30)
+            window.maximize()
             return app
 
         def close():
@@ -100,12 +100,10 @@ def main():
 
         def add_source(path, count):
             control("AddFolderAction").invoke()
-            dialog = app.window(title="Выбери папку с фотографиями")
+            dialog = window.child_window(title="Выбери папку с фотографиями", control_type="Window")
             dialog.wait("visible ready", timeout=15)
-            dialog.set_focus()
-            send_keys("%d")
-            send_keys(str(path), with_spaces=True)
-            send_keys("{ENTER}")
+            # Native Folder field observed in run 1 UIA tree; no desktop key shortcuts.
+            dialog.child_window(auto_id="1152", control_type="Edit").set_edit_text(str(path))
             dialog.child_window(auto_id="1", control_type="Button").invoke()
             wait_for(lambda: text("ScanAction") == "Обновить" and text("Status").startswith("Готово:") and rows("SELECT count(*) FROM photos") == [(count,)], "Scan completion")
 
@@ -126,7 +124,7 @@ def main():
         window.child_window(title="←", control_type="Button").invoke()
         control("SearchBox").set_edit_text("capture-2020")
         window.child_window(title="capture-2020.jpg", control_type="Text").click_input()
-        info = app.window(title="Сведения о фотографии")
+        info = window.child_window(title="Сведения о фотографии", control_type="Window")
         info.wait("visible", timeout=10)
         check("photo card opens with EXIF label", lambda: require(any("Источник даты: EXIF" in element.window_text() for element in info.descendants()), "Photo metadata dialog"))
         info.child_window(title="OK", control_type="Button").invoke()
