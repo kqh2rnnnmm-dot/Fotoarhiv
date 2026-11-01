@@ -36,7 +36,9 @@ def main():
         # The preceding startup smoke must have created a fresh, empty catalog.
         assert rows("SELECT count(*) FROM photos") == [(0,)]
         assert rows("SELECT count(*) FROM sources") == [(0,)]
-        root = Path(tempfile.mkdtemp(prefix="Fotoarhiv-GUI-"))
+        # TEMP may use RUNNER~1, while the Windows folder dialog returns runneradmin.
+        # Resolve the same directory to its full filesystem path before comparisons.
+        root = Path(tempfile.mkdtemp(prefix="Fotoarhiv-GUI-")).resolve()
         first, second = root / "source-a", root / "source-b"
         (first / "nested").mkdir(parents=True)
         second.mkdir()
