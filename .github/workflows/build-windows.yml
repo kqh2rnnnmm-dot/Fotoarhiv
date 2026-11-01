@@ -1,0 +1,50 @@
+name: Build Fotoarhiv Windows x64
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONIOENCODING: utf-8
+      PYTHONUTF8: '1'
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+    steps:
+      - name: Get project
+        uses: actions/checkout@v4
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Install Python for CI verification
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CI-only UI Automation dependencies
+        run: python -m pip install -r tests/requirements-windows.txt
+      - name: Test evidence and packaging controls
+        run: python -m unittest discover -s tests -p test_ci_evidence.py -v
+      - name: Windows build, tests, publish, startup and GUI verification
+        run: python tests/windows_ci.py
+      - name: Upload Windows program after successful checks
+        uses: actions/upload-artifact@v4
+        with:
+          name: Fotoarhiv-Windows-x64-0.2.1-TEST
+          path: Fotoarhiv_Windows_x64_TEST.zip
+          if-no-files-found: error
+      - name: Upload all verification evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Fotoarhiv-Windows-test-results
+          path: TestResults/
+          if-no-files-found: warn

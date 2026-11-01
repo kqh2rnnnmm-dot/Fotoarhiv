@@ -1,0 +1,7 @@
+  Fotoarhiv.Core -> /workspace/Fotoarhiv/src/Fotoarhiv.Core/bin/Release/net10.0/Fotoarhiv.Core.dll
+  Fotoarhiv.Tests -> /workspace/Fotoarhiv/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll
+Test run for /workspace/Fotoarhiv/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /workspace/Fotoarhiv/verification/linux-tests.trx
+
+Passed!  - Failed:     0, Passed:    17, Skipped:     0, Total:    17, Duration: 1 s - Fotoarhiv.Tests.dll (net10.0)

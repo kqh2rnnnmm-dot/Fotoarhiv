@@ -1,0 +1,430 @@
+diff --git a/.github/workflows/build-windows.yml b/.github/workflows/build-windows.yml
+index 8e78f47..ce1115c 100644
+--- a/.github/workflows/build-windows.yml
++++ b/.github/workflows/build-windows.yml
+@@ -8,8 +8,12 @@ on:
+ jobs:
+   build-and-test:
+     runs-on: windows-latest
++    timeout-minutes: 20
+     permissions:
+       contents: read
++    defaults:
++      run:
++        shell: bash
+     steps:
+       - name: Get project
+         uses: actions/checkout@v4
+@@ -17,15 +21,32 @@ jobs:
+         uses: actions/setup-dotnet@v4
+         with:
+           dotnet-version: '10.0.x'
++      - name: Install Python for CI verification
++        uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
+       - name: Restore NuGet packages
+         run: dotnet restore Fotoarhiv.slnx
++      - name: Release build
++        run: dotnet build Fotoarhiv.slnx -c Release --no-restore
+       - name: Test catalog engine
+-        run: dotnet test tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj -c Release --no-restore
+-      - name: Build Windows application
+-        run: dotnet publish src/Fotoarhiv.App/Fotoarhiv.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=false -p:IncludeNativeLibrariesForSelfExtract=true -o publish
+-      - name: Upload Windows program
++        run: dotnet test tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj -c Release --no-build --logger "trx;LogFileName=windows-tests.trx" --results-directory TestResults
++      - name: Publish Windows application
++        run: dotnet publish src/Fotoarhiv.App/Fotoarhiv.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=false -o publish
++      - name: Check published application startup on Windows
++        run: python tests/windows_smoke.py publish/Fotoarhiv.exe
++      - name: Package complete publish directory
++        run: python -c "import shutil; shutil.make_archive('Fotoarhiv_Windows_x64_v0_2_1', 'zip', 'publish')"
++      - name: Upload Windows program after successful checks
+         uses: actions/upload-artifact@v4
+         with:
+-          name: Fotoarhiv-Windows-x64-0.2-TEST
+-          path: publish/
++          name: Fotoarhiv-Windows-x64-0.2.1-TEST
++          path: Fotoarhiv_Windows_x64_v0_2_1.zip
+           if-no-files-found: error
++      - name: Upload test evidence
++        if: always()
++        uses: actions/upload-artifact@v4
++        with:
++          name: Fotoarhiv-Windows-test-results
++          path: TestResults/
++          if-no-files-found: warn
+diff --git a/src/Fotoarhiv.App/Fotoarhiv.App.csproj b/src/Fotoarhiv.App/Fotoarhiv.App.csproj
+index 3871735..03daf5d 100644
+--- a/src/Fotoarhiv.App/Fotoarhiv.App.csproj
++++ b/src/Fotoarhiv.App/Fotoarhiv.App.csproj
+@@ -5,9 +5,9 @@
+     <UseWPF>true</UseWPF>
+     <UseWindowsForms>true</UseWindowsForms>
+     <Nullable>enable</Nullable>
+-    <ImplicitUsings>enable</ImplicitUsings>
++    <ImplicitUsings>disable</ImplicitUsings>
+     <AssemblyName>Fotoarhiv</AssemblyName>
+-    <Version>0.2.0</Version>
++    <Version>0.2.1</Version>
+   </PropertyGroup>
+   <ItemGroup>
+     <ProjectReference Include="../Fotoarhiv.Core/Fotoarhiv.Core.csproj" />
+diff --git a/src/Fotoarhiv.App/MainWindow.xaml b/src/Fotoarhiv.App/MainWindow.xaml
+index f1234eb..1b22725 100644
+--- a/src/Fotoarhiv.App/MainWindow.xaml
++++ b/src/Fotoarhiv.App/MainWindow.xaml
+@@ -30,7 +30,7 @@
+           <Button Content="↗   Собрать архив" Click="ExportPlaceholder_Click" HorizontalContentAlignment="Left" Background="#22344E" Foreground="#D6E2F0"/>
+         </StackPanel>
+         <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Margin="10,0,0,5">
+-          <TextBlock Text="Версия 0.2 • тестовая" Foreground="#94A9C4" FontSize="11"/>
++          <TextBlock Text="Версия 0.2.1 • тестовая" Foreground="#94A9C4" FontSize="11"/>
+           <TextBlock Text="Оригиналы защищены" Foreground="#80CBA8" FontSize="11" Margin="0,5,0,0"/>
+         </StackPanel>
+       </DockPanel>
+@@ -54,7 +54,7 @@
+           <TextBlock x:Name="PageTitle" Text="Все фотографии" FontSize="26" FontWeight="SemiBold" Foreground="#17263B"/>
+           <TextBlock x:Name="Summary" Text="Добавьте папку, чтобы создать библиотеку" FontSize="12" Foreground="#718096" Margin="0,5,0,0"/>
+         </StackPanel>
+-        <Button Grid.Column="1" Content="+ Добавить папку" Click="AddFolder_Click" Background="#2F66DA" Foreground="White" Margin="0,2,10,0"/>
++        <Button Grid.Column="1" x:Name="AddFolderAction" Content="+ Добавить папку" Click="AddFolder_Click" Background="#2F66DA" Foreground="White" Margin="0,2,10,0"/>
+         <Button Grid.Column="2" x:Name="ScanAction" Content="Обновить" Click="Scan_Click" Margin="0,2,0,0"/>
+       </Grid>
+ 
+@@ -95,7 +95,7 @@
+         <Grid x:Name="PlacesPanel" Visibility="Collapsed">
+           <DockPanel>
+             <TextBlock DockPanel.Dock="Top" Margin="2,0,0,14" Foreground="#586C83" TextWrapping="Wrap"
+-                       Text="Снимки с GPS. Выбери фотографию и нажми «Открыть точку». На этой стадии карта открывается в браузере."/>
++                       Text="Снимки с GPS. Выбери фотографию и нажми «Открыть точку». Карта открывается в браузере; координаты выбранного снимка будут переданы OpenStreetMap."/>
+             <Button DockPanel.Dock="Bottom" Content="Открыть точку на карте" Click="OpenMap_Click" HorizontalAlignment="Left" Margin="0,12,0,0"/>
+             <ListBox x:Name="PlacesList" Background="White" BorderThickness="0" DisplayMemberPath="Description" FontSize="13"/>
+           </DockPanel>
+diff --git a/src/Fotoarhiv.App/MainWindow.xaml.cs b/src/Fotoarhiv.App/MainWindow.xaml.cs
+index fcbbae0..cb809cc 100644
+--- a/src/Fotoarhiv.App/MainWindow.xaml.cs
++++ b/src/Fotoarhiv.App/MainWindow.xaml.cs
+@@ -1,5 +1,11 @@
++using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Threading;
++using System.Threading.Tasks;
+ using Fotoarhiv.Core;
+ using System.Diagnostics;
++using System.IO;
+ using System.Globalization;
+ using System.Windows;
+ using System.Windows.Controls;
+@@ -21,6 +27,7 @@ public partial class MainWindow : Window
+     private const int PageSize = 72;
+     private bool _initialized;
+     private bool _updatingYears;
++    private bool _closing;
+ 
+     public MainWindow()
+     {
+@@ -32,12 +39,14 @@ public partial class MainWindow : Window
+         _initialized = true;
+         UpdateYearOptions();
+         SetPage("photos");
++        UpdatePlaces();
+     }
+ 
+     private void UpdateSources() => SourcesList.ItemsSource = _store.GetSources();
+ 
+     private async void AddFolder_Click(object sender, RoutedEventArgs e)
+     {
++        if (_scanCancellation is not null) return;
+         using var picker = new System.Windows.Forms.FolderBrowserDialog
+         {
+             Description = "Выбери папку с фотографиями",
+@@ -69,39 +78,57 @@ public partial class MainWindow : Window
+         using var cts = new CancellationTokenSource();
+         _scanCancellation = cts;
+         ScanAction.Content = "Остановить";
++        AddFolderAction.IsEnabled = false;
++        _duplicateGroups = [];
++        DuplicateGroups.ItemsSource = _duplicateGroups;
++        DuplicateMembers.ItemsSource = null;
+         Status.Text = "Анализ фотографий… файлы не изменяются";
+-        var progress = new Progress<ScanProgress>(p => Status.Text = $"Просмотрено фотографий: {p.Scanned:N0}");
++        var progress = new Progress<ScanProgress>(p => { if (!_closing && ReferenceEquals(_scanCancellation, cts)) Status.Text = $"Просмотрено фотографий: {p.Scanned:N0}"; });
+         try
+         {
+             var scanned = await _scanner.ScanAsync(roots, _records, progress, cts.Token);
+             cts.Token.ThrowIfCancellationRequested();
++            if (_closing) return;
+             _store.Upsert(scanned);
+             _records = _store.GetAll();
+             Status.Text = "Поиск точных дубликатов по содержимому…";
+-            var duplicates = await _duplicateFinder.FindAsync(_records, cancellationToken: cts.Token);
++            // File enumeration/validation and hashing must not run on the dispatcher.
++            var records = _records;
++            var duplicates = await Task.Run(() => _duplicateFinder.FindAsync(records, cancellationToken: cts.Token), cts.Token);
++            cts.Token.ThrowIfCancellationRequested();
++            if (_closing) return;
+             _store.Upsert(_records); // retain computed SHA-256 for unchanged records
+             _duplicateGroups = duplicates.Select((group, index) =>
+                 new DuplicateGroupView($"Группа {index + 1} · {group.Count} файла", group)).ToList();
+             DuplicateGroups.ItemsSource = _duplicateGroups;
+             DuplicateMembers.ItemsSource = null;
+-            UpdateYearOptions();
+-            RefreshGallery();
+-            UpdatePlaces();
+-            Status.Text = $"Готово: {_records.Count:N0} файлов, {_duplicateGroups.Count:N0} групп точных дублей";
++            var warnings = _scanner.WarningCount + _duplicateFinder.WarningCount;
++            Status.Text = warnings == 0
++                ? $"Готово: {_records.Count:N0} файлов, {_duplicateGroups.Count:N0} групп точных дублей"
++                : $"Проверка неполная: недоступно или изменилось объектов: {warnings:N0}. Записи сохранены. Повторите обновление.";
+         }
+         catch (OperationCanceledException)
+         {
++            if (_closing) return;
+             Status.Text = "Остановлено пользователем. Исходные файлы не изменены.";
+         }
+         catch (Exception ex)
+         {
++            if (_closing) return;
+             Status.Text = "Ошибка сканирования";
+             MessageBox.Show(ex.Message, "Фотоархив", MessageBoxButton.OK, MessageBoxImage.Warning);
+         }
+         finally
+         {
+             _scanCancellation = null;
+-            ScanAction.Content = "Обновить";
++            if (!_closing)
++            {
++                ScanAction.Content = "Обновить";
++                AddFolderAction.IsEnabled = true;
++                UpdateYearOptions();
++                RefreshGallery();
++                UpdatePlaces();
++            }
+         }
+     }
+ 
+@@ -204,7 +231,8 @@ public partial class MainWindow : Window
+ 
+     private void OpenMap_Click(object sender, RoutedEventArgs e)
+     {
+-        if (PlacesList.SelectedItem is not LocationView loc) return;
++        if (PlacesList.SelectedItem is not LocationView loc)
++        { Status.Text = "Выберите снимок с GPS в списке"; return; }
+         var lat = loc.Photo.Latitude!.Value.ToString("F6", CultureInfo.InvariantCulture);
+         var lon = loc.Photo.Longitude!.Value.ToString("F6", CultureInfo.InvariantCulture);
+         var url = $"https://www.openstreetmap.org/?mlat={lat}&mlon={lon}#map=15/{lat}/{lon}";
+@@ -221,6 +249,7 @@ public partial class MainWindow : Window
+ 
+     protected override void OnClosed(EventArgs e)
+     {
++        _closing = true;
+         _scanCancellation?.Cancel();
+         _store.Dispose();
+         base.OnClosed(e);
+@@ -232,7 +261,7 @@ public sealed class PhotoTile
+     public PhotoRecord Photo { get; }
+     public string Name => Photo.Name;
+     public string DateLabel => Photo.DateSource == "EXIF" ? "EXIF" : "Дата файла";
+-    public string Caption => $"{Photo.TakenAt:dd MMM yyyy} · {(Photo.IsAvailable ? "доступно" : "диск отключён")}";
++    public string Caption => $"{Photo.TakenAt:dd MMM yyyy} · {(Photo.IsAvailable ? "доступно" : "источник недоступен")}";
+     public BitmapSource? Thumbnail { get; }
+ 
+     public PhotoTile(PhotoRecord photo)
+@@ -250,7 +279,7 @@ public sealed class PhotoTile
+             bitmap.Freeze();
+             Thumbnail = bitmap;
+         }
+-        catch (Exception ex) when (ex is IOException or NotSupportedException or System.Runtime.InteropServices.COMException or ArgumentException)
++        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or System.IO.FileFormatException or NotSupportedException or System.Runtime.InteropServices.COMException or ArgumentException)
+         {
+             // Unsupported RAW/HEIC codecs remain in the catalog; placeholder appears instead.
+         }
+diff --git a/src/Fotoarhiv.Core/CatalogStore.cs b/src/Fotoarhiv.Core/CatalogStore.cs
+index a2ec96f..8e691a1 100644
+--- a/src/Fotoarhiv.Core/CatalogStore.cs
++++ b/src/Fotoarhiv.Core/CatalogStore.cs
+@@ -13,7 +13,9 @@ public sealed class CatalogStore : IDisposable
+         _connection = new SqliteConnection(new SqliteConnectionStringBuilder
+         {
+             DataSource = databasePath,
+-            Mode = SqliteOpenMode.ReadWriteCreate
++            Mode = SqliteOpenMode.ReadWriteCreate,
++            // One long-lived connection; release native file handles when the store closes.
++            Pooling = false
+         }.ToString());
+         _connection.Open();
+         using var command = _connection.CreateCommand();
+diff --git a/src/Fotoarhiv.Core/DuplicateFinder.cs b/src/Fotoarhiv.Core/DuplicateFinder.cs
+index 0902eec..566d74f 100644
+--- a/src/Fotoarhiv.Core/DuplicateFinder.cs
++++ b/src/Fotoarhiv.Core/DuplicateFinder.cs
+@@ -5,9 +5,13 @@ namespace Fotoarhiv.Core;
+ /// <summary>Exact content equality only, never visual similarity. No writes to photos.</summary>
+ public sealed class DuplicateFinder
+ {
++    public int WarningCount { get; private set; }
++
+     public async Task<List<List<PhotoRecord>>> FindAsync(IEnumerable<PhotoRecord> records,
+         IProgress<int>? progress = null, CancellationToken cancellationToken = default)
+     {
++        WarningCount = 0;
++        cancellationToken.ThrowIfCancellationRequested();
+         var groups = new List<List<PhotoRecord>>();
+         int completed = 0;
+         foreach (var sizeGroup in records.Where(p => p.IsAvailable).GroupBy(p => p.Size).Where(g => g.Count() > 1))
+@@ -18,30 +22,38 @@ public sealed class DuplicateFinder
+                 cancellationToken.ThrowIfCancellationRequested();
+                 try
+                 {
++                    // Validate even cached hashes; a rescan is not required before this call.
++                    var before = new FileInfo(record.Path);
++                    if (!before.Exists || before.Length != record.Size || before.LastWriteTimeUtc.Ticks != record.ModifiedUtcTicks)
++                    {
++                        record.Sha256 = null;
++                        WarningCount++;
++                        continue;
++                    }
+                     var hash = record.Sha256;
+                     if (string.IsNullOrEmpty(hash))
+                     {
+                         // Read-only, and avoid caching a hash if the photo changed mid-read.
+-                        var before = new FileInfo(record.Path);
+-                        if (before.Length != record.Size || before.LastWriteTimeUtc.Ticks != record.ModifiedUtcTicks) continue;
+                         await using var stream = new FileStream(record.Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite,
+                             bufferSize: 1024 * 128, options: FileOptions.SequentialScan | FileOptions.Asynchronous);
+                         using var sha = SHA256.Create();
+                         hash = Convert.ToHexString(await sha.ComputeHashAsync(stream, cancellationToken));
+                         before.Refresh();
+-                        if (!before.Exists || before.Length != record.Size || before.LastWriteTimeUtc.Ticks != record.ModifiedUtcTicks) continue;
++                        if (!before.Exists || before.Length != record.Size || before.LastWriteTimeUtc.Ticks != record.ModifiedUtcTicks)
++                        { record.Sha256 = null; WarningCount++; continue; }
+                         record.Sha256 = hash;
+                     }
+                     if (!hashes.TryGetValue(hash, out var bucket)) hashes[hash] = bucket = [];
+                     bucket.Add(record);
+                 }
+-                catch (IOException) { }
+-                catch (UnauthorizedAccessException) { }
++                catch (IOException) { record.Sha256 = null; WarningCount++; }
++                catch (UnauthorizedAccessException) { record.Sha256 = null; WarningCount++; }
+                 completed++;
+                 if (completed % 20 == 0) progress?.Report(completed);
+             }
+             groups.AddRange(hashes.Values.Where(b => b.Count > 1));
+         }
++        cancellationToken.ThrowIfCancellationRequested();
+         return groups.OrderByDescending(g => g.Count).ToList();
+     }
+ }
+diff --git a/src/Fotoarhiv.Core/PhotoScanner.cs b/src/Fotoarhiv.Core/PhotoScanner.cs
+index b730cfd..31b3bf6 100644
+--- a/src/Fotoarhiv.Core/PhotoScanner.cs
++++ b/src/Fotoarhiv.Core/PhotoScanner.cs
+@@ -1,12 +1,13 @@
+ using MetadataExtractor;
+ using MetadataExtractor.Formats.Exif;
+-using System.Globalization;
+ 
+ namespace Fotoarhiv.Core;
+ 
+ /// <summary>Non-destructive read-only scanner. Unavailable sources never cause catalog deletion.</summary>
+ public sealed class PhotoScanner
+ {
++    public int WarningCount { get; private set; }
++
+     public static readonly HashSet<string> Extensions = new(StringComparer.OrdinalIgnoreCase)
+     { ".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".gif", ".webp", ".heic", ".heif", ".avif", ".dng", ".cr2", ".cr3", ".nef", ".arw", ".raf", ".orf", ".rw2" };
+ 
+@@ -14,22 +15,24 @@ public sealed class PhotoScanner
+         IEnumerable<string> roots, IEnumerable<PhotoRecord> previous,
+         IProgress<ScanProgress>? progress = null, CancellationToken cancellationToken = default)
+     {
+-        // Caller runs this on a worker thread. A small test can invoke it synchronously too.
++        // Keep directory traversal and metadata parsing off the caller's UI thread.
+         return Task.Run(() => Scan(roots, previous, progress, cancellationToken), cancellationToken);
+     }
+ 
+-    private static List<PhotoRecord> Scan(IEnumerable<string> roots, IEnumerable<PhotoRecord> previous,
++    private List<PhotoRecord> Scan(IEnumerable<string> roots, IEnumerable<PhotoRecord> previous,
+         IProgress<ScanProgress>? progress, CancellationToken ct)
+     {
++        WarningCount = 0;
++        ct.ThrowIfCancellationRequested();
+         var existing = previous.ToDictionary(p => p.Path, StringComparer.OrdinalIgnoreCase);
+         var found = new Dictionary<string, PhotoRecord>(StringComparer.OrdinalIgnoreCase);
+-        foreach (var path in EnumeratePaths(roots, ct))
++        foreach (var path in EnumeratePaths(roots, ct, () => WarningCount++))
+         {
+             ct.ThrowIfCancellationRequested();
+             try
+             {
+                 var info = new FileInfo(path);
+-                if (!info.Exists) continue;
++                if (!info.Exists) { WarningCount++; continue; }
+                 if (existing.TryGetValue(path, out var old) && old.Size == info.Length &&
+                     old.ModifiedUtcTicks == info.LastWriteTimeUtc.Ticks)
+                 {
+@@ -40,18 +43,25 @@ public sealed class PhotoScanner
+                     found[path] = ReadRecord(info);
+                 }
+             }
+-            catch (IOException) { /* file disappeared or became inaccessible */ }
+-            catch (UnauthorizedAccessException) { }
++            catch (IOException) { WarningCount++; }
++            catch (UnauthorizedAccessException) { WarningCount++; }
+             if (found.Count % 50 == 0) progress?.Report(new ScanProgress(found.Count, path));
+         }
++        ct.ThrowIfCancellationRequested();
+         progress?.Report(new ScanProgress(found.Count, "Готово"));
+         return found.Values.ToList();
+     }
+ 
+-    private static IEnumerable<string> EnumeratePaths(IEnumerable<string> roots, CancellationToken ct)
++    private static IEnumerable<string> EnumeratePaths(IEnumerable<string> roots, CancellationToken ct, Action warn)
+     {
+         var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+-        var dirs = new Stack<string>(roots.Where(System.IO.Directory.Exists).Select(System.IO.Path.GetFullPath));
++        var dirs = new Stack<string>();
++        foreach (var root in roots)
++        {
++            ct.ThrowIfCancellationRequested();
++            if (System.IO.Directory.Exists(root)) dirs.Push(System.IO.Path.GetFullPath(root));
++            else warn();
++        }
+         while (dirs.Count > 0)
+         {
+             ct.ThrowIfCancellationRequested();
+@@ -64,8 +74,8 @@ public sealed class PhotoScanner
+                 children = System.IO.Directory.GetDirectories(dir);
+                 files = System.IO.Directory.GetFiles(dir);
+             }
+-            catch (IOException) { continue; }
+-            catch (UnauthorizedAccessException) { continue; }
++            catch (IOException) { warn(); continue; }
++            catch (UnauthorizedAccessException) { warn(); continue; }
+             foreach (var child in children)
+             {
+                 try
+@@ -73,8 +83,8 @@ public sealed class PhotoScanner
+                     if ((File.GetAttributes(child) & FileAttributes.ReparsePoint) == 0)
+                         dirs.Push(child);
+                 }
+-                catch (IOException) { }
+-                catch (UnauthorizedAccessException) { }
++                catch (IOException) { warn(); }
++                catch (UnauthorizedAccessException) { warn(); }
+             }
+             foreach (var file in files)
+             {
+@@ -105,8 +115,7 @@ public sealed class PhotoScanner
+                 record.TakenAt = date;
+                 record.DateSource = "EXIF";
+             }
+-            var gps = dirs.OfType<GpsDirectory>().FirstOrDefault()?.GetGeoLocation();
+-            if (gps is not null && !gps.IsZero &&
++            if (dirs.OfType<GpsDirectory>().FirstOrDefault()?.GetGeoLocation() is { } gps &&
+                 double.IsFinite(gps.Latitude) && double.IsFinite(gps.Longitude) &&
+                 Math.Abs(gps.Latitude) <= 90 && Math.Abs(gps.Longitude) <= 180)
+             {

@@ -1,0 +1,2 @@
+PASS: all 80 artificial images decode with Pillow; SHA-256 manifest matches; duplicate/content-size distinctions, EXIF date and synthetic GPS tags verified
+NOT RUN: Windows codecs and GUI rendering

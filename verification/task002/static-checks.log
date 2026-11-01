@@ -1,0 +1,10 @@
+PASS syntax: tests/windows_gui.py
+PASS syntax: tests/windows_ci.py
+PASS syntax: tests/windows_smoke.py
+PASS syntax: tests/test_ci_evidence.py
+PASS XML: solution, projects, XAML
+PASS YAML parse and Windows runner/evidence configuration; workflow execution NOT RUN
+PASS unchanged application/xUnit source files: 13; no app version bump
+PASS ci refuses Linux; Windows execution remains NOT RUN
+PASS gui refuses Linux; Windows execution remains NOT RUN
+PASS git diff --check
