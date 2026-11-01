@@ -138,7 +138,9 @@ def main():
         check("exact duplicate group displayed", lambda: require(len(groups) == 1, "Exactly one duplicate group expected"))
         groups[0].select()
         members = control("DuplicateMembers").wrapper_object().items()
-        check("same-size different image excluded from duplicate UI", lambda: require(len(members) == 2 and all("identical-" in item.window_text() for item in members), "Duplicate members"))
+        # WPF ListItem.Name is the CLR type; its Text child contains the displayed path.
+        member_paths = {child.window_text() for item in members for child in item.descendants(control_type="Text")}
+        check("same-size different image excluded from duplicate UI", lambda: require(len(members) == 2 and member_paths == {str(first / "identical-a.bmp"), str(second / "identical-b.bmp")}, "Duplicate members"))
         window.capture_as_image().save(output / "02-duplicates.png")
         control("NavPhotos").invoke()
         window.capture_as_image().save(output / "03-gallery.png")
