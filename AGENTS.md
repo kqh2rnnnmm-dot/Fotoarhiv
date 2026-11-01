@@ -9,7 +9,7 @@
 - Ядро: `src/Fotoarhiv.Core` (net10.0, SQLite, MetadataExtractor).
 - Тесты: `tests/Fotoarhiv.Tests` (xUnit).
 - CI: `.github/workflows/build-windows.yml`.
-- Контрольная точка v0.2.1: подтверждены Linux Release-компиляция WPF с Windows targeting, 18 xUnit-тестов и кросс-публикация win-x64. Windows-сборка, запуск и GUI пока НЕ подтверждены. Текущая задача: `tasks/CODEX_TASK_002.md`; статус — `BUILD_REPORT_RU.md`.
+- Контрольная точка v0.2.1: Windows Actions run 41348272593 успешно выполнил Release build, 18 xUnit-тестов, self-contained publish, запуск/закрытие окна и 16 GUI-проверок на Windows Server 2025. Windows 11 на ПК пользователя и пять дополнительных GUI/физических сценариев ещё НЕ проверены; полный P0 остаётся открыт. Текущая задача: `tasks/CODEX_TASK_002.md`; доказательства — `BUILD_REPORT_RU.md`.
 - Никогда не включать в поставку старую v0.1 с VBS, PowerShell или `.cmd` запуска.
 
 ## Жёсткие инварианты

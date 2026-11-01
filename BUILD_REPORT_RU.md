@@ -1,153 +1,124 @@
-# Фотоархив 0.2.1 — отчёт по CODEX_TASK_002
+# Фотоархив 0.2.1 — подтверждённая Windows CI-сборка
 
-Дата: 01.11.2026 (Москва). **P0 ОТКРЫТ. Проверенной Windows-сборки пока нет.**
-Новые функции не добавлены. Все файлы src/ и исходных xUnit-проектов совпадают с переданным
-проектом по SHA-256; номер приложения оставлен **0.2.1**. Изменены только CI, проверочные
-инструменты, документация; добавлен искусственный набор для ручной проверки.
+Контрольная точка: 01.11.2026, Москва. Пользователь явно разрешил запись в GitHub.
+Полный проект размещён в https://github.com/kqh2rnnnmm-dot/Fotoarhiv .
+**Windows build, xUnit, publish, запуск/закрытие и 16 GUI-проверок прошли.**
+Версия остаётся 0.2.1: код C#/XAML и зависимости приложения не менялись.
+Полный P0 ещё открыт: ручная приёмка на Windows 11 и пять дополнительных сценариев не выполнены.
 
-## Доступ и причина незавершённости
+## Проверенный run и артефакты
 
-Доступна Linux x64 среда Debian 13, SDK 10.0.403/runtime 10.0.14. Windows-машина,
-Windows desktop и инструменты управления Windows runner в этой сессии отсутствуют.
-Первый поиск по GitHub-инсталляции и список доступных репозиториев вернули пустой результат.
-После уточнения пользователя поиск по владельцу обнаружил публичный репозиторий
-https://github.com/kqh2rnnnmm-dot/Fotoarhiv . Повторное чтение main подтвердило только
-README.md (11 байт), а API Actions — 0 запусков. Исходников и .github/workflows в main нет.
-Следовательно, репозиторий создан, но Windows workflow пока не загружен и не выполнялся.
-Прямой запрос коллекции actions/workflows отклонён ограничением GitHub fetch (400);
-вывод об отсутствии workflow в main основан на чтении корня, а не этом отклонённом запросе.
-Сетевые ограничения не являются причиной отсутствия Windows. GitHub используется только
-для чтения; push, PR, workflow dispatch и публикация не выполнялись.
-Доказательство повторной проверки — verification/task002/github-readback.json.
+- Успешный run: https://github.com/kqh2rnnnmm-dot/Fotoarhiv/actions/runs/41348272593 .
+- Проверенный commit: `4f34bc29279e372c5c03fafee07ec20fc070a7f7`.
+- ОС: Windows Server 2025 x64, 10.0.26100; SDK 10.0.403, .NET runtime 10.0.14, Python 3.12.10.
+- Программа: https://github.com/kqh2rnnnmm-dot/Fotoarhiv/actions/runs/41348272593/artifacts/13100027205 .
+- Доказательства: https://github.com/kqh2rnnnmm-dot/Fotoarhiv/actions/runs/41348272593/artifacts/13099519203 .
 
-**Actions run ID/URL: отсутствует; Windows run не состоялся.** Подготовленный workflow
-невозможно назвать проверенным выполнением. Фактическую ОС будущего runner он запишет
-в TestResults/run.json; выбран windows-2025 (Windows Server, не Windows 11).
+Артефакт программы содержит вложенный **Fotoarhiv_Windows_x64_TEST.zip** (75 301 036 байт).
+Его SHA-256: `9e67838152bf1814f1f556d3093d20981272995c3b633630c2763bc2799b4520`.
+Весь publish включён целиком: **482 файла**, включая Fotoarhiv.exe, e_sqlite3.dll,
+coreclr.dll и wpfgfx_cor3.dll. Выполнена проверка скачанного артефакта: CRC обоих ZIP,
+точный состав и SHA-256/размер каждого файла по манифесту, x64 PE заголовки нативных
+компонентов и отсутствие VBS/PS1/CMD/BAT-запускателей. Установленный .NET не требуется.
 
-## Фактически выполненные проверки Task 002
+## Фактические результаты
 
-Все пути без префикса находятся в `verification/task002/`.
+Пути в колонке «Доказательство» — внутри артефакта результатов. Их локальная копия
+в полном исходном ZIP находится в `verification/windows/run5/`.
 
 | Проверка | Статус | Среда | Доказательство |
 |---|---|---|---|
-| Целостность входного ZIP, полный состав проекта, 18 Fact-тестов | PASS | Linux/Python | input-manifest.json: SHA-256 входного ZIP и всех 42 файлов |
-| Restore | PASS | Linux/.NET 10 | restore.log |
-| Release всего solution, включая WPF с Windows targeting | PASS: 0 ошибок, 0 предупреждений | Linux/.NET 10 | build.log |
-| xUnit | PASS: 18, FAIL: 0, SKIP: 0 | Linux/.NET 10 | tests.log, linux-tests.trx |
-| Контроль CI: ошибка команды, запрет ZIP без проверок/зависимостей, полнота ZIP | PASS: 4 | Linux/Python, искусственные файлы | ci-controls-tests.log; это не тесты Windows-приложения |
-| Неизменность src/ и исходных проектов xUnit | PASS: 13 файлов | Linux/SHA-256 | application-unchanged.json |
-| Python/XML/YAML и настройка runner/выгрузки evidence | PASS статически | Linux | static-checks.log; не выполнение Actions |
-| Отказ CI/GUI-скриптов имитировать Windows на Linux | PASS защиты, Windows NOT RUN | Linux | ci-platform-guard.log/json, gui-platform-guard.log, gui-platform-guard/gui.json |
-| Искусственный EXIF JPEG и ручной набор | PASS проверка файлов/метаданных | Linux/Pillow | manual-samples-check.log; не GUI-тест |
-| Windows restore/Release/xUnit/publish | NOT RUN | Windows недоступна | нет Windows-логов и CI run |
-| Запуск, SQLite и закрытие exe на Windows | NOT RUN | Windows недоступна | windows_smoke.py сохранён, выполнения нет |
-| UI Automation источников/поиска/года/страниц/дублей | NOT RUN | Windows недоступна | windows_gui.py подготовлен; не выдаётся за выполненный |
-| Ручные сценарии на Windows 11 | NOT RUN | Windows 11 недоступна | WINDOWS_CHECKLIST_RU.md |
-| Физическое отключение диска | NOT RUN | нет тестового диска/Windows | xUnit недоступного пути не заменяет эту проверку |
-| Проверка на ПК пользователя | NOT RUN | нет результата пользователя | отдельный этап приёмки |
+| NuGet restore | PASS | Windows Server 2025 | restore.log, run.json |
+| Release всего solution | PASS, 0 ошибок, 0 предупреждений | Windows Server 2025 | build.log |
+| xUnit | PASS: 18, FAIL: 0, SKIP: 0 | Windows Server 2025 | windows-tests.trx, xunit.log, run.json |
+| Контроль CI/упаковки | PASS: 4 | Windows/Python | журнал шага Test evidence and packaging controls в Actions |
+| Self-contained win-x64 publish | PASS | Windows Server 2025 | publish.log, publish-manifest.json |
+| Реальный запуск, появление окна, SQLite, штатное закрытие | PASS | Windows desktop runner | startup.log |
+| Подготовленный GUI-сценарий | PASS: 16 | Подлинная UI Automation, Windows | gui/gui.json, gui.log, 3 снимка окна |
+| Повторный запуск и каталог | PASS | Windows GUI/SQLite | gui/gui.json: catalog survives restart |
+| Байты, имена, расположение, даты записи/создания исходного набора | PASS | Windows, 79 искусственных изображений | gui/gui.json: source names, paths, bytes, modification and creation times unchanged |
+| Скачанный ZIP, полнота и пофайловые SHA-256 | PASS | Linux, проверка Windows-артефакта | verification/windows/package-validation.json в исходном ZIP |
+| Физическое отключение диска | NOT RUN | Нет физического тестового диска | Не заменяется имитацией отсутствующего пути |
+| Отмена через GUI | NOT RUN | Не включена в этот UIA-прогон | Отмена ядра покрыта xUnit; это другая проверка |
+| Отказ доступа NTFS ACL | NOT RUN | Не включён в этот UIA-прогон | xUnit блокировки файла не заменяет ACL |
+| GPS/открытие браузера по действию | NOT RUN в GUI | GPS метаданные проверены xUnit | Настоящая карта из GUI не открывалась |
+| Офлайн-источник в GUI | NOT RUN | Недоступный путь/сохранение записей проверены xUnit | Требует отдельной GUI-проверки |
+| Ручная проверка Windows 11 / ПК пользователя | NOT RUN | Нет результата пользователя | WINDOWS_CHECKLIST_RU.md |
 
-Старые логи `verification/01…14` и `verification/linux-tests.trx` относятся к Task 001.
-Исходный отчёт сохранён в `verification/BUILD_REPORT_TASK001_RU.md`. Его успешная
-кросс-публикация win-x64 не переносится в графу «Windows PASS». В Task 002 повторная
-кросс-публикация не выполнялась: приложение идентично, а она не решает задачу запуска Windows.
+16 GUI-проверок: пустой каталог; добавление двух папок через настоящий стандартный
+диалог и вложенная папка; EXIF/файловая дата в каталоге; поиск; год; первая/следующая
+страницы; карточка EXIF; четыре раздела навигации; одна группа точных дублей;
+состав группы из двух ожидаемых полных путей с исключением файла того же размера
+с другим содержимым; сохранение каталога после перезапуска; неизменность оригиналов.
+Каталог для GUI не предзаполнялся SQL. Проверялись действия в опубликованном exe.
+Программные изображения не являются пользовательскими фотографиями; реальные фото/GPS не использовались.
 
-## Выполненные команды
-
-Рабочая папка `/workspace/Fotoarhiv_Task002`; реальный SDK `/tmp/fotoarhiv-dotnet/dotnet`.
+## Команды Windows runner
 
 ```text
 dotnet --info
-dotnet restore Fotoarhiv.slnx -p:EnableWindowsTargeting=true
-dotnet build Fotoarhiv.slnx -c Release --no-restore -p:EnableWindowsTargeting=true
-dotnet test tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj -c Release --no-build --logger "trx;LogFileName=linux-tests.trx" --results-directory verification/task002
-python3 -m unittest discover -s tests -p test_ci_evidence.py -v
+dotnet restore Fotoarhiv.slnx
+dotnet build Fotoarhiv.slnx -c Release --no-restore
+dotnet test tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj -c Release --no-build --logger "trx;LogFileName=windows-tests.trx" --results-directory TestResults
+dotnet publish src/Fotoarhiv.App/Fotoarhiv.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=false -o publish
+python tests/windows_smoke.py publish/Fotoarhiv.exe
+python tests/windows_gui.py publish/Fotoarhiv.exe TestResults/gui
 ```
 
-Дополнительно выполнены разбор Python AST, XML/YAML, SHA-256-сравнение с входным ZIP,
-`git diff --check`, проверка искусственного EXIF и CRC результирующих архивов.
-Проверочные запуски windows_ci.py/windows_gui.py на Linux завершились ненулевым кодом
-и статусом NOT RUN; приложение при этом не запускалось. Это проверка защиты от ложного успеха.
-API pywinauto 0.6.9 проверен по исходникам его официального пакета; это не проверка UIA на Windows.
+Их вызывает tests/windows_ci.py, сохраняя команды, время, коды возврата, commit и run URL.
+Архив создаётся только после успеха всех обязательных этапов. Evidence выгружается и при ошибке.
+Публикация папкой выбрана для сохранения runtime/SQLite DLL без извлечения single-file.
+CI-инструменты Python и их зависимости в publish не входят.
 
-## Что подготовлено для настоящего Windows run
+## Исправления после получения доступа записи
 
-`.github/workflows/build-windows.yml` запускает CI-only `tests/windows_ci.py` на windows-2025.
-Последовательность: SDK → закреплённые Python-зависимости → 4 теста контроля evidence →
-restore → Release build → 18+ xUnit с TRX → self-contained win-x64 publish → существующий
-startup smoke → UI Automation → ZIP полного publish. Сбой любого обязательного шага
-прерывает упаковку. В TRX требуется не менее 18 пройденных тестов и отсутствие пропусков.
-Нет скрытого перевода ошибки в успех или отключения тестов.
+Размещён полный проект, включая AGENTS/tasks, C#/WPF/Core/xUnit, workflow,
+искусственный набор и прежние отчёты. История исходного коммита README сохранена,
+force push не использовался. В AGENTS.md и инструкции зафиксировано новое явное
+разрешение пользователя на запись именно в этот репозиторий.
 
-`tests/windows_gui.py` через pywinauto/UIA должен проверять реальный интерфейс:
-пустую галерею; стандартный диалог добавления двух папок; вложенную папку; 79 искусственных
-изображений; EXIF/файловую дату в каталоге; поиск; фильтр года; страницы; карточку EXIF;
-четыре раздела; состав группы точных дублей; повторный запуск; неизменность имён,
-расположения, SHA-256, времени записи/создания. Каталог не предзаполняется SQL: фото
-попадают в него через выбор папок и сканирование приложения. Запросы к SQLite только read-only.
+Изменения tests/windows_gui.py подтверждены реальными неуспешными прогонами:
+- Модальные диалоги выбора папки и сведений ищутся как дочерние элементы главного окна,
+  что соответствует наблюдаемому UIA-дереву Windows. Путь вводится в штатное поле Folder.
+- Для чтения состава списка используются отображаемые дочерние Text-элементы:
+  собственное Name у WPF ListItem содержит имя CLR-типа PhotoRecord.
+- Сценарий ждёт появления ожидаемых элементов и сохраняет наблюдаемые/ожидаемые пути.
+- Папка теста приводится к полному пути через resolve(): TEMP использовал RUNNER~1,
+  а FolderBrowserDialog возвращал тот же каталог как runneradmin. Нормализуется
+  представление одного пути; требование точных двух файлов не ослаблялось.
+- Окно разворачивается в тестовом desktop для стабильной геометрии снимков и кликов.
 
-Windows GUI-сценарий **НЕ проверяет** физический диск, отмену через GUI, NTFS ACL,
-GPS/открытие браузера и офлайн-источник в GUI. Эти пункты записываются NOT RUN даже при
-успехе реализованного поднабора; их нужно дополнить по чек-листу. UIA-селекторы и работа
-на desktop runner остаются неподтверждёнными до первого реального запуска. При проблеме
-селекторов нужно исправлять тест/блокирующий дефект по журналу, а не отключать проверки.
+Предыдущие прогоны сохранены в Actions и в исходном ZIP (`verification/windows/run1…run4/`):
+41347017068 — диалог; 41347286565 — чтение Name; 41347608842/41347896845 — сравнение
+путей, включая диагностированную пару короткого/полного TEMP. Во всех Windows build/xUnit
+прошли. Неуспешные проверки не отключались, ожидания не подменялись и ZIP из них не выдавался.
 
-Будущий артефакт **Fotoarhiv-Windows-test-results** содержит:
-- `run.json`: фактическая ОС, версия Windows, commit, URL run, команды, UTC-время, коды возврата;
-- отдельные логи SDK/restore/build/xUnit/publish/startup/gui и `windows-tests.trx`;
-- `gui/gui.json`, снимки окна; при сбое — доступный снимок и дерево элементов;
-- `publish-manifest.json` со всеми файлами/размерами/SHA-256 и `archive.json` с SHA-256 ZIP.
+Код приложения, архитектура, дизайн, NuGet-зависимости и 18 C#-тестов остались без изменений;
+SHA-256 исходников сверён с входным v0.2.1. Новых продуктовых функций нет.
+Исторические отчёты до доступа к Windows сохранены в verification/BUILD_REPORT_TASK001_RU.md
+и verification/BUILD_REPORT_TASK002_PRE_WINDOWS_RU.md; их NOT RUN отражает прежний этап.
 
-Выгрузка evidence настроена с `if: always()`. При сбое установки SDK/Python до начала
-сценария отдельных TestResults может не быть; причина останется в журнале соответствующего
-шага Actions. Публикация папкой сохраняет все runtime/SQLite DLL, single-file не используется.
-Python-инструменты и их зависимости в дистрибутив приложения не входят.
-Скрипты работают только на disposable GitHub Windows runner и отказываются использовать
-уже существующий каталог: личные каталоги не очищаются и не перезаписываются.
+## Ограничения
 
-## Перечень изменений
+Windows Server 2025 не заменяет Windows 11 и ПК пользователя. Пять NOT RUN выше
+остаются открыты. Офлайн-миниатюры не кешируются; до 72 превью декодируются синхронно,
+большие коллекции не измерялись. Кеш SHA-256 опирается на размер и время изменения;
+подмена с сохранением обоих признаков остаётся ограничением. ОС может обновлять
+время последнего доступа при чтении — это не проверка неизменности времени доступа.
+Полнота RAW/HEIC и кодеков не подтверждена. EXIF без часового пояса не превращается в UTC.
 
-- `AGENTS.md`, `INSTRUCTIONS_CHATGPT_PROJECT.md`: исправлен устаревший статус v0.2,
-  указаны подтверждения Linux и открытый Task 002.
-- `.github/workflows/build-windows.yml`: фиксированная линия Windows Server runner,
-  проверочный сценарий, UIA-зависимости, полный сбор evidence.
-- `tests/windows_ci.py`: команды, контроль TRX, журналирование, упаковка после успеха,
-  манифест полного publish и защита существующей БД.
-- `tests/windows_gui.py`: подготовленный сценарий реальных действий UIA, снимки/результаты,
-  явные NOT RUN для непокрытых сценариев. Это не пользовательский запускатель.
-- `tests/test_ci_evidence.py`: 4 теста механизмов evidence/упаковки.
-- `tests/requirements-windows.txt`: только CI-зависимости pywinauto 0.6.9/Pillow 11.3.0.
-- `tests/manual_samples/`: 80 маленьких искусственных изображений, описание и SHA-256.
-  Два источника, 76 BMP в первом, 4 файла во втором; это отдельный ручной набор,
-  а не результат GUI-прогона. TIFF содержит искусственный GPS.
-- `README_RU.md`, `WINDOWS_CHECKLIST_RU.md`, `BUILD_REPORT_RU.md`: актуальный статус,
-  инструкция без CLI и границы подтверждения.
-- `.gitignore`: исключены Python-кеши; `verification/task002/`: новые логи/манифесты;
-  старый отчёт Task 001 сохранён отдельно. Исходные tasks/ и REVIEW_021_RU.md сохранены.
+«Собрать архив» остаётся честной заглушкой. Удаления/переноса/копирования архива нет.
+Сборка неподписанная; SmartScreen/антивирус на ПК пользователя не проверены.
+Защиту не отключать и исключения не добавлять. Новая подпись или отсутствие предупреждений не обещаются.
 
-Код, XAML, версия и зависимости приложения, исходные C#-тесты не изменены.
-Новые продуктовые функции, операции с оригиналами, VBS/PS1/CMD-запускатели не добавлялись.
-Ни личные фото, ни личные GPS не использовались. Создавались только искусственные изображения.
+## Как проверить (4 действия, без терминала)
 
-## Ограничения и результат
+1. Откройте успешный run по ссылке выше, войдя в GitHub, и скачайте артефакт программы.
+2. Распакуйте внешний ZIP и вложенный Fotoarhiv_Windows_x64_TEST.zip целиком.
+3. Дважды щёлкните Fotoarhiv.exe. Все DLL должны оставаться рядом.
+4. Добавьте тестовую папку, проверьте поиск/повторы и повторное открытие программы.
+   Искусственный набор — tests/manual_samples в исходниках, доступных через Code → Download ZIP.
 
-Сохранены ограничения v0.2.1: нет офлайн-кеша миниатюр; до 72 превью декодируются
-синхронно; кеш SHA-256 проверяется по размеру/времени; изменение с сохранением обоих
-признаков не распознаётся. ОС может обновлять время доступа при чтении. Полнота RAW/HEIC
-не проверена. EXIF без часового пояса не превращается в придуманное UTC.
-«Собрать архив» остаётся заглушкой. Цифровая подпись/SmartScreen/антивирус не проверены,
-защита не отключалась и обход не предлагается. Проверка NTFS и настоящего отключения
-диска остаётся отдельной от Linux-тестов. Предположения об отзывчивости GUI не измерялись.
-
-Доставка:
-- `Fotoarhiv_SOURCE_v0_2_1_Task002.zip`: полный проект с исходными и новыми доказательствами;
-- `Fotoarhiv_TEST_EVIDENCE_Task002.zip`: новые доказательства и отчёт отдельно;
-- `BUILD_REPORT_RU.md`, `WINDOWS_CHECKLIST_RU.md`: отдельно и в проекте;
-- `Fotoarhiv_Windows_x64_TEST.zip`: **НЕ СОЗДАН**, нет подтверждённых Windows build/startup.
-
-**Написано:** CI/GUI-проверки и документация. **Скомпилировано:** на Linux, WPF targeting.
-**Протестировано на Windows CI:** NOT RUN. **Вручную на Windows:** NOT RUN.
-**На компьютере пользователя:** NOT RUN. **P0:** OPEN.
-
-Следующий конкретный шаг: владелец переносит полный проект в kqh2rnnnmm-dot/Fotoarhiv через GitHub Desktop,
-запускает Actions, возвращает артефакт evidence и ZIP (если проверки успешны).
-Пошаговая проверка двойным щелчком без терминала — в WINDOWS_CHECKLIST_RU.md.
+Полный чек-лист — WINDOWS_CHECKLIST_RU.md. **Написано:** CI/GUI-инструменты и документация.
+**Скомпилировано и протестировано на Windows CI:** да, в указанном объёме.
+**Вручную на Windows 11 / пользователем:** NOT RUN. **Полный P0:** OPEN.

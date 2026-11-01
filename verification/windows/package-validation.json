@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "run_url": "https://github.com/kqh2rnnnmm-dot/Fotoarhiv/actions/runs/41348272593",
+  "commit": "4f34bc29279e372c5c03fafee07ec20fc070a7f7",
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "xunit_passed": 18,
+  "gui_passed": 16,
+  "gui_not_run": [
+    "physical drive disconnect",
+    "GUI scan cancellation",
+    "NTFS access denied",
+    "GPS/browser user action",
+    "offline source GUI"
+  ],
+  "publish_files": 482,
+  "windows_zip": {
+    "name": "Fotoarhiv_Windows_x64_TEST.zip",
+    "sha256": "9e67838152bf1814f1f556d3093d20981272995c3b633630c2763bc2799b4520",
+    "bytes": 75301036
+  },
+  "validation": "Downloaded authenticated artifact; ZIP CRC, exact file set, per-file SHA-256/size, x64 native PE headers, no launcher scripts"
+}

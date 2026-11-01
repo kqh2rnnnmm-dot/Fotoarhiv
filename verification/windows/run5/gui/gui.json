@@ -1,0 +1,101 @@
+{
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "checks": [
+    {
+      "name": "empty catalog shown",
+      "status": "PASS"
+    },
+    {
+      "name": "two sources and recursive scan through actual folder dialog",
+      "status": "PASS"
+    },
+    {
+      "name": "EXIF and fallback source persisted",
+      "status": "PASS"
+    },
+    {
+      "name": "search filters gallery",
+      "status": "PASS"
+    },
+    {
+      "name": "year filter",
+      "status": "PASS"
+    },
+    {
+      "name": "gallery pagination first page",
+      "status": "PASS"
+    },
+    {
+      "name": "gallery pagination next page",
+      "status": "PASS"
+    },
+    {
+      "name": "photo card opens with EXIF label",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation NavSources",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation NavPlaces",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation NavDuplicates",
+      "status": "PASS"
+    },
+    {
+      "name": "navigation NavPhotos",
+      "status": "PASS"
+    },
+    {
+      "name": "exact duplicate group displayed",
+      "status": "PASS"
+    },
+    {
+      "name": "same-size different image excluded from duplicate UI",
+      "status": "PASS"
+    },
+    {
+      "name": "catalog survives restart",
+      "status": "PASS"
+    },
+    {
+      "name": "source names, paths, bytes, modification and creation times unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "physical drive disconnect",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "GUI scan cancellation",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "NTFS access denied",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "GPS/browser user action",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "offline source GUI",
+      "status": "NOT RUN"
+    }
+  ],
+  "status": "PASS",
+  "duplicate_members": {
+    "items": 2,
+    "observed": [
+      "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\Fotoarhiv-GUI-cf69i_a5\\source-a\\identical-a.bmp",
+      "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\Fotoarhiv-GUI-cf69i_a5\\source-b\\identical-b.bmp"
+    ],
+    "expected": [
+      "c:\\users\\runneradmin\\appdata\\local\\temp\\fotoarhiv-gui-cf69i_a5\\source-a\\identical-a.bmp",
+      "c:\\users\\runneradmin\\appdata\\local\\temp\\fotoarhiv-gui-cf69i_a5\\source-b\\identical-b.bmp"
+    ]
+  }
+}
