@@ -137,10 +137,16 @@ def main():
         groups = control("DuplicateGroups").wrapper_object().items()
         check("exact duplicate group displayed", lambda: require(len(groups) == 1, "Exactly one duplicate group expected"))
         groups[0].select()
-        members = control("DuplicateMembers").wrapper_object().items()
-        # WPF ListItem.Name is the CLR type; its Text child contains the displayed path.
-        member_paths = {child.window_text() for item in members for child in item.descendants(control_type="Text")}
-        check("same-size different image excluded from duplicate UI", lambda: require(len(members) == 2 and member_paths == {str(first / "identical-a.bmp"), str(second / "identical-b.bmp")}, "Duplicate members"))
+        # Selection updates WPF's item containers asynchronously. Wait for the displayed
+        # children, and keep both observed and expected paths if the assertion times out.
+        expected_members = {os.path.normcase(str(first / "identical-a.bmp")), os.path.normcase(str(second / "identical-b.bmp"))}
+        def duplicate_members_match():
+            members = control("DuplicateMembers").wrapper_object().items()
+            observed = [child.window_text() for item in members for child in item.descendants(control_type="Text")]
+            report["duplicate_members"] = {"items": len(members), "observed": observed, "expected": sorted(expected_members)}
+            return len(members) == 2 and {os.path.normcase(path) for path in observed} == expected_members
+        wait_for(duplicate_members_match, "Two expected duplicate paths must be displayed")
+        check("same-size different image excluded from duplicate UI", lambda: require(duplicate_members_match(), "Duplicate members"))
         window.capture_as_image().save(output / "02-duplicates.png")
         control("NavPhotos").invoke()
         window.capture_as_image().save(output / "03-gallery.png")
