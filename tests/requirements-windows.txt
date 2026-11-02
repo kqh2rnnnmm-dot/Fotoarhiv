@@ -1,3 +1,0 @@
-# CI verification only; never part of application publish.
-pywinauto==0.6.9
-Pillow==11.3.0

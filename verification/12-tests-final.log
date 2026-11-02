@@ -1,6 +1,0 @@
-Test run for /workspace/Fotoarhiv/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll (.NETCoreApp,Version=v10.0)
-A total of 1 test files matched the specified pattern.
-WARNING: Overwriting results file: /workspace/Fotoarhiv/verification/linux-tests.trx
-Results File: /workspace/Fotoarhiv/verification/linux-tests.trx
-
-Passed!  - Failed:     0, Passed:    18, Skipped:     0, Total:    18, Duration: 1 s - Fotoarhiv.Tests.dll (net10.0)

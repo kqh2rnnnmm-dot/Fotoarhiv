@@ -1,9 +1,0 @@
-test_failed_command_is_preserved_and_raises (test_ci_evidence.EvidenceTests.test_failed_command_is_preserved_and_raises) ... ok
-test_full_synthetic_publish_is_archived (test_ci_evidence.EvidenceTests.test_full_synthetic_publish_is_archived) ... ok
-test_incomplete_publish_is_rejected (test_ci_evidence.EvidenceTests.test_incomplete_publish_is_rejected) ... ok
-test_no_archive_without_all_required_checks (test_ci_evidence.EvidenceTests.test_no_archive_without_all_required_checks) ... ok
-
-----------------------------------------------------------------------
-Ran 4 tests in 0.014s
-
-OK

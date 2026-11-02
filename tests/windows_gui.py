@@ -27,12 +27,12 @@ def main():
         from ui_fixtures import create_catalog_samples
         old_mode = win32api.EnumDisplaySettings(None, win32con.ENUM_CURRENT_SETTINGS)
         requested = win32api.EnumDisplaySettings(None, win32con.ENUM_CURRENT_SETTINGS)
-        requested.PelsWidth = 1920; requested.PelsHeight = 1080
+        requested.PelsWidth = 2560; requested.PelsHeight = 1440
         requested.Fields = win32con.DM_PELSWIDTH | win32con.DM_PELSHEIGHT
         change_result = win32api.ChangeDisplaySettings(requested, 0)
-        report['display_setup'] = {'requested':[1920,1080], 'result':change_result, 'actual':[win32api.GetSystemMetrics(0),win32api.GetSystemMetrics(1)]}
-        if change_result != 0 or win32api.GetSystemMetrics(0) < 1920 or win32api.GetSystemMetrics(1) < 1080:
-            raise RuntimeError('Required 1920x1080 screenshot desktop is unavailable')
+        report['display_setup'] = {'requested':[2560,1440], 'result':change_result, 'actual':[win32api.GetSystemMetrics(0),win32api.GetSystemMetrics(1)]}
+        if change_result != 0 or win32api.GetSystemMetrics(0) < 1940 or win32api.GetSystemMetrics(1) < 1120:
+            raise RuntimeError('Desktop must fit a 1920x1080 client plus the native window frame')
         db = Path(os.environ['LOCALAPPDATA'])/'Fotoarhiv/catalog.sqlite'
         def rows(sql):
             with sqlite3.connect(f'{db.as_uri()}?mode=ro',uri=True) as connection: return connection.execute(sql).fetchall()
@@ -78,6 +78,7 @@ def main():
             wait_for(lambda:win32gui.GetClientRect(hwnd)[2:]==(width,height),f'Client area {width}x{height}',10)
             time.sleep(0.3)
         def screenshot(name,description):
+            win32api.SetCursorPos((0,0));time.sleep(0.4)
             hwnd=window.handle;client=win32gui.GetClientRect(hwnd);origin=win32gui.ClientToScreen(hwnd,(0,0))
             image=ImageGrab.grab(bbox=(origin[0],origin[1],origin[0]+client[2],origin[1]+client[3]))
             image.save(shots/(name+'.png'))
@@ -126,6 +127,8 @@ def main():
         open_photo('capture-2020.jpg')
         wait_for(lambda:any('1' in value and '200' in value for value in all_texts()) and 'EXIF' in all_texts(),'Real resolution and EXIF in details')
         check('photo opens right drawer rather than MessageBox',lambda:require(text('DetailName')=='capture-2020.jpg' and visible('DetailsClose') and 'EXIF' in all_texts(),'Real details drawer required'))
+        rect=control('DetailMetadata').rectangle()
+        check('detail metadata fits drawer width',lambda:require(all(child.rectangle().left>=rect.left and child.rectangle().right<=rect.right+1 for child in control('DetailMetadata').descendants(control_type='Text')),'Metadata exceeds drawer viewport'))
         screenshot('03-details-1440x900','Right drawer with real preview, metadata and source path')
         send_keys('{ESC}');wait_for(lambda:not visible('DetailName'),'Escape closes details')
         check('Escape closes photo drawer',lambda:require(not visible('DetailName'),'Drawer remains open'))

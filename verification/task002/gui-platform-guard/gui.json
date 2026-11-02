@@ -1,6 +1,0 @@
-{
-  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
-  "checks": [],
-  "status": "NOT RUN",
-  "error": "Traceback (most recent call last):\n  File \"/workspace/Fotoarhiv_Task002/tests/windows_gui.py\", line 27, in main\n    raise RuntimeError(\"NOT RUN: requires disposable interactive Windows GitHub runner\")\nRuntimeError: NOT RUN: requires disposable interactive Windows GitHub runner\n"
-}

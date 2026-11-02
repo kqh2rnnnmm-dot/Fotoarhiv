@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="src/Fotoarhiv.Core/Fotoarhiv.Core.csproj" />
-  <Project Path="src/Fotoarhiv.App/Fotoarhiv.App.csproj" />
-  <Project Path="tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj" />
-</Solution>
