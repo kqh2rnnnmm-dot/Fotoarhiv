@@ -1,0 +1,58 @@
+{
+  "02-selection.png": {
+    "bytes": 157895,
+    "sha256": "3b9d59411f3a069d1429902f7a8cf728587667d771438f928ec0ebf4bb9fe1ba"
+  },
+  "05-viewer-100.png": {
+    "bytes": 109946,
+    "sha256": "238a2d930e323fab00e043b4377c41f4cff46c1c0a3122e822da38cb7f129ba9"
+  },
+  "layout-effective-125.png": {
+    "bytes": 27971,
+    "sha256": "41012a15d4d1c31a4a4e823acd9c0b5b4378b8e6d4c90bb80b4e022968e9cebe"
+  },
+  "06-all-hidden.png": {
+    "bytes": 69050,
+    "sha256": "47183df81d28cc1dda10c07588858656b2580f2d0b098e52e0036461048beae9"
+  },
+  "03-oldest.png": {
+    "bytes": 114535,
+    "sha256": "b464b81cb2b83ccb79f2472726f90026a5123e7590f18d0d33ef90744baafb64"
+  },
+  "11-large-original.png": {
+    "bytes": 33977,
+    "sha256": "87f5ad4fa47e0f424e7d9398dbcf0cb51761fce3afa0864536ee333a8bed6352"
+  },
+  "01-p1-library.png": {
+    "bytes": 157707,
+    "sha256": "85936217c1a410a12b9a72c3d2c937ad4414896a527992c49bb0442b77b6e53e"
+  },
+  "07-source-switches.png": {
+    "bytes": 82829,
+    "sha256": "405c325077700d43a9255d2e806a19dc54e9fa0feb3b2a59c4fa0925ca2b5849"
+  },
+  "04-viewer-fit.png": {
+    "bytes": 90885,
+    "sha256": "8c13afb3c036e6078eb4f9fcb0bfa64cfd96b41732be51c4c46f90e8d62ef360"
+  },
+  "layout-effective-150.png": {
+    "bytes": 26731,
+    "sha256": "0f699b9c8a374540b0c0b5b3da0d333cd6f5c0fd683e3dba0837f3060a647592"
+  },
+  "10-stress-page.png": {
+    "bytes": 81181,
+    "sha256": "7cd025d6f0484b947a2b45a11b9bcb926e56fc6f0cf708b4aee3810a2b71314c"
+  },
+  "08-offline-preview.png": {
+    "bytes": 93732,
+    "sha256": "12c264e9220a46fca13d42ff8dce267a327c9d93306e5e5a58d4059c53b240ab"
+  },
+  "layout-1366x768.png": {
+    "bytes": 30095,
+    "sha256": "22a9daaab1629cf0ef55eccce5aa600d3e53fbfc9e04e1ade9eae8fdd32e6b80"
+  },
+  "09-offline-viewer.png": {
+    "bytes": 30963,
+    "sha256": "a4d15aab3d67eed460a5bee95e0fffeaa2ad8a1ba2ba822f655c8c5849bd8c6f"
+  }
+}

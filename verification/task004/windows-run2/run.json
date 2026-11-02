@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "p0_status": "ACCEPTED on Windows 10 per Task004 handoff; regression tests retained",
+  "p1_status": "Windows 10/11 user acceptance pending",
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "windows_version": [
+    "2025Server",
+    "10.0.26100",
+    "SP0",
+    "Multiprocessor Free"
+  ],
+  "steps": [
+    {
+      "name": "environment",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "started_utc": "2026-11-02T17:02:57.550275+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:04.120008+00:00"
+    },
+    {
+      "name": "restore",
+      "command": [
+        "dotnet",
+        "restore",
+        "Fotoarhiv.slnx"
+      ],
+      "started_utc": "2026-11-02T17:03:04.120008+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:15.886200+00:00"
+    },
+    {
+      "name": "build",
+      "command": [
+        "dotnet",
+        "build",
+        "Fotoarhiv.slnx",
+        "-c",
+        "Release",
+        "--no-restore"
+      ],
+      "started_utc": "2026-11-02T17:03:15.886200+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:32.377038+00:00"
+    },
+    {
+      "name": "xunit",
+      "command": [
+        "dotnet",
+        "test",
+        "tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj",
+        "-c",
+        "Release",
+        "--no-build",
+        "--logger",
+        "trx;LogFileName=windows-tests.trx",
+        "--results-directory",
+        "TestResults"
+      ],
+      "started_utc": "2026-11-02T17:03:32.377038+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:37.587019+00:00"
+    },
+    {
+      "name": "publish",
+      "command": [
+        "dotnet",
+        "publish",
+        "src/Fotoarhiv.App/Fotoarhiv.App.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "--self-contained",
+        "true",
+        "-p:PublishSingleFile=false",
+        "-p:PublishTrimmed=false",
+        "-o",
+        "publish"
+      ],
+      "started_utc": "2026-11-02T17:03:37.589043+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:52.010684+00:00"
+    },
+    {
+      "name": "startup",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "tests/windows_smoke.py",
+        "publish/Fotoarhiv.exe"
+      ],
+      "started_utc": "2026-11-02T17:03:52.012205+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:03:54.224018+00:00"
+    },
+    {
+      "name": "gui",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "tests/windows_gui.py",
+        "publish/Fotoarhiv.exe",
+        "TestResults\\gui"
+      ],
+      "started_utc": "2026-11-02T17:03:54.225252+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:05:55.468905+00:00"
+    },
+    {
+      "name": "p1_gui",
+      "command": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "tests/windows_p1_gui.py",
+        "publish/Fotoarhiv.exe",
+        "TestResults\\p1"
+      ],
+      "started_utc": "2026-11-02T17:05:55.512470+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "finished_utc": "2026-11-02T17:08:34.320645+00:00"
+    }
+  ],
+  "run_url": "https://github.com/kqh2rnnnmm-dot/Fotoarhiv/actions/runs/41487270281",
+  "commit": "492d61033e7ccbe27b3a6e6492ea0cab15145925",
+  "xunit": {
+    "total": "50",
+    "executed": "50",
+    "passed": "50",
+    "failed": "0",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  }
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\a\Fotoarhiv\Fotoarhiv\tests\windows_gui.py", line 237, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\a\Fotoarhiv\Fotoarhiv\tests\windows_gui.py", line 216, in main
+    control('ScanAction').invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Остановлено пользователем.'),'Cancellation must not report success')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\a\Fotoarhiv\Fotoarhiv\tests\windows_gui.py", line 57, in wait_for
+    raise TimeoutError(description)
+TimeoutError: Cancellation must not report success

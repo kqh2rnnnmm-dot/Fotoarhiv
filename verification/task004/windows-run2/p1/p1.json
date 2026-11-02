@@ -1,0 +1,330 @@
+{
+  "status": "PASS",
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "checks": [
+    {
+      "name": "fresh empty real library and newest default",
+      "status": "PASS"
+    },
+    {
+      "name": "thumbnail cache is inside LocalAppData and no source-side files",
+      "status": "PASS"
+    },
+    {
+      "name": "checkbox Ctrl and Shift select the real range without opening details",
+      "status": "PASS"
+    },
+    {
+      "name": "selection persists across gallery pages",
+      "status": "PASS"
+    },
+    {
+      "name": "clear selection removes every current-page check",
+      "status": "PASS"
+    },
+    {
+      "name": "search clears selection",
+      "status": "PASS"
+    },
+    {
+      "name": "year filter clears selection",
+      "status": "PASS"
+    },
+    {
+      "name": "oldest order and sort selection reset",
+      "status": "PASS"
+    },
+    {
+      "name": "filtered gallery follows ascending order",
+      "status": "PASS"
+    },
+    {
+      "name": "internal viewer opens selected original and current filtered position",
+      "status": "PASS"
+    },
+    {
+      "name": "100 percent produces real pixel overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "100 percent scrolls",
+      "status": "PASS"
+    },
+    {
+      "name": "100 percent supports drag panning",
+      "status": "PASS"
+    },
+    {
+      "name": "fit returns without pixel overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "viewer cannot leave current filter or wrap at last photo",
+      "status": "PASS"
+    },
+    {
+      "name": "viewer Escape restores focus to opening photo",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden source filters gallery GPS and exact groups without changing SQLite",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden source removes GPS list only from view",
+      "status": "PASS"
+    },
+    {
+      "name": "one remaining copy is not a duplicate group",
+      "status": "PASS"
+    },
+    {
+      "name": "source reappears without scan and hashes remain unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "all sources hidden is an honest empty view preserving catalog",
+      "status": "PASS"
+    },
+    {
+      "name": "nested source does not duplicate catalog or display",
+      "status": "PASS"
+    },
+    {
+      "name": "overlapping source union keeps child photos once",
+      "status": "PASS"
+    },
+    {
+      "name": "sort persists and all sources reset visible after restart",
+      "status": "PASS"
+    },
+    {
+      "name": "offline thumbnail survives process restart with correct pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "offline viewer never presents thumbnail as original",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden source is still scanned and incomplete duplicate count is unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "source names paths bytes creation and write times remain unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "visibility did not delete or alter existing thumbnail entries",
+      "status": "PASS"
+    },
+    {
+      "name": "1000 synthetic images use bounded gallery page",
+      "status": "PASS"
+    },
+    {
+      "name": "stress UI remains responsive with bounded observed memory",
+      "status": "PASS"
+    },
+    {
+      "name": "large original uses declared decode limit and disables false 100 percent",
+      "status": "PASS"
+    },
+    {
+      "name": "stress and viewer do not alter any source image",
+      "status": "PASS"
+    },
+    {
+      "name": "changed original invalidates persistent thumbnail without stale image",
+      "status": "PASS"
+    },
+    {
+      "name": "new controls and viewer fit smaller effective workspaces",
+      "status": "PASS"
+    },
+    {
+      "name": "final fixture bytes and write dates remain unchanged after application actions",
+      "status": "PASS"
+    },
+    {
+      "name": "P1.1 on user Windows 10",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "P1.1 on Windows 11",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "actual system DPI 125% and 150%",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "physical USB disconnect",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "NTFS ACL scenario",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "all HEIC RAW codecs",
+      "status": "NOT RUN"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "01-p1-library.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Default chronology with persistent previews and selection checkboxes"
+    },
+    {
+      "file": "02-selection.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Multiple real photos selected; no file operations"
+    },
+    {
+      "file": "03-oldest.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Chronology sorted by actual capture date ascending"
+    },
+    {
+      "file": "04-viewer-fit.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Internal original viewer, fit with preserved aspect ratio"
+    },
+    {
+      "file": "05-viewer-100.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Native original at 100 percent with scrolling"
+    },
+    {
+      "file": "06-all-hidden.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "No visible sources; complete catalog remains intact"
+    },
+    {
+      "file": "07-source-switches.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Registered sources, independent visibility and availability"
+    },
+    {
+      "file": "08-offline-preview.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Persistent thumbnail of absent synthetic source, explicit offline indicator"
+    },
+    {
+      "file": "09-offline-viewer.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Only a cached thumbnail; original and 100 percent unavailable"
+    },
+    {
+      "file": "10-stress-page.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Actual 1000-image query, bounded 72-record page"
+    },
+    {
+      "file": "11-large-original.png",
+      "client": [
+        1440,
+        900
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "54MP synthetic input decoded within declared 32MP/8192 limit"
+    },
+    {
+      "file": "layout-1366x768.png",
+      "client": [
+        1366,
+        768
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Actual client 1366x768; effective-workspace simulation, system DPI unchanged"
+    },
+    {
+      "file": "layout-effective-125.png",
+      "client": [
+        1093,
+        614
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Actual client 1093x614; effective-workspace simulation, system DPI unchanged"
+    },
+    {
+      "file": "layout-effective-150.png",
+      "client": [
+        911,
+        512
+      ],
+      "system_dpi": 96,
+      "source": "native published WPF client",
+      "description": "Actual client 911x512; effective-workspace simulation, system DPI unchanged"
+    }
+  ],
+  "measurements": {
+    "stress_scan_seconds": 8.984,
+    "stress_images": 1001,
+    "working_set_before_stress": 174944256,
+    "working_set_after_paging": 281300992,
+    "page_response_seconds": [
+      1.86,
+      1.64,
+      1.531,
+      1.563
+    ],
+    "working_set_with_54mp_original": 560672768
+  },
+  "dpi": 96
+}

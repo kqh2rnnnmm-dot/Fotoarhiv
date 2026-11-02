@@ -1,0 +1,1966 @@
+Control Identifiers:
+
+Dialog - 'Фотоархив'    (L20, T20, R1476, B959)
+['ФотоархивDialog', 'Dialog', 'Фотоархив']
+child_window(title="Фотоархив", auto_id="RootWindow", control_type="Window")
+   | 
+   | TitleBar - ''    (L44, T23, R1468, B51)
+   | ['TitleBar']
+   |    | 
+   |    | Menu - 'System'    (L28, T28, R50, B50)
+   |    | ['Menu', 'System', 'SystemMenu', 'System0', 'System1']
+   |    | child_window(title="System", auto_id="MenuBar", control_type="MenuBar")
+   |    |    | 
+   |    |    | MenuItem - 'System'    (L28, T28, R50, B50)
+   |    |    | ['MenuItem', 'SystemMenuItem', 'System2']
+   |    |    | child_window(title="System", control_type="MenuItem")
+   |    | 
+   |    | Button - 'Minimize'    (L1329, T21, R1376, B51)
+   |    | ['MinimizeButton', 'Button', 'Minimize', 'Button0', 'Button1']
+   |    | child_window(title="Minimize", control_type="Button")
+   |    | 
+   |    | Button - 'Maximize'    (L1376, T21, R1422, B51)
+   |    | ['MaximizeButton', 'Maximize', 'Button2']
+   |    | child_window(title="Maximize", control_type="Button")
+   |    | 
+   |    | Button - 'Close'    (L1422, T21, R1469, B51)
+   |    | ['CloseButton', 'Button3', 'Close']
+   |    | child_window(title="Close", control_type="Button")
+   | 
+   | Static - 'фотоархив.'    (L97, T82, R215, B110)
+   | ['фотоархив.', 'фотоархив.Static', 'Static', 'Static0', 'Static1']
+   | child_window(title="фотоархив.", auto_id="BrandName", control_type="Text")
+   | 
+   | Pane - ''    (L43, T155, R244, B791)
+   | ['Pane', 'БИБЛИОТЕКАPane', 'фотоархив.Pane', 'Pane0', 'Pane1', 'БИБЛИОТЕКАPane0', 'БИБЛИОТЕКАPane1']
+   |    | 
+   |    | Static - 'БИБЛИОТЕКА'    (L58, T155, R244, B168)
+   |    | ['БИБЛИОТЕКА', 'БИБЛИОТЕКАStatic', 'Static2']
+   |    | child_window(title="БИБЛИОТЕКА", auto_id="NavigationHeading", control_type="Text")
+   |    | 
+   |    | Button - 'Фотографии'    (L43, T180, R244, B226)
+   |    | ['Фотографии', 'Button4', 'ФотографииButton', 'Фотографии0', 'Фотографии1']
+   |    | child_window(title="Фотографии", auto_id="NavPhotos", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Фотографии'    (L90, T194, R171, B213)
+   |    |    | ['Static3', 'Фотографии2', 'ФотографииStatic', 'ФотографииStatic0', 'ФотографииStatic1']
+   |    |    | child_window(title="Фотографии", auto_id="NavPhotosLabel", control_type="Text")
+   |    | 
+   |    | Button - 'Карта'    (L43, T232, R244, B278)
+   |    | ['Карта', 'Button5', 'КартаButton', 'Карта0', 'Карта1']
+   |    | child_window(title="Карта", auto_id="NavPlaces", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Карта'    (L90, T246, R127, B265)
+   |    |    | ['КартаStatic', 'Карта2', 'Static4']
+   |    |    | child_window(title="Карта", auto_id="NavPlacesLabel", control_type="Text")
+   |    | 
+   |    | Button - 'Повторы'    (L43, T284, R244, B330)
+   |    | ['ПовторыButton', 'Button6', 'Повторы', 'Повторы0', 'Повторы1']
+   |    | child_window(title="Повторы", auto_id="NavDuplicates", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Повторы'    (L90, T298, R211, B317)
+   |    |    | ['ПовторыStatic', 'Static5', 'Повторы2']
+   |    |    | child_window(title="Повторы", auto_id="NavDuplicatesLabel", control_type="Text")
+   |    |    | 
+   |    |    | Static - '2'    (L217, T301, R223, B314)
+   |    |    | ['2', '2Static', 'Static6']
+   |    |    | child_window(title="2", auto_id="DuplicateBadgeText", control_type="Text")
+   |    | 
+   |    | Button - 'Альбомы'    (L43, T336, R244, B382)
+   |    | ['Альбомы', 'Button7', 'АльбомыButton', 'Альбомы0', 'Альбомы1']
+   |    | child_window(title="Альбомы", auto_id="NavAlbums", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Альбомы'    (L90, T350, R153, B369)
+   |    |    | ['Альбомы2', 'Static7', 'АльбомыStatic']
+   |    |    | child_window(title="Альбомы", auto_id="NavAlbumsLabel", control_type="Text")
+   |    | 
+   |    | Button - 'Источники'    (L43, T388, R244, B434)
+   |    | ['Источники', 'Button8', 'ИсточникиButton', 'Источники0', 'Источники1']
+   |    | child_window(title="Источники", auto_id="NavSources", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Источники'    (L90, T402, R162, B421)
+   |    |    | ['Источники2', 'ИсточникиStatic', 'Static8']
+   |    |    | child_window(title="Источники", auto_id="NavSourcesLabel", control_type="Text")
+   |    | 
+   |    | Static - 'ИСТОЧНИКИ'    (L58, T475, R244, B488)
+   |    | ['Static9', 'ИСТОЧНИКИ', 'ИСТОЧНИКИStatic']
+   |    | child_window(title="ИСТОЧНИКИ", control_type="Text")
+   |    | 
+   |    | ListBox - ''    (L43, T500, R244, B587)
+   |    | ['ИСТОЧНИКИListBox', 'ListBox', 'ListBox0', 'ListBox1']
+   |    | child_window(auto_id="SidebarSources", control_type="List")
+   |    |    | 
+   |    |    | DataItem - 'Fotoarhiv.App.SourceView'    (L43, T500, R244, B529)
+   |    |    | ['DataItem', 'Fotoarhiv.App.SourceViewDataItem', 'Fotoarhiv.App.SourceView', 'DataItem0', 'DataItem1', 'Fotoarhiv.App.SourceViewDataItem0', 'Fotoarhiv.App.SourceViewDataItem1', 'Fotoarhiv.App.SourceView0', 'Fotoarhiv.App.SourceView1']
+   |    |    | child_window(title="Fotoarhiv.App.SourceView", control_type="DataItem")
+   |    |    |    | 
+   |    |    |    | Static - 'cancel-source'    (L82, T500, R218, B519)
+   |    |    |    | ['Static10', 'cancel-sourceStatic', 'cancel-source']
+   |    |    |    | child_window(title="cancel-source", control_type="Text")
+   |    |    | 
+   |    |    | DataItem - 'Fotoarhiv.App.SourceView'    (L43, T529, R244, B558)
+   |    |    | ['DataItem2', 'Fotoarhiv.App.SourceViewDataItem2', 'Fotoarhiv.App.SourceView2']
+   |    |    | child_window(title="Fotoarhiv.App.SourceView", control_type="DataItem")
+   |    |    |    | 
+   |    |    |    | Static - 'source-a'    (L82, T529, R218, B548)
+   |    |    |    | ['source-a', 'source-aStatic', 'Static11']
+   |    |    |    | child_window(title="source-a", control_type="Text")
+   |    |    | 
+   |    |    | DataItem - 'Fotoarhiv.App.SourceView'    (L43, T558, R244, B587)
+   |    |    | ['DataItem3', 'Fotoarhiv.App.SourceViewDataItem3', 'Fotoarhiv.App.SourceView3']
+   |    |    | child_window(title="Fotoarhiv.App.SourceView", control_type="DataItem")
+   |    |    |    | 
+   |    |    |    | Static - 'source-b'    (L82, T558, R218, B577)
+   |    |    |    | ['source-b', 'source-bStatic', 'Static12']
+   |    |    |    | child_window(title="source-b", control_type="Text")
+   | 
+   | Static - 'Локальный каталог'    (L78, T821, R175, B836)
+   | ['Static13', 'Локальный каталогStatic', 'Локальный каталог']
+   | child_window(title="Локальный каталог", control_type="Text")
+   | 
+   | Static - 'Фото остаются в исходных папках. Каталог хранится на этом компьютере.'    (L54, T857, R233, B911)
+   | ['Фото остаются в исходных папках. Каталог хранится на этом компьютере.Static', 'Фото остаются в исходных папках. Каталог хранится на этом компьютере.', 'Static14']
+   | child_window(title="Фото остаются в исходных папках. Каталог хранится на этом компьютере.", control_type="Text")
+   | 
+   | Static - 'Версия 0.2.3 · тестовая'    (L54, T918, R233, B931)
+   | ['Версия 0.2.3 · тестовая', 'Версия 0.2.3 · тестоваяStatic', 'Static15']
+   | child_window(title="Версия 0.2.3 · тестовая", control_type="Text")
+   | 
+   | Edit - ''    (L335, T71, R780, B116)
+   | ['Edit', 'Найти по имени или пути…Edit']
+   | child_window(auto_id="SearchBox", control_type="Edit")
+   | 
+   | Static - 'Найти по имени или пути…'    (L335, T85, R780, B102)
+   | ['Найти по имени или пути…Static', 'Static16', 'Найти по имени или пути…']
+   | child_window(title="Найти по имени или пути…", control_type="Text")
+   | 
+   | Button - 'Добавить папку'    (L1123, T73, R1278, B116)
+   | ['Добавить папкуButton', 'Button9', 'Добавить папку', 'Добавить папку0', 'Добавить папку1']
+   | child_window(title="Добавить папку", auto_id="AddFolderAction", control_type="Button")
+   |    | 
+   |    | Static - 'Добавить папку'    (L1166, T86, R1261, B103)
+   |    | ['Добавить папку2', 'Добавить папкуStatic', 'Static17']
+   |    | child_window(title="Добавить папку", auto_id="AddFolderLabel", control_type="Text")
+   | 
+   | Button - 'Собрать архив'    (L1288, T73, R1435, B116)
+   | ['Собрать архив', 'Собрать архивButton', 'Button10', 'Собрать архив0', 'Собрать архив1']
+   | child_window(title="Собрать архив", auto_id="ArchiveAction", control_type="Button")
+   |    | 
+   |    | Static - 'Собрать архив'    (L1331, T86, R1418, B103)
+   |    | ['Собрать архив2', 'Собрать архивStatic', 'Static18']
+   |    | child_window(title="Собрать архив", auto_id="ArchiveLabel", control_type="Text")
+   | 
+   | Pane - ''    (L260, T138, R1468, B911)
+   | ['Pane2', 'БИБЛИОТЕКАPane2', 'Собрать архивPane']
+   | child_window(auto_id="PageScroll", control_type="Pane")
+   |    | 
+   |    | Static - 'Фотографии'    (L295, T172, R1226, B207)
+   |    | ['Static19', 'Фотографии3', 'ФотографииStatic2']
+   |    | child_window(title="Фотографии", auto_id="PageTitle", control_type="Text")
+   |    | 
+   |    | Static - 'Вся коллекция в одной хронологии — независимо от папки и диска.'    (L295, T216, R1226, B232)
+   |    | ['Вся коллекция в одной хронологии — независимо от папки и диска.Static', 'Вся коллекция в одной хронологии — независимо от папки и диска.', 'Static20']
+   |    | child_window(title="Вся коллекция в одной хронологии — независимо от папки и диска.", auto_id="PageSubtitle", control_type="Text")
+   |    | 
+   |    | Static - 'Оригиналы под защитой'    (L1283, T183, R1420, B199)
+   |    | ['Static21', 'Оригиналы под защитойStatic', 'Оригиналы под защитой']
+   |    | child_window(title="Оригиналы под защитой", control_type="Text")
+   |    | 
+   |    | ListBox - ''    (L288, T257, R1440, B366)
+   |    | ['ListBox2', 'Оригиналы под защитойListBox', 'Вся коллекция в одной хронологии — независимо от папки и диска.ListBox']
+   |    | child_window(auto_id="StatsCards", control_type="List")
+   |    |    | 
+   |    |    | DataItem - 'Фотографий в просмотре: 6,081'    (L288, T257, R576, B366)
+   |    |    | ['DataItem4', 'Фотографий в просмотре: 6,081', 'Фотографий в просмотре: 6,081DataItem']
+   |    |    | child_window(title="Фотографий в просмотре: 6,081", control_type="DataItem")
+   |    |    | 
+   |    |    | DataItem - 'Снимков в точных повторах: 6,002'    (L576, T257, R864, B366)
+   |    |    | ['DataItem5', 'Снимков в точных повторах: 6,002DataItem', 'Снимков в точных повторах: 6,002']
+   |    |    | child_window(title="Снимков в точных повторах: 6,002", control_type="DataItem")
+   |    |    |    | 
+   |    |    |    | Static - '6,002'    (L660, T280, R836, B309)
+   |    |    |    | ['6,002', '6,002Static', 'Static22']
+   |    |    |    | child_window(title="6,002", auto_id="MetricDuplicates", control_type="Text")
+   |    |    |    | 
+   |    |    |    | Static - 'Снимков в точных повторах'    (L660, T314, R836, B329)
+   |    |    |    | ['Снимков в точных повторах', 'Снимков в точных повторахStatic', 'Static23']
+   |    |    |    | child_window(title="Снимков в точных повторах", control_type="Text")
+   |    |    | 
+   |    |    | DataItem - 'Мест с координатами GPS: 1'    (L864, T257, R1152, B366)
+   |    |    | ['DataItem6', 'Мест с координатами GPS: 1', 'Мест с координатами GPS: 1DataItem']
+   |    |    | child_window(title="Мест с координатами GPS: 1", control_type="DataItem")
+   |    |    | 
+   |    |    | DataItem - 'Источников включено: 3'    (L1152, T257, R1440, B366)
+   |    |    | ['DataItem7', 'Источников включено: 3DataItem', 'Источников включено: 3']
+   |    |    | child_window(title="Источников включено: 3", control_type="DataItem")
+   |    | 
+   |    | ListBox - 'Год фотографий'    (L295, T380, R1287, B424)
+   |    | ['Год фотографийListBox', 'ListBox3', 'Год фотографий']
+   |    | child_window(title="Год фотографий", auto_id="YearPicker", control_type="List")
+   |    |    | 
+   |    |    | ListItem - 'Все годы'    (L296, T381, R378, B415)
+   |    |    | ['ListItem', 'Все годыListItem', 'Все годы', 'Все годы0', 'Все годы1', 'ListItem0', 'ListItem1']
+   |    |    | child_window(title="Все годы", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - 'Все годы'    (L312, T390, R362, B406)
+   |    |    |    | ['Все годыStatic', 'Все годы2', 'Static24']
+   |    |    |    | child_window(title="Все годы", control_type="Text")
+   |    |    | 
+   |    |    | ListItem - '2026'    (L387, T381, R446, B415)
+   |    |    | ['ListItem2', '2026ListItem', '2026', '20260', '20261']
+   |    |    | child_window(title="2026", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - '2026'    (L403, T390, R430, B406)
+   |    |    |    | ['2026Static', '20262', 'Static25']
+   |    |    |    | child_window(title="2026", control_type="Text")
+   |    |    | 
+   |    |    | ListItem - '2024'    (L455, T381, R514, B415)
+   |    |    | ['ListItem3', '2024ListItem', '2024', '20240', '20241']
+   |    |    | child_window(title="2024", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - '2024'    (L471, T390, R498, B406)
+   |    |    |    | ['2024Static', 'Static26', '20242']
+   |    |    |    | child_window(title="2024", control_type="Text")
+   |    |    | 
+   |    |    | ListItem - '2023'    (L523, T381, R582, B415)
+   |    |    | ['ListItem4', '2023', '2023ListItem', '20230', '20231']
+   |    |    | child_window(title="2023", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - '2023'    (L539, T390, R566, B406)
+   |    |    |    | ['20232', '2023Static', 'Static27']
+   |    |    |    | child_window(title="2023", control_type="Text")
+   |    |    | 
+   |    |    | ListItem - '2022'    (L591, T381, R650, B415)
+   |    |    | ['ListItem5', '2022', '2022ListItem', '20220', '20221']
+   |    |    | child_window(title="2022", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - '2022'    (L607, T390, R634, B406)
+   |    |    |    | ['2022Static', 'Static28', '20222']
+   |    |    |    | child_window(title="2022", control_type="Text")
+   |    |    | 
+   |    |    | ListItem - '2020'    (L659, T381, R718, B415)
+   |    |    | ['ListItem6', '2020', '2020ListItem', '20200', '20201']
+   |    |    | child_window(title="2020", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | Static - '2020'    (L675, T390, R702, B406)
+   |    |    |    | ['2020Static', '20202', 'Static29']
+   |    |    |    | child_window(title="2020", control_type="Text")
+   |    | 
+   |    | Button - 'Сначала новые'    (L1299, T380, R1433, B414)
+   |    | ['Сначала новыеButton', 'Сначала новые', 'Button11', 'Сначала новые0', 'Сначала новые1']
+   |    | child_window(title="Сначала новые", auto_id="SortAction", control_type="Button")
+   |    |    | 
+   |    |    | Static - 'Сначала новые'    (L1333, T389, R1420, B405)
+   |    |    | ['Сначала новыеStatic', 'Сначала новые2', 'Static30']
+   |    |    | child_window(title="Сначала новые", auto_id="SortText", control_type="Text")
+   |    | 
+   |    | ListBox - ''    (L295, T440, R1433, B3583)
+   |    | ['Ноябрь 2026ListBox', 'ListBox4', 'Сначала новыеListBox', 'Ноябрь 2026ListBox0', 'Ноябрь 2026ListBox1']
+   |    | child_window(auto_id="PhotosGallery", control_type="List")
+   |    |    | 
+   |    |    | DataItem - 'MonthView { Title = Ноябрь 2026, CountLabel = Фото: 72 из 6,000, Tiles = System.Collections.Generic.List`1[Fotoarhiv.App.PhotoTile] }'    (L295, T440, R1433, B3583)
+   |    |    | ['DataItem8', 'MonthView { Title = Ноябрь 2026, CountLabel = Фото: 72 из 6,000, Tiles = System.Collections.Generic.List`1[Fotoarhiv.App.PhotoTile] }', 'MonthView { Title = Ноябрь 2026, CountLabel = Фото: 72 из 6,000, Tiles = System.Collections.Generic.List`1[Fotoarhiv.App.PhotoTile] }DataItem']
+   |    |    | child_window(title="MonthView { Title = Ноябрь 2026, CountLabel = Фото: 72 из 6,000, Tiles = System.Collections.Generic.List`1[Fotoarhiv.App.PhotoTile] }", control_type="DataItem")
+   |    |    |    | 
+   |    |    |    | Static - 'Ноябрь 2026'    (L295, T440, R398, B460)
+   |    |    |    | ['Static31', 'Ноябрь 2026', 'Ноябрь 2026Static']
+   |    |    |    | child_window(title="Ноябрь 2026", control_type="Text")
+   |    |    |    | 
+   |    |    |    | Static - 'Фото: 72 из 6,000'    (L410, T443, R504, B459)
+   |    |    |    | ['Static32', 'Фото: 72 из 6,000', 'Фото: 72 из 6,000Static']
+   |    |    |    | child_window(title="Фото: 72 из 6,000", control_type="Text")
+   |    |    |    | 
+   |    |    |    | ListBox - ''    (L295, T475, R1433, B3563)
+   |    |    |    | ['Ноябрь 2026ListBox2', 'ListBox5', 'Фото: 72 из 6,000ListBox']
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T475, R513, B670)
+   |    |    |    |    | ['DataItem9', 'Fotoarhiv.App.PhotoTile', 'Fotoarhiv.App.PhotoTileDataItem', 'Fotoarhiv.App.PhotoTile0', 'Fotoarhiv.App.PhotoTile1', 'Fotoarhiv.App.PhotoTileDataItem0', 'Fotoarhiv.App.PhotoTileDataItem1']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05993.bmp'    (L295, T475, R513, B670)
+   |    |    |    |    |    | ['cancel-05993.bmp', 'cancel-05993.bmpButton', 'Button12']
+   |    |    |    |    |    | child_window(title="cancel-05993.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L295, T475, R513, B693)
+   |    |    |    |    |    |    | ['Image', 'Ноябрь 2026Image', 'Image0', 'Image1']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T645, R502, B660)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла', 'Static33', '02 ноября 2026 · Дата файлаStatic', '02 ноября 2026 · Дата файла0', '02 ноября 2026 · Дата файла1', '02 ноября 2026 · Дата файлаStatic0', '02 ноября 2026 · Дата файлаStatic1']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T488, R497, B507)
+   |    |    |    |    |    |    | ['6000Static', '6000', 'Static34', '6000Static0', '6000Static1', '60000', '60001']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05993.bmp'    (L304, T484, R325, B505)
+   |    |    |    |    |    | ['Выделить: cancel-05993.bmp', 'CheckBox', 'Выделить: cancel-05993.bmpCheckBox', 'CheckBox0', 'CheckBox1']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05993.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T475, R743, B670)
+   |    |    |    |    | ['DataItem10', 'Fotoarhiv.App.PhotoTile2', 'Fotoarhiv.App.PhotoTileDataItem2']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05994.bmp'    (L525, T475, R743, B670)
+   |    |    |    |    |    | ['cancel-05994.bmp', 'Button13', 'cancel-05994.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05994.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L525, T475, R743, B693)
+   |    |    |    |    |    |    | ['Image2', '6000Image', '6000Image0', '6000Image1']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T645, R732, B660)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла2', 'Static35', '02 ноября 2026 · Дата файлаStatic2']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T488, R727, B507)
+   |    |    |    |    |    |    | ['6000Static2', '60002', 'Static36']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05994.bmp'    (L534, T484, R555, B505)
+   |    |    |    |    |    | ['Выделить: cancel-05994.bmp', 'CheckBox2', 'Выделить: cancel-05994.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05994.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T475, R973, B670)
+   |    |    |    |    | ['DataItem11', 'Fotoarhiv.App.PhotoTile3', 'Fotoarhiv.App.PhotoTileDataItem3']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05995.bmp'    (L755, T475, R973, B670)
+   |    |    |    |    |    | ['cancel-05995.bmp', 'cancel-05995.bmpButton', 'Button14']
+   |    |    |    |    |    | child_window(title="cancel-05995.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L755, T475, R973, B693)
+   |    |    |    |    |    |    | ['Image3', '6000Image2']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T645, R962, B660)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла3', 'Static37', '02 ноября 2026 · Дата файлаStatic3']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T488, R957, B507)
+   |    |    |    |    |    |    | ['6000Static3', '60003', 'Static38']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05995.bmp'    (L764, T484, R785, B505)
+   |    |    |    |    |    | ['Выделить: cancel-05995.bmpCheckBox', 'Выделить: cancel-05995.bmp', 'CheckBox3']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05995.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T475, R1203, B670)
+   |    |    |    |    | ['DataItem12', 'Fotoarhiv.App.PhotoTile4', 'Fotoarhiv.App.PhotoTileDataItem4']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05996.bmp'    (L985, T475, R1203, B670)
+   |    |    |    |    |    | ['cancel-05996.bmpButton', 'cancel-05996.bmp', 'Button15']
+   |    |    |    |    |    | child_window(title="cancel-05996.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L985, T475, R1203, B693)
+   |    |    |    |    |    |    | ['Image4', '6000Image3']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T645, R1192, B660)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла4', 'Static39', '02 ноября 2026 · Дата файлаStatic4']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T488, R1187, B507)
+   |    |    |    |    |    |    | ['6000Static4', '60004', 'Static40']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05996.bmp'    (L994, T484, R1015, B505)
+   |    |    |    |    |    | ['CheckBox4', 'Выделить: cancel-05996.bmpCheckBox', 'Выделить: cancel-05996.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05996.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T475, R1433, B670)
+   |    |    |    |    | ['DataItem13', 'Fotoarhiv.App.PhotoTile5', 'Fotoarhiv.App.PhotoTileDataItem5']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05997.bmp'    (L1215, T475, R1433, B670)
+   |    |    |    |    |    | ['cancel-05997.bmpButton', 'cancel-05997.bmp', 'Button16']
+   |    |    |    |    |    | child_window(title="cancel-05997.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L1215, T475, R1433, B693)
+   |    |    |    |    |    |    | ['Image5', '6000Image4']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T645, R1422, B660)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла5', 'Static41', '02 ноября 2026 · Дата файлаStatic5']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T488, R1417, B507)
+   |    |    |    |    |    |    | ['6000Static5', '60005', 'Static42']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05997.bmp'    (L1224, T484, R1245, B505)
+   |    |    |    |    |    | ['Выделить: cancel-05997.bmpCheckBox', 'CheckBox5', 'Выделить: cancel-05997.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05997.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T682, R513, B877)
+   |    |    |    |    | ['DataItem14', 'Fotoarhiv.App.PhotoTile6', 'Fotoarhiv.App.PhotoTileDataItem6']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05998.bmp'    (L295, T682, R513, B877)
+   |    |    |    |    |    | ['cancel-05998.bmp', 'cancel-05998.bmpButton', 'Button17']
+   |    |    |    |    |    | child_window(title="cancel-05998.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L295, T682, R513, B900)
+   |    |    |    |    |    |    | ['Image6', '02 ноября 2026 · Дата файлаImage', '02 ноября 2026 · Дата файлаImage0', '02 ноября 2026 · Дата файлаImage1']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T852, R502, B867)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла6', 'Static43', '02 ноября 2026 · Дата файлаStatic6']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T695, R497, B714)
+   |    |    |    |    |    |    | ['6000Static6', '60006', 'Static44']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05998.bmp'    (L304, T691, R325, B712)
+   |    |    |    |    |    | ['Выделить: cancel-05998.bmp', 'CheckBox6', 'Выделить: cancel-05998.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05998.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T682, R743, B877)
+   |    |    |    |    | ['DataItem15', 'Fotoarhiv.App.PhotoTile7', 'Fotoarhiv.App.PhotoTileDataItem7']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05999.bmp'    (L525, T682, R743, B877)
+   |    |    |    |    |    | ['cancel-05999.bmpButton', 'Button18', 'cancel-05999.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05999.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L525, T682, R743, B900)
+   |    |    |    |    |    |    | ['Image7', '02 ноября 2026 · Дата файлаImage2']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T852, R732, B867)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла7', 'Static45', '02 ноября 2026 · Дата файлаStatic7']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T695, R727, B714)
+   |    |    |    |    |    |    | ['6000Static7', '60007', 'Static46']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05999.bmp'    (L534, T691, R555, B712)
+   |    |    |    |    |    | ['CheckBox7', 'Выделить: cancel-05999.bmpCheckBox', 'Выделить: cancel-05999.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05999.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T682, R973, B877)
+   |    |    |    |    | ['DataItem16', 'Fotoarhiv.App.PhotoTile8', 'Fotoarhiv.App.PhotoTileDataItem8']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05991.bmp'    (L755, T682, R973, B877)
+   |    |    |    |    |    | ['cancel-05991.bmp', 'cancel-05991.bmpButton', 'Button19']
+   |    |    |    |    |    | child_window(title="cancel-05991.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L755, T682, R973, B900)
+   |    |    |    |    |    |    | ['Image8', '02 ноября 2026 · Дата файлаImage3']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T852, R962, B867)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла8', 'Static47', '02 ноября 2026 · Дата файлаStatic8']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T695, R957, B714)
+   |    |    |    |    |    |    | ['6000Static8', '60008', 'Static48']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05991.bmp'    (L764, T691, R785, B712)
+   |    |    |    |    |    | ['CheckBox8', 'Выделить: cancel-05991.bmpCheckBox', 'Выделить: cancel-05991.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05991.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T682, R1203, B877)
+   |    |    |    |    | ['DataItem17', 'Fotoarhiv.App.PhotoTile9', 'Fotoarhiv.App.PhotoTileDataItem9']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05992.bmp'    (L985, T682, R1203, B877)
+   |    |    |    |    |    | ['Button20', 'cancel-05992.bmp', 'cancel-05992.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05992.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L985, T682, R1203, B900)
+   |    |    |    |    |    |    | ['Image9', '02 ноября 2026 · Дата файлаImage4']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T852, R1192, B867)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла9', 'Static49', '02 ноября 2026 · Дата файлаStatic9']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T695, R1187, B714)
+   |    |    |    |    |    |    | ['6000Static9', '60009', 'Static50']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05992.bmp'    (L994, T691, R1015, B712)
+   |    |    |    |    |    | ['Выделить: cancel-05992.bmp', 'CheckBox9', 'Выделить: cancel-05992.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05992.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T682, R1433, B877)
+   |    |    |    |    | ['DataItem18', 'Fotoarhiv.App.PhotoTile10', 'Fotoarhiv.App.PhotoTileDataItem10']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05982.bmp'    (L1215, T682, R1433, B877)
+   |    |    |    |    |    | ['cancel-05982.bmpButton', 'cancel-05982.bmp', 'Button21']
+   |    |    |    |    |    | child_window(title="cancel-05982.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L1215, T682, R1433, B900)
+   |    |    |    |    |    |    | ['Image10', '02 ноября 2026 · Дата файлаImage5']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T852, R1422, B867)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла10', 'Static51', '02 ноября 2026 · Дата файлаStatic10']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T695, R1417, B714)
+   |    |    |    |    |    |    | ['6000Static10', '600010', 'Static52']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05982.bmp'    (L1224, T691, R1245, B712)
+   |    |    |    |    |    | ['Выделить: cancel-05982.bmpCheckBox', 'CheckBox10', 'Выделить: cancel-05982.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05982.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T888, R513, B1083)
+   |    |    |    |    | ['DataItem19', 'Fotoarhiv.App.PhotoTile11', 'Fotoarhiv.App.PhotoTileDataItem11']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05983.bmp'    (L295, T888, R513, B1083)
+   |    |    |    |    |    | ['cancel-05983.bmpButton', 'cancel-05983.bmp', 'Button22']
+   |    |    |    |    |    | child_window(title="cancel-05983.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L295, T888, R513, B1106)
+   |    |    |    |    |    |    | ['Image11', '02 ноября 2026 · Дата файлаImage6']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T1058, R502, B1073)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла11', 'Static53', '02 ноября 2026 · Дата файлаStatic11']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T901, R497, B920)
+   |    |    |    |    |    |    | ['6000Static11', '600011', 'Static54']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05983.bmp'    (L304, T897, R325, B918)
+   |    |    |    |    |    | ['CheckBox11', 'Выделить: cancel-05983.bmp', 'Выделить: cancel-05983.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05983.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T888, R743, B1083)
+   |    |    |    |    | ['DataItem20', 'Fotoarhiv.App.PhotoTile12', 'Fotoarhiv.App.PhotoTileDataItem12']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05984.bmp'    (L525, T888, R743, B1083)
+   |    |    |    |    |    | ['cancel-05984.bmp', 'Button23', 'cancel-05984.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05984.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L525, T888, R743, B1106)
+   |    |    |    |    |    |    | ['Image12', '02 ноября 2026 · Дата файлаImage7']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T1058, R732, B1073)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла12', 'Static55', '02 ноября 2026 · Дата файлаStatic12']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T901, R727, B920)
+   |    |    |    |    |    |    | ['6000Static12', '600012', 'Static56']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05984.bmp'    (L534, T897, R555, B918)
+   |    |    |    |    |    | ['Выделить: cancel-05984.bmp', 'CheckBox12', 'Выделить: cancel-05984.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05984.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T888, R973, B1083)
+   |    |    |    |    | ['DataItem21', 'Fotoarhiv.App.PhotoTile13', 'Fotoarhiv.App.PhotoTileDataItem13']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05985.bmp'    (L755, T888, R973, B1083)
+   |    |    |    |    |    | ['cancel-05985.bmp', 'Button24', 'cancel-05985.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05985.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L755, T888, R973, B1106)
+   |    |    |    |    |    |    | ['Image13', '02 ноября 2026 · Дата файлаImage8']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T1058, R962, B1073)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла13', 'Static57', '02 ноября 2026 · Дата файлаStatic13']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T901, R957, B920)
+   |    |    |    |    |    |    | ['6000Static13', '600013', 'Static58']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05985.bmp'    (L764, T897, R785, B918)
+   |    |    |    |    |    | ['Выделить: cancel-05985.bmp', 'CheckBox13', 'Выделить: cancel-05985.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05985.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T888, R1203, B1083)
+   |    |    |    |    | ['DataItem22', 'Fotoarhiv.App.PhotoTile14', 'Fotoarhiv.App.PhotoTileDataItem14']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05986.bmp'    (L985, T888, R1203, B1083)
+   |    |    |    |    |    | ['cancel-05986.bmp', 'cancel-05986.bmpButton', 'Button25']
+   |    |    |    |    |    | child_window(title="cancel-05986.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L985, T888, R1203, B1106)
+   |    |    |    |    |    |    | ['Image14', '02 ноября 2026 · Дата файлаImage9']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T1058, R1192, B1073)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла14', 'Static59', '02 ноября 2026 · Дата файлаStatic14']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T901, R1187, B920)
+   |    |    |    |    |    |    | ['6000Static14', '600014', 'Static60']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05986.bmp'    (L994, T897, R1015, B918)
+   |    |    |    |    |    | ['Выделить: cancel-05986.bmp', 'CheckBox14', 'Выделить: cancel-05986.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05986.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T888, R1433, B1083)
+   |    |    |    |    | ['DataItem23', 'Fotoarhiv.App.PhotoTile15', 'Fotoarhiv.App.PhotoTileDataItem15']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05987.bmp'    (L1215, T888, R1433, B1083)
+   |    |    |    |    |    | ['cancel-05987.bmpButton', 'Button26', 'cancel-05987.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05987.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L1215, T888, R1433, B1106)
+   |    |    |    |    |    |    | ['Image15', '02 ноября 2026 · Дата файлаImage10']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T1058, R1422, B1073)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла15', 'Static61', '02 ноября 2026 · Дата файлаStatic15']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T901, R1417, B920)
+   |    |    |    |    |    |    | ['6000Static15', '600015', 'Static62']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05987.bmp'    (L1224, T897, R1245, B918)
+   |    |    |    |    |    | ['Выделить: cancel-05987.bmp', 'Выделить: cancel-05987.bmpCheckBox', 'CheckBox15']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05987.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T1095, R513, B1290)
+   |    |    |    |    | ['DataItem24', 'Fotoarhiv.App.PhotoTile16', 'Fotoarhiv.App.PhotoTileDataItem16']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05988.bmp'    (L295, T1095, R513, B1290)
+   |    |    |    |    |    | ['cancel-05988.bmp', 'cancel-05988.bmpButton', 'Button27']
+   |    |    |    |    |    | child_window(title="cancel-05988.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L295, T1095, R513, B1313)
+   |    |    |    |    |    |    | ['Image16', '02 ноября 2026 · Дата файлаImage11']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T1265, R502, B1280)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла16', 'Static63', '02 ноября 2026 · Дата файлаStatic16']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T1108, R497, B1127)
+   |    |    |    |    |    |    | ['6000Static16', '600016', 'Static64']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05988.bmp'    (L304, T1104, R325, B1125)
+   |    |    |    |    |    | ['Выделить: cancel-05988.bmp', 'CheckBox16', 'Выделить: cancel-05988.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05988.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T1095, R743, B1290)
+   |    |    |    |    | ['DataItem25', 'Fotoarhiv.App.PhotoTile17', 'Fotoarhiv.App.PhotoTileDataItem17']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05989.bmp'    (L525, T1095, R743, B1290)
+   |    |    |    |    |    | ['cancel-05989.bmp', 'cancel-05989.bmpButton', 'Button28']
+   |    |    |    |    |    | child_window(title="cancel-05989.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L525, T1095, R743, B1313)
+   |    |    |    |    |    |    | ['Image17', '02 ноября 2026 · Дата файлаImage12']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T1265, R732, B1280)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла17', 'Static65', '02 ноября 2026 · Дата файлаStatic17']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T1108, R727, B1127)
+   |    |    |    |    |    |    | ['6000Static17', '600017', 'Static66']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05989.bmp'    (L534, T1104, R555, B1125)
+   |    |    |    |    |    | ['Выделить: cancel-05989.bmpCheckBox', 'Выделить: cancel-05989.bmp', 'CheckBox17']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05989.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T1095, R973, B1290)
+   |    |    |    |    | ['DataItem26', 'Fotoarhiv.App.PhotoTile18', 'Fotoarhiv.App.PhotoTileDataItem18']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05990.bmp'    (L755, T1095, R973, B1290)
+   |    |    |    |    |    | ['cancel-05990.bmpButton', 'cancel-05990.bmp', 'Button29']
+   |    |    |    |    |    | child_window(title="cancel-05990.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L755, T1095, R973, B1313)
+   |    |    |    |    |    |    | ['Image18', '02 ноября 2026 · Дата файлаImage13']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T1265, R962, B1280)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла18', 'Static67', '02 ноября 2026 · Дата файлаStatic18']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T1108, R957, B1127)
+   |    |    |    |    |    |    | ['6000Static18', '600018', 'Static68']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05990.bmp'    (L764, T1104, R785, B1125)
+   |    |    |    |    |    | ['Выделить: cancel-05990.bmpCheckBox', 'Выделить: cancel-05990.bmp', 'CheckBox18']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05990.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T1095, R1203, B1290)
+   |    |    |    |    | ['DataItem27', 'Fotoarhiv.App.PhotoTile19', 'Fotoarhiv.App.PhotoTileDataItem19']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05971.bmp'    (L985, T1095, R1203, B1290)
+   |    |    |    |    |    | ['cancel-05971.bmp', 'Button30', 'cancel-05971.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05971.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L985, T1095, R1203, B1313)
+   |    |    |    |    |    |    | ['Image19', '02 ноября 2026 · Дата файлаImage14']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T1265, R1192, B1280)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла19', 'Static69', '02 ноября 2026 · Дата файлаStatic19']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T1108, R1187, B1127)
+   |    |    |    |    |    |    | ['6000Static19', '600019', 'Static70']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05971.bmp'    (L994, T1104, R1015, B1125)
+   |    |    |    |    |    | ['CheckBox19', 'Выделить: cancel-05971.bmpCheckBox', 'Выделить: cancel-05971.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05971.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T1095, R1433, B1290)
+   |    |    |    |    | ['DataItem28', 'Fotoarhiv.App.PhotoTile20', 'Fotoarhiv.App.PhotoTileDataItem20']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05972.bmp'    (L1215, T1095, R1433, B1290)
+   |    |    |    |    |    | ['cancel-05972.bmp', 'cancel-05972.bmpButton', 'Button31']
+   |    |    |    |    |    | child_window(title="cancel-05972.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L1215, T1095, R1433, B1313)
+   |    |    |    |    |    |    | ['Image20', '02 ноября 2026 · Дата файлаImage15']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T1265, R1422, B1280)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла20', 'Static71', '02 ноября 2026 · Дата файлаStatic20']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T1108, R1417, B1127)
+   |    |    |    |    |    |    | ['6000Static20', '600020', 'Static72']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05972.bmp'    (L1224, T1104, R1245, B1125)
+   |    |    |    |    |    | ['Выделить: cancel-05972.bmpCheckBox', 'CheckBox20', 'Выделить: cancel-05972.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05972.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T1302, R513, B1497)
+   |    |    |    |    | ['DataItem29', 'Fotoarhiv.App.PhotoTile21', 'Fotoarhiv.App.PhotoTileDataItem21']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05973.bmp'    (L295, T1302, R513, B1497)
+   |    |    |    |    |    | ['cancel-05973.bmpButton', 'Button32', 'cancel-05973.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05973.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image21']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T1472, R502, B1487)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла21', 'Static73', '02 ноября 2026 · Дата файлаStatic21']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T1315, R497, B1334)
+   |    |    |    |    |    |    | ['6000Static21', '600021', 'Static74']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05973.bmp'    (L304, T1311, R325, B1332)
+   |    |    |    |    |    | ['Выделить: cancel-05973.bmpCheckBox', 'Выделить: cancel-05973.bmp', 'CheckBox21']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05973.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T1302, R743, B1497)
+   |    |    |    |    | ['DataItem30', 'Fotoarhiv.App.PhotoTile22', 'Fotoarhiv.App.PhotoTileDataItem22']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05974.bmp'    (L525, T1302, R743, B1497)
+   |    |    |    |    |    | ['cancel-05974.bmpButton', 'cancel-05974.bmp', 'Button33']
+   |    |    |    |    |    | child_window(title="cancel-05974.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image22']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T1472, R732, B1487)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла22', 'Static75', '02 ноября 2026 · Дата файлаStatic22']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T1315, R727, B1334)
+   |    |    |    |    |    |    | ['6000Static22', '600022', 'Static76']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05974.bmp'    (L534, T1311, R555, B1332)
+   |    |    |    |    |    | ['CheckBox22', 'Выделить: cancel-05974.bmp', 'Выделить: cancel-05974.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05974.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T1302, R973, B1497)
+   |    |    |    |    | ['DataItem31', 'Fotoarhiv.App.PhotoTile23', 'Fotoarhiv.App.PhotoTileDataItem23']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05975.bmp'    (L755, T1302, R973, B1497)
+   |    |    |    |    |    | ['cancel-05975.bmp', 'cancel-05975.bmpButton', 'Button34']
+   |    |    |    |    |    | child_window(title="cancel-05975.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image23']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T1472, R962, B1487)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла23', 'Static77', '02 ноября 2026 · Дата файлаStatic23']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T1315, R957, B1334)
+   |    |    |    |    |    |    | ['6000Static23', '600023', 'Static78']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05975.bmp'    (L764, T1311, R785, B1332)
+   |    |    |    |    |    | ['Выделить: cancel-05975.bmp', 'CheckBox23', 'Выделить: cancel-05975.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05975.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T1302, R1203, B1497)
+   |    |    |    |    | ['DataItem32', 'Fotoarhiv.App.PhotoTile24', 'Fotoarhiv.App.PhotoTileDataItem24']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05976.bmp'    (L985, T1302, R1203, B1497)
+   |    |    |    |    |    | ['cancel-05976.bmp', 'cancel-05976.bmpButton', 'Button35']
+   |    |    |    |    |    | child_window(title="cancel-05976.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image24']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T1472, R1192, B1487)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла24', 'Static79', '02 ноября 2026 · Дата файлаStatic24']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T1315, R1187, B1334)
+   |    |    |    |    |    |    | ['6000Static24', '600024', 'Static80']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05976.bmp'    (L994, T1311, R1015, B1332)
+   |    |    |    |    |    | ['Выделить: cancel-05976.bmpCheckBox', 'Выделить: cancel-05976.bmp', 'CheckBox24']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05976.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T1302, R1433, B1497)
+   |    |    |    |    | ['DataItem33', 'Fotoarhiv.App.PhotoTile25', 'Fotoarhiv.App.PhotoTileDataItem25']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05977.bmp'    (L1215, T1302, R1433, B1497)
+   |    |    |    |    |    | ['cancel-05977.bmpButton', 'cancel-05977.bmp', 'Button36']
+   |    |    |    |    |    | child_window(title="cancel-05977.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image25']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T1472, R1422, B1487)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла25', 'Static81', '02 ноября 2026 · Дата файлаStatic25']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T1315, R1417, B1334)
+   |    |    |    |    |    |    | ['6000Static25', '600025', 'Static82']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05977.bmp'    (L1224, T1311, R1245, B1332)
+   |    |    |    |    |    | ['Выделить: cancel-05977.bmp', 'Выделить: cancel-05977.bmpCheckBox', 'CheckBox25']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05977.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T1508, R513, B1703)
+   |    |    |    |    | ['DataItem34', 'Fotoarhiv.App.PhotoTile26', 'Fotoarhiv.App.PhotoTileDataItem26']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05978.bmp'    (L295, T1508, R513, B1703)
+   |    |    |    |    |    | ['cancel-05978.bmpButton', 'cancel-05978.bmp', 'Button37']
+   |    |    |    |    |    | child_window(title="cancel-05978.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image26']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T1678, R502, B1693)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла26', 'Static83', '02 ноября 2026 · Дата файлаStatic26']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T1521, R497, B1540)
+   |    |    |    |    |    |    | ['6000Static26', '600026', 'Static84']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05978.bmp'    (L304, T1517, R325, B1538)
+   |    |    |    |    |    | ['Выделить: cancel-05978.bmp', 'Выделить: cancel-05978.bmpCheckBox', 'CheckBox26']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05978.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T1508, R743, B1703)
+   |    |    |    |    | ['DataItem35', 'Fotoarhiv.App.PhotoTile27', 'Fotoarhiv.App.PhotoTileDataItem27']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05979.bmp'    (L525, T1508, R743, B1703)
+   |    |    |    |    |    | ['cancel-05979.bmpButton', 'Button38', 'cancel-05979.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05979.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image27']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T1678, R732, B1693)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла27', 'Static85', '02 ноября 2026 · Дата файлаStatic27']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T1521, R727, B1540)
+   |    |    |    |    |    |    | ['6000Static27', '600027', 'Static86']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05979.bmp'    (L534, T1517, R555, B1538)
+   |    |    |    |    |    | ['CheckBox27', 'Выделить: cancel-05979.bmpCheckBox', 'Выделить: cancel-05979.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05979.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T1508, R973, B1703)
+   |    |    |    |    | ['DataItem36', 'Fotoarhiv.App.PhotoTile28', 'Fotoarhiv.App.PhotoTileDataItem28']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05980.bmp'    (L755, T1508, R973, B1703)
+   |    |    |    |    |    | ['cancel-05980.bmp', 'Button39', 'cancel-05980.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05980.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image28']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T1678, R962, B1693)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла28', 'Static87', '02 ноября 2026 · Дата файлаStatic28']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T1521, R957, B1540)
+   |    |    |    |    |    |    | ['6000Static28', '600028', 'Static88']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05980.bmp'    (L764, T1517, R785, B1538)
+   |    |    |    |    |    | ['CheckBox28', 'Выделить: cancel-05980.bmpCheckBox', 'Выделить: cancel-05980.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05980.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T1508, R1203, B1703)
+   |    |    |    |    | ['DataItem37', 'Fotoarhiv.App.PhotoTile29', 'Fotoarhiv.App.PhotoTileDataItem29']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05981.bmp'    (L985, T1508, R1203, B1703)
+   |    |    |    |    |    | ['cancel-05981.bmp', 'cancel-05981.bmpButton', 'Button40']
+   |    |    |    |    |    | child_window(title="cancel-05981.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image29']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T1678, R1192, B1693)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла29', 'Static89', '02 ноября 2026 · Дата файлаStatic29']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T1521, R1187, B1540)
+   |    |    |    |    |    |    | ['6000Static29', '600029', 'Static90']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05981.bmp'    (L994, T1517, R1015, B1538)
+   |    |    |    |    |    | ['Выделить: cancel-05981.bmp', 'CheckBox29', 'Выделить: cancel-05981.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05981.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T1508, R1433, B1703)
+   |    |    |    |    | ['DataItem38', 'Fotoarhiv.App.PhotoTile30', 'Fotoarhiv.App.PhotoTileDataItem30']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05962.bmp'    (L1215, T1508, R1433, B1703)
+   |    |    |    |    |    | ['cancel-05962.bmpButton', 'cancel-05962.bmp', 'Button41']
+   |    |    |    |    |    | child_window(title="cancel-05962.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image30']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T1678, R1422, B1693)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла30', 'Static91', '02 ноября 2026 · Дата файлаStatic30']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T1521, R1417, B1540)
+   |    |    |    |    |    |    | ['6000Static30', '600030', 'Static92']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05962.bmp'    (L1224, T1517, R1245, B1538)
+   |    |    |    |    |    | ['Выделить: cancel-05962.bmpCheckBox', 'CheckBox30', 'Выделить: cancel-05962.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05962.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T1715, R513, B1910)
+   |    |    |    |    | ['DataItem39', 'Fotoarhiv.App.PhotoTile31', 'Fotoarhiv.App.PhotoTileDataItem31']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05963.bmp'    (L295, T1715, R513, B1910)
+   |    |    |    |    |    | ['cancel-05963.bmpButton', 'Button42', 'cancel-05963.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05963.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image31']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T1885, R502, B1900)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла31', 'Static93', '02 ноября 2026 · Дата файлаStatic31']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T1728, R497, B1747)
+   |    |    |    |    |    |    | ['6000Static31', '600031', 'Static94']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05963.bmp'    (L304, T1724, R325, B1745)
+   |    |    |    |    |    | ['Выделить: cancel-05963.bmp', 'CheckBox31', 'Выделить: cancel-05963.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05963.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T1715, R743, B1910)
+   |    |    |    |    | ['DataItem40', 'Fotoarhiv.App.PhotoTile32', 'Fotoarhiv.App.PhotoTileDataItem32']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05964.bmp'    (L525, T1715, R743, B1910)
+   |    |    |    |    |    | ['cancel-05964.bmp', 'cancel-05964.bmpButton', 'Button43']
+   |    |    |    |    |    | child_window(title="cancel-05964.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image32']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T1885, R732, B1900)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла32', 'Static95', '02 ноября 2026 · Дата файлаStatic32']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T1728, R727, B1747)
+   |    |    |    |    |    |    | ['6000Static32', '600032', 'Static96']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05964.bmp'    (L534, T1724, R555, B1745)
+   |    |    |    |    |    | ['Выделить: cancel-05964.bmp', 'CheckBox32', 'Выделить: cancel-05964.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05964.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T1715, R973, B1910)
+   |    |    |    |    | ['DataItem41', 'Fotoarhiv.App.PhotoTile33', 'Fotoarhiv.App.PhotoTileDataItem33']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05965.bmp'    (L755, T1715, R973, B1910)
+   |    |    |    |    |    | ['cancel-05965.bmpButton', 'Button44', 'cancel-05965.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05965.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image33']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T1885, R962, B1900)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла33', 'Static97', '02 ноября 2026 · Дата файлаStatic33']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T1728, R957, B1747)
+   |    |    |    |    |    |    | ['6000Static33', '600033', 'Static98']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05965.bmp'    (L764, T1724, R785, B1745)
+   |    |    |    |    |    | ['Выделить: cancel-05965.bmp', 'CheckBox33', 'Выделить: cancel-05965.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05965.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T1715, R1203, B1910)
+   |    |    |    |    | ['DataItem42', 'Fotoarhiv.App.PhotoTile34', 'Fotoarhiv.App.PhotoTileDataItem34']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05966.bmp'    (L985, T1715, R1203, B1910)
+   |    |    |    |    |    | ['cancel-05966.bmpButton', 'cancel-05966.bmp', 'Button45']
+   |    |    |    |    |    | child_window(title="cancel-05966.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image34']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T1885, R1192, B1900)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла34', 'Static99', '02 ноября 2026 · Дата файлаStatic34']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T1728, R1187, B1747)
+   |    |    |    |    |    |    | ['6000Static34', '600034', 'Static100']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05966.bmp'    (L994, T1724, R1015, B1745)
+   |    |    |    |    |    | ['Выделить: cancel-05966.bmp', 'Выделить: cancel-05966.bmpCheckBox', 'CheckBox34']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05966.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T1715, R1433, B1910)
+   |    |    |    |    | ['DataItem43', 'Fotoarhiv.App.PhotoTile35', 'Fotoarhiv.App.PhotoTileDataItem35']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05967.bmp'    (L1215, T1715, R1433, B1910)
+   |    |    |    |    |    | ['cancel-05967.bmp', 'Button46', 'cancel-05967.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05967.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image35']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T1885, R1422, B1900)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла35', 'Static101', '02 ноября 2026 · Дата файлаStatic35']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T1728, R1417, B1747)
+   |    |    |    |    |    |    | ['6000Static35', '600035', 'Static102']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05967.bmp'    (L1224, T1724, R1245, B1745)
+   |    |    |    |    |    | ['Выделить: cancel-05967.bmpCheckBox', 'CheckBox35', 'Выделить: cancel-05967.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05967.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T1921, R513, B2116)
+   |    |    |    |    | ['DataItem44', 'Fotoarhiv.App.PhotoTile36', 'Fotoarhiv.App.PhotoTileDataItem36']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05968.bmp'    (L295, T1921, R513, B2116)
+   |    |    |    |    |    | ['cancel-05968.bmpButton', 'Button47', 'cancel-05968.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05968.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image36']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T2091, R502, B2106)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла36', 'Static103', '02 ноября 2026 · Дата файлаStatic36']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T1934, R497, B1953)
+   |    |    |    |    |    |    | ['6000Static36', '600036', 'Static104']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05968.bmp'    (L304, T1930, R325, B1951)
+   |    |    |    |    |    | ['Выделить: cancel-05968.bmp', 'CheckBox36', 'Выделить: cancel-05968.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05968.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T1921, R743, B2116)
+   |    |    |    |    | ['DataItem45', 'Fotoarhiv.App.PhotoTile37', 'Fotoarhiv.App.PhotoTileDataItem37']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05969.bmp'    (L525, T1921, R743, B2116)
+   |    |    |    |    |    | ['cancel-05969.bmp', 'cancel-05969.bmpButton', 'Button48']
+   |    |    |    |    |    | child_window(title="cancel-05969.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image37']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T2091, R732, B2106)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла37', 'Static105', '02 ноября 2026 · Дата файлаStatic37']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T1934, R727, B1953)
+   |    |    |    |    |    |    | ['6000Static37', '600037', 'Static106']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05969.bmp'    (L534, T1930, R555, B1951)
+   |    |    |    |    |    | ['Выделить: cancel-05969.bmp', 'CheckBox37', 'Выделить: cancel-05969.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05969.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T1921, R973, B2116)
+   |    |    |    |    | ['DataItem46', 'Fotoarhiv.App.PhotoTile38', 'Fotoarhiv.App.PhotoTileDataItem38']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05970.bmp'    (L755, T1921, R973, B2116)
+   |    |    |    |    |    | ['Button49', 'cancel-05970.bmp', 'cancel-05970.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05970.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image38']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T2091, R962, B2106)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла38', 'Static107', '02 ноября 2026 · Дата файлаStatic38']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T1934, R957, B1953)
+   |    |    |    |    |    |    | ['6000Static38', '600038', 'Static108']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05970.bmp'    (L764, T1930, R785, B1951)
+   |    |    |    |    |    | ['Выделить: cancel-05970.bmp', 'CheckBox38', 'Выделить: cancel-05970.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05970.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T1921, R1203, B2116)
+   |    |    |    |    | ['DataItem47', 'Fotoarhiv.App.PhotoTile39', 'Fotoarhiv.App.PhotoTileDataItem39']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05951.bmp'    (L985, T1921, R1203, B2116)
+   |    |    |    |    |    | ['cancel-05951.bmpButton', 'cancel-05951.bmp', 'Button50']
+   |    |    |    |    |    | child_window(title="cancel-05951.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image39']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T2091, R1192, B2106)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла39', 'Static109', '02 ноября 2026 · Дата файлаStatic39']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T1934, R1187, B1953)
+   |    |    |    |    |    |    | ['6000Static39', '600039', 'Static110']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05951.bmp'    (L994, T1930, R1015, B1951)
+   |    |    |    |    |    | ['Выделить: cancel-05951.bmpCheckBox', 'CheckBox39', 'Выделить: cancel-05951.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05951.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T1921, R1433, B2116)
+   |    |    |    |    | ['DataItem48', 'Fotoarhiv.App.PhotoTile40', 'Fotoarhiv.App.PhotoTileDataItem40']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05952.bmp'    (L1215, T1921, R1433, B2116)
+   |    |    |    |    |    | ['cancel-05952.bmpButton', 'Button51', 'cancel-05952.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05952.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image40']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T2091, R1422, B2106)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла40', 'Static111', '02 ноября 2026 · Дата файлаStatic40']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T1934, R1417, B1953)
+   |    |    |    |    |    |    | ['6000Static40', '600040', 'Static112']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05952.bmp'    (L1224, T1930, R1245, B1951)
+   |    |    |    |    |    | ['CheckBox40', 'Выделить: cancel-05952.bmp', 'Выделить: cancel-05952.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05952.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T2128, R513, B2323)
+   |    |    |    |    | ['DataItem49', 'Fotoarhiv.App.PhotoTile41', 'Fotoarhiv.App.PhotoTileDataItem41']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05953.bmp'    (L295, T2128, R513, B2323)
+   |    |    |    |    |    | ['cancel-05953.bmp', 'cancel-05953.bmpButton', 'Button52']
+   |    |    |    |    |    | child_window(title="cancel-05953.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image41']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T2298, R502, B2313)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла41', 'Static113', '02 ноября 2026 · Дата файлаStatic41']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T2141, R497, B2160)
+   |    |    |    |    |    |    | ['6000Static41', '600041', 'Static114']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05953.bmp'    (L304, T2137, R325, B2158)
+   |    |    |    |    |    | ['Выделить: cancel-05953.bmpCheckBox', 'Выделить: cancel-05953.bmp', 'CheckBox41']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05953.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T2128, R743, B2323)
+   |    |    |    |    | ['DataItem50', 'Fotoarhiv.App.PhotoTile42', 'Fotoarhiv.App.PhotoTileDataItem42']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05954.bmp'    (L525, T2128, R743, B2323)
+   |    |    |    |    |    | ['cancel-05954.bmp', 'Button53', 'cancel-05954.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05954.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image42']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T2298, R732, B2313)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла42', 'Static115', '02 ноября 2026 · Дата файлаStatic42']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T2141, R727, B2160)
+   |    |    |    |    |    |    | ['6000Static42', '600042', 'Static116']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05954.bmp'    (L534, T2137, R555, B2158)
+   |    |    |    |    |    | ['CheckBox42', 'Выделить: cancel-05954.bmp', 'Выделить: cancel-05954.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05954.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T2128, R973, B2323)
+   |    |    |    |    | ['DataItem51', 'Fotoarhiv.App.PhotoTile43', 'Fotoarhiv.App.PhotoTileDataItem43']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05955.bmp'    (L755, T2128, R973, B2323)
+   |    |    |    |    |    | ['cancel-05955.bmp', 'cancel-05955.bmpButton', 'Button54']
+   |    |    |    |    |    | child_window(title="cancel-05955.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image43']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T2298, R962, B2313)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла43', 'Static117', '02 ноября 2026 · Дата файлаStatic43']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T2141, R957, B2160)
+   |    |    |    |    |    |    | ['6000Static43', '600043', 'Static118']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05955.bmp'    (L764, T2137, R785, B2158)
+   |    |    |    |    |    | ['Выделить: cancel-05955.bmpCheckBox', 'CheckBox43', 'Выделить: cancel-05955.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05955.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T2128, R1203, B2323)
+   |    |    |    |    | ['DataItem52', 'Fotoarhiv.App.PhotoTile44', 'Fotoarhiv.App.PhotoTileDataItem44']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05956.bmp'    (L985, T2128, R1203, B2323)
+   |    |    |    |    |    | ['cancel-05956.bmpButton', 'Button55', 'cancel-05956.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05956.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image44']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T2298, R1192, B2313)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла44', 'Static119', '02 ноября 2026 · Дата файлаStatic44']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T2141, R1187, B2160)
+   |    |    |    |    |    |    | ['6000Static44', '600044', 'Static120']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05956.bmp'    (L994, T2137, R1015, B2158)
+   |    |    |    |    |    | ['Выделить: cancel-05956.bmp', 'CheckBox44', 'Выделить: cancel-05956.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05956.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T2128, R1433, B2323)
+   |    |    |    |    | ['DataItem53', 'Fotoarhiv.App.PhotoTile45', 'Fotoarhiv.App.PhotoTileDataItem45']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05957.bmp'    (L1215, T2128, R1433, B2323)
+   |    |    |    |    |    | ['cancel-05957.bmp', 'cancel-05957.bmpButton', 'Button56']
+   |    |    |    |    |    | child_window(title="cancel-05957.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image45']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T2298, R1422, B2313)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла45', 'Static121', '02 ноября 2026 · Дата файлаStatic45']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T2141, R1417, B2160)
+   |    |    |    |    |    |    | ['6000Static45', '600045', 'Static122']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05957.bmp'    (L1224, T2137, R1245, B2158)
+   |    |    |    |    |    | ['Выделить: cancel-05957.bmpCheckBox', 'CheckBox45', 'Выделить: cancel-05957.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05957.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T2335, R513, B2530)
+   |    |    |    |    | ['DataItem54', 'Fotoarhiv.App.PhotoTile46', 'Fotoarhiv.App.PhotoTileDataItem46']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05958.bmp'    (L295, T2335, R513, B2530)
+   |    |    |    |    |    | ['cancel-05958.bmpButton', 'Button57', 'cancel-05958.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05958.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image46']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T2505, R502, B2520)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла46', 'Static123', '02 ноября 2026 · Дата файлаStatic46']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T2348, R497, B2367)
+   |    |    |    |    |    |    | ['6000Static46', '600046', 'Static124']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05958.bmp'    (L304, T2344, R325, B2365)
+   |    |    |    |    |    | ['CheckBox46', 'Выделить: cancel-05958.bmpCheckBox', 'Выделить: cancel-05958.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05958.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T2335, R743, B2530)
+   |    |    |    |    | ['DataItem55', 'Fotoarhiv.App.PhotoTile47', 'Fotoarhiv.App.PhotoTileDataItem47']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05959.bmp'    (L525, T2335, R743, B2530)
+   |    |    |    |    |    | ['cancel-05959.bmpButton', 'Button58', 'cancel-05959.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05959.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image47']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T2505, R732, B2520)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла47', 'Static125', '02 ноября 2026 · Дата файлаStatic47']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T2348, R727, B2367)
+   |    |    |    |    |    |    | ['6000Static47', '600047', 'Static126']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05959.bmp'    (L534, T2344, R555, B2365)
+   |    |    |    |    |    | ['CheckBox47', 'Выделить: cancel-05959.bmp', 'Выделить: cancel-05959.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05959.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T2335, R973, B2530)
+   |    |    |    |    | ['DataItem56', 'Fotoarhiv.App.PhotoTile48', 'Fotoarhiv.App.PhotoTileDataItem48']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05960.bmp'    (L755, T2335, R973, B2530)
+   |    |    |    |    |    | ['cancel-05960.bmp', 'cancel-05960.bmpButton', 'Button59']
+   |    |    |    |    |    | child_window(title="cancel-05960.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image48']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T2505, R962, B2520)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла48', 'Static127', '02 ноября 2026 · Дата файлаStatic48']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T2348, R957, B2367)
+   |    |    |    |    |    |    | ['6000Static48', '600048', 'Static128']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05960.bmp'    (L764, T2344, R785, B2365)
+   |    |    |    |    |    | ['CheckBox48', 'Выделить: cancel-05960.bmpCheckBox', 'Выделить: cancel-05960.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05960.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T2335, R1203, B2530)
+   |    |    |    |    | ['DataItem57', 'Fotoarhiv.App.PhotoTile49', 'Fotoarhiv.App.PhotoTileDataItem49']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05961.bmp'    (L985, T2335, R1203, B2530)
+   |    |    |    |    |    | ['cancel-05961.bmpButton', 'Button60', 'cancel-05961.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05961.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image49']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T2505, R1192, B2520)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла49', 'Static129', '02 ноября 2026 · Дата файлаStatic49']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T2348, R1187, B2367)
+   |    |    |    |    |    |    | ['6000Static49', '600049', 'Static130']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05961.bmp'    (L994, T2344, R1015, B2365)
+   |    |    |    |    |    | ['Выделить: cancel-05961.bmp', 'Выделить: cancel-05961.bmpCheckBox', 'CheckBox49']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05961.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T2335, R1433, B2530)
+   |    |    |    |    | ['DataItem58', 'Fotoarhiv.App.PhotoTile50', 'Fotoarhiv.App.PhotoTileDataItem50']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05940.bmp'    (L1215, T2335, R1433, B2530)
+   |    |    |    |    |    | ['cancel-05940.bmpButton', 'cancel-05940.bmp', 'Button61']
+   |    |    |    |    |    | child_window(title="cancel-05940.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image50']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T2505, R1422, B2520)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла50', 'Static131', '02 ноября 2026 · Дата файлаStatic50']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T2348, R1417, B2367)
+   |    |    |    |    |    |    | ['6000Static50', '600050', 'Static132']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05940.bmp'    (L1224, T2344, R1245, B2365)
+   |    |    |    |    |    | ['Выделить: cancel-05940.bmp', 'CheckBox50', 'Выделить: cancel-05940.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05940.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T2541, R513, B2736)
+   |    |    |    |    | ['DataItem59', 'Fotoarhiv.App.PhotoTile51', 'Fotoarhiv.App.PhotoTileDataItem51']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05941.bmp'    (L295, T2541, R513, B2736)
+   |    |    |    |    |    | ['cancel-05941.bmp', 'cancel-05941.bmpButton', 'Button62']
+   |    |    |    |    |    | child_window(title="cancel-05941.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image51']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T2711, R502, B2726)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла51', 'Static133', '02 ноября 2026 · Дата файлаStatic51']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T2554, R497, B2573)
+   |    |    |    |    |    |    | ['6000Static51', '600051', 'Static134']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05941.bmp'    (L304, T2550, R325, B2571)
+   |    |    |    |    |    | ['Выделить: cancel-05941.bmp', 'CheckBox51', 'Выделить: cancel-05941.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05941.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T2541, R743, B2736)
+   |    |    |    |    | ['DataItem60', 'Fotoarhiv.App.PhotoTile52', 'Fotoarhiv.App.PhotoTileDataItem52']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05942.bmp'    (L525, T2541, R743, B2736)
+   |    |    |    |    |    | ['cancel-05942.bmp', 'Button63', 'cancel-05942.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05942.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image52']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T2711, R732, B2726)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла52', 'Static135', '02 ноября 2026 · Дата файлаStatic52']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T2554, R727, B2573)
+   |    |    |    |    |    |    | ['6000Static52', '600052', 'Static136']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05942.bmp'    (L534, T2550, R555, B2571)
+   |    |    |    |    |    | ['Выделить: cancel-05942.bmpCheckBox', 'Выделить: cancel-05942.bmp', 'CheckBox52']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05942.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T2541, R973, B2736)
+   |    |    |    |    | ['DataItem61', 'Fotoarhiv.App.PhotoTile53', 'Fotoarhiv.App.PhotoTileDataItem53']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05943.bmp'    (L755, T2541, R973, B2736)
+   |    |    |    |    |    | ['cancel-05943.bmp', 'cancel-05943.bmpButton', 'Button64']
+   |    |    |    |    |    | child_window(title="cancel-05943.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image53']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T2711, R962, B2726)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла53', 'Static137', '02 ноября 2026 · Дата файлаStatic53']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T2554, R957, B2573)
+   |    |    |    |    |    |    | ['6000Static53', '600053', 'Static138']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05943.bmp'    (L764, T2550, R785, B2571)
+   |    |    |    |    |    | ['Выделить: cancel-05943.bmp', 'Выделить: cancel-05943.bmpCheckBox', 'CheckBox53']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05943.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T2541, R1203, B2736)
+   |    |    |    |    | ['DataItem62', 'Fotoarhiv.App.PhotoTile54', 'Fotoarhiv.App.PhotoTileDataItem54']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05944.bmp'    (L985, T2541, R1203, B2736)
+   |    |    |    |    |    | ['cancel-05944.bmpButton', 'cancel-05944.bmp', 'Button65']
+   |    |    |    |    |    | child_window(title="cancel-05944.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image54']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T2711, R1192, B2726)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла54', 'Static139', '02 ноября 2026 · Дата файлаStatic54']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T2554, R1187, B2573)
+   |    |    |    |    |    |    | ['6000Static54', '600054', 'Static140']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05944.bmp'    (L994, T2550, R1015, B2571)
+   |    |    |    |    |    | ['Выделить: cancel-05944.bmpCheckBox', 'CheckBox54', 'Выделить: cancel-05944.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05944.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T2541, R1433, B2736)
+   |    |    |    |    | ['DataItem63', 'Fotoarhiv.App.PhotoTile55', 'Fotoarhiv.App.PhotoTileDataItem55']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05945.bmp'    (L1215, T2541, R1433, B2736)
+   |    |    |    |    |    | ['cancel-05945.bmp', 'Button66', 'cancel-05945.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05945.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image55']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T2711, R1422, B2726)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла55', 'Static141', '02 ноября 2026 · Дата файлаStatic55']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T2554, R1417, B2573)
+   |    |    |    |    |    |    | ['6000Static55', '600055', 'Static142']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05945.bmp'    (L1224, T2550, R1245, B2571)
+   |    |    |    |    |    | ['Выделить: cancel-05945.bmp', 'CheckBox55', 'Выделить: cancel-05945.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05945.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T2748, R513, B2943)
+   |    |    |    |    | ['DataItem64', 'Fotoarhiv.App.PhotoTile56', 'Fotoarhiv.App.PhotoTileDataItem56']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05946.bmp'    (L295, T2748, R513, B2943)
+   |    |    |    |    |    | ['cancel-05946.bmpButton', 'Button67', 'cancel-05946.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05946.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image56']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T2918, R502, B2933)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла56', 'Static143', '02 ноября 2026 · Дата файлаStatic56']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T2761, R497, B2780)
+   |    |    |    |    |    |    | ['6000Static56', '600056', 'Static144']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05946.bmp'    (L304, T2757, R325, B2778)
+   |    |    |    |    |    | ['CheckBox56', 'Выделить: cancel-05946.bmpCheckBox', 'Выделить: cancel-05946.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05946.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T2748, R743, B2943)
+   |    |    |    |    | ['DataItem65', 'Fotoarhiv.App.PhotoTile57', 'Fotoarhiv.App.PhotoTileDataItem57']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05947.bmp'    (L525, T2748, R743, B2943)
+   |    |    |    |    |    | ['cancel-05947.bmp', 'cancel-05947.bmpButton', 'Button68']
+   |    |    |    |    |    | child_window(title="cancel-05947.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image57']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T2918, R732, B2933)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла57', 'Static145', '02 ноября 2026 · Дата файлаStatic57']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T2761, R727, B2780)
+   |    |    |    |    |    |    | ['6000Static57', '600057', 'Static146']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05947.bmp'    (L534, T2757, R555, B2778)
+   |    |    |    |    |    | ['Выделить: cancel-05947.bmp', 'CheckBox57', 'Выделить: cancel-05947.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05947.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T2748, R973, B2943)
+   |    |    |    |    | ['DataItem66', 'Fotoarhiv.App.PhotoTile58', 'Fotoarhiv.App.PhotoTileDataItem58']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05948.bmp'    (L755, T2748, R973, B2943)
+   |    |    |    |    |    | ['cancel-05948.bmp', 'Button69', 'cancel-05948.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05948.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image58']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T2918, R962, B2933)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла58', 'Static147', '02 ноября 2026 · Дата файлаStatic58']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T2761, R957, B2780)
+   |    |    |    |    |    |    | ['6000Static58', '600058', 'Static148']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05948.bmp'    (L764, T2757, R785, B2778)
+   |    |    |    |    |    | ['Выделить: cancel-05948.bmp', 'CheckBox58', 'Выделить: cancel-05948.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05948.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T2748, R1203, B2943)
+   |    |    |    |    | ['DataItem67', 'Fotoarhiv.App.PhotoTile59', 'Fotoarhiv.App.PhotoTileDataItem59']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05949.bmp'    (L985, T2748, R1203, B2943)
+   |    |    |    |    |    | ['cancel-05949.bmp', 'cancel-05949.bmpButton', 'Button70']
+   |    |    |    |    |    | child_window(title="cancel-05949.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image59']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T2918, R1192, B2933)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла59', 'Static149', '02 ноября 2026 · Дата файлаStatic59']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T2761, R1187, B2780)
+   |    |    |    |    |    |    | ['6000Static59', '600059', 'Static150']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05949.bmp'    (L994, T2757, R1015, B2778)
+   |    |    |    |    |    | ['CheckBox59', 'Выделить: cancel-05949.bmp', 'Выделить: cancel-05949.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05949.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T2748, R1433, B2943)
+   |    |    |    |    | ['DataItem68', 'Fotoarhiv.App.PhotoTile60', 'Fotoarhiv.App.PhotoTileDataItem60']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05950.bmp'    (L1215, T2748, R1433, B2943)
+   |    |    |    |    |    | ['cancel-05950.bmp', 'Button71', 'cancel-05950.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05950.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image60']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T2918, R1422, B2933)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла60', 'Static151', '02 ноября 2026 · Дата файлаStatic60']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T2761, R1417, B2780)
+   |    |    |    |    |    |    | ['6000Static60', '600060', 'Static152']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05950.bmp'    (L1224, T2757, R1245, B2778)
+   |    |    |    |    |    | ['Выделить: cancel-05950.bmp', 'CheckBox60', 'Выделить: cancel-05950.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05950.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T2955, R513, B3150)
+   |    |    |    |    | ['DataItem69', 'Fotoarhiv.App.PhotoTile61', 'Fotoarhiv.App.PhotoTileDataItem61']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05930.bmp'    (L295, T2955, R513, B3150)
+   |    |    |    |    |    | ['cancel-05930.bmp', 'Button72', 'cancel-05930.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05930.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image61']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T3125, R502, B3140)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла61', 'Static153', '02 ноября 2026 · Дата файлаStatic61']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T2968, R497, B2987)
+   |    |    |    |    |    |    | ['6000Static61', '600061', 'Static154']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05930.bmp'    (L304, T2964, R325, B2985)
+   |    |    |    |    |    | ['Выделить: cancel-05930.bmpCheckBox', 'CheckBox61', 'Выделить: cancel-05930.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05930.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T2955, R743, B3150)
+   |    |    |    |    | ['DataItem70', 'Fotoarhiv.App.PhotoTile62', 'Fotoarhiv.App.PhotoTileDataItem62']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05931.bmp'    (L525, T2955, R743, B3150)
+   |    |    |    |    |    | ['cancel-05931.bmpButton', 'cancel-05931.bmp', 'Button73']
+   |    |    |    |    |    | child_window(title="cancel-05931.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image62']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T3125, R732, B3140)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла62', 'Static155', '02 ноября 2026 · Дата файлаStatic62']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T2968, R727, B2987)
+   |    |    |    |    |    |    | ['6000Static62', '600062', 'Static156']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05931.bmp'    (L534, T2964, R555, B2985)
+   |    |    |    |    |    | ['CheckBox62', 'Выделить: cancel-05931.bmp', 'Выделить: cancel-05931.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05931.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T2955, R973, B3150)
+   |    |    |    |    | ['DataItem71', 'Fotoarhiv.App.PhotoTile63', 'Fotoarhiv.App.PhotoTileDataItem63']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05932.bmp'    (L755, T2955, R973, B3150)
+   |    |    |    |    |    | ['cancel-05932.bmp', 'Button74', 'cancel-05932.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05932.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image63']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T3125, R962, B3140)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла63', 'Static157', '02 ноября 2026 · Дата файлаStatic63']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T2968, R957, B2987)
+   |    |    |    |    |    |    | ['6000Static63', '600063', 'Static158']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05932.bmp'    (L764, T2964, R785, B2985)
+   |    |    |    |    |    | ['CheckBox63', 'Выделить: cancel-05932.bmpCheckBox', 'Выделить: cancel-05932.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05932.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T2955, R1203, B3150)
+   |    |    |    |    | ['DataItem72', 'Fotoarhiv.App.PhotoTile64', 'Fotoarhiv.App.PhotoTileDataItem64']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05933.bmp'    (L985, T2955, R1203, B3150)
+   |    |    |    |    |    | ['cancel-05933.bmpButton', 'Button75', 'cancel-05933.bmp']
+   |    |    |    |    |    | child_window(title="cancel-05933.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image64']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T3125, R1192, B3140)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла64', 'Static159', '02 ноября 2026 · Дата файлаStatic64']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T2968, R1187, B2987)
+   |    |    |    |    |    |    | ['6000Static64', '600064', 'Static160']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05933.bmp'    (L994, T2964, R1015, B2985)
+   |    |    |    |    |    | ['Выделить: cancel-05933.bmp', 'CheckBox64', 'Выделить: cancel-05933.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05933.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T2955, R1433, B3150)
+   |    |    |    |    | ['DataItem73', 'Fotoarhiv.App.PhotoTile65', 'Fotoarhiv.App.PhotoTileDataItem65']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05934.bmp'    (L1215, T2955, R1433, B3150)
+   |    |    |    |    |    | ['cancel-05934.bmp', 'cancel-05934.bmpButton', 'Button76']
+   |    |    |    |    |    | child_window(title="cancel-05934.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image65']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T3125, R1422, B3140)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла65', 'Static161', '02 ноября 2026 · Дата файлаStatic65']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T2968, R1417, B2987)
+   |    |    |    |    |    |    | ['6000Static65', '600065', 'Static162']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05934.bmp'    (L1224, T2964, R1245, B2985)
+   |    |    |    |    |    | ['CheckBox65', 'Выделить: cancel-05934.bmpCheckBox', 'Выделить: cancel-05934.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05934.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T3161, R513, B3356)
+   |    |    |    |    | ['DataItem74', 'Fotoarhiv.App.PhotoTile66', 'Fotoarhiv.App.PhotoTileDataItem66']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05935.bmp'    (L295, T3161, R513, B3356)
+   |    |    |    |    |    | ['cancel-05935.bmp', 'cancel-05935.bmpButton', 'Button77']
+   |    |    |    |    |    | child_window(title="cancel-05935.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image66']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T3331, R502, B3346)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла66', 'Static163', '02 ноября 2026 · Дата файлаStatic66']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T3174, R497, B3193)
+   |    |    |    |    |    |    | ['6000Static66', '600066', 'Static164']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05935.bmp'    (L304, T3170, R325, B3191)
+   |    |    |    |    |    | ['Выделить: cancel-05935.bmp', 'CheckBox66', 'Выделить: cancel-05935.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05935.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T3161, R743, B3356)
+   |    |    |    |    | ['DataItem75', 'Fotoarhiv.App.PhotoTile67', 'Fotoarhiv.App.PhotoTileDataItem67']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05936.bmp'    (L525, T3161, R743, B3356)
+   |    |    |    |    |    | ['cancel-05936.bmp', 'Button78', 'cancel-05936.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05936.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image67']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T3331, R732, B3346)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла67', 'Static165', '02 ноября 2026 · Дата файлаStatic67']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T3174, R727, B3193)
+   |    |    |    |    |    |    | ['6000Static67', '600067', 'Static166']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05936.bmp'    (L534, T3170, R555, B3191)
+   |    |    |    |    |    | ['Выделить: cancel-05936.bmp', 'CheckBox67', 'Выделить: cancel-05936.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05936.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L755, T3161, R973, B3356)
+   |    |    |    |    | ['DataItem76', 'Fotoarhiv.App.PhotoTile68', 'Fotoarhiv.App.PhotoTileDataItem68']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05937.bmp'    (L755, T3161, R973, B3356)
+   |    |    |    |    |    | ['cancel-05937.bmp', 'Button79', 'cancel-05937.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05937.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image68']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L766, T3331, R962, B3346)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла68', 'Static167', '02 ноября 2026 · Дата файлаStatic68']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L935, T3174, R957, B3193)
+   |    |    |    |    |    |    | ['6000Static68', '600068', 'Static168']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05937.bmp'    (L764, T3170, R785, B3191)
+   |    |    |    |    |    | ['Выделить: cancel-05937.bmp', 'CheckBox68', 'Выделить: cancel-05937.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05937.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L985, T3161, R1203, B3356)
+   |    |    |    |    | ['DataItem77', 'Fotoarhiv.App.PhotoTile69', 'Fotoarhiv.App.PhotoTileDataItem69']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05938.bmp'    (L985, T3161, R1203, B3356)
+   |    |    |    |    |    | ['cancel-05938.bmpButton', 'cancel-05938.bmp', 'Button80']
+   |    |    |    |    |    | child_window(title="cancel-05938.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image69']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L996, T3331, R1192, B3346)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла69', 'Static169', '02 ноября 2026 · Дата файлаStatic69']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1165, T3174, R1187, B3193)
+   |    |    |    |    |    |    | ['6000Static69', '600069', 'Static170']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05938.bmp'    (L994, T3170, R1015, B3191)
+   |    |    |    |    |    | ['Выделить: cancel-05938.bmpCheckBox', 'CheckBox69', 'Выделить: cancel-05938.bmp']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05938.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L1215, T3161, R1433, B3356)
+   |    |    |    |    | ['DataItem78', 'Fotoarhiv.App.PhotoTile70', 'Fotoarhiv.App.PhotoTileDataItem70']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05939.bmp'    (L1215, T3161, R1433, B3356)
+   |    |    |    |    |    | ['cancel-05939.bmp', 'cancel-05939.bmpButton', 'Button81']
+   |    |    |    |    |    | child_window(title="cancel-05939.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image70']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L1226, T3331, R1422, B3346)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла70', 'Static171', '02 ноября 2026 · Дата файлаStatic70']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L1395, T3174, R1417, B3193)
+   |    |    |    |    |    |    | ['6000Static70', '600070', 'Static172']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05939.bmp'    (L1224, T3170, R1245, B3191)
+   |    |    |    |    |    | ['Выделить: cancel-05939.bmp', 'Выделить: cancel-05939.bmpCheckBox', 'CheckBox70']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05939.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L295, T3368, R513, B3563)
+   |    |    |    |    | ['DataItem79', 'Fotoarhiv.App.PhotoTile71', 'Fotoarhiv.App.PhotoTileDataItem71']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05919.bmp'    (L295, T3368, R513, B3563)
+   |    |    |    |    |    | ['cancel-05919.bmp', 'Button82', 'cancel-05919.bmpButton']
+   |    |    |    |    |    | child_window(title="cancel-05919.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image71']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L306, T3538, R502, B3553)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла71', 'Static173', '02 ноября 2026 · Дата файлаStatic71']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L475, T3381, R497, B3400)
+   |    |    |    |    |    |    | ['6000Static71', '600071', 'Static174']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05919.bmp'    (L304, T3377, R325, B3398)
+   |    |    |    |    |    | ['Выделить: cancel-05919.bmp', 'CheckBox71', 'Выделить: cancel-05919.bmpCheckBox']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05919.bmp", control_type="CheckBox")
+   |    |    |    |    | 
+   |    |    |    |    | DataItem - 'Fotoarhiv.App.PhotoTile'    (L525, T3368, R743, B3563)
+   |    |    |    |    | ['DataItem80', 'Fotoarhiv.App.PhotoTile72', 'Fotoarhiv.App.PhotoTileDataItem72']
+   |    |    |    |    | child_window(title="Fotoarhiv.App.PhotoTile", control_type="DataItem")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | Button - 'cancel-05920.bmp'    (L525, T3368, R743, B3563)
+   |    |    |    |    |    | ['cancel-05920.bmp', 'cancel-05920.bmpButton', 'Button83']
+   |    |    |    |    |    | child_window(title="cancel-05920.bmp", control_type="Button")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Image - ''    (L0, T0, R0, B0)
+   |    |    |    |    |    |    | ['Image72']
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '02 ноября 2026 · Дата файла'    (L536, T3538, R732, B3553)
+   |    |    |    |    |    |    | ['02 ноября 2026 · Дата файла72', 'Static175', '02 ноября 2026 · Дата файлаStatic72']
+   |    |    |    |    |    |    | child_window(title="02 ноября 2026 · Дата файла", control_type="Text")
+   |    |    |    |    |    |    | 
+   |    |    |    |    |    |    | Static - '6000'    (L705, T3381, R727, B3400)
+   |    |    |    |    |    |    | ['6000Static72', '600072', 'Static176']
+   |    |    |    |    |    |    | child_window(title="6000", control_type="Text")
+   |    |    |    |    |    | 
+   |    |    |    |    |    | CheckBox - 'Выделить: cancel-05920.bmp'    (L534, T3377, R555, B3398)
+   |    |    |    |    |    | ['Выделить: cancel-05920.bmpCheckBox', 'Выделить: cancel-05920.bmp', 'CheckBox72']
+   |    |    |    |    |    | child_window(title="Выделить: cancel-05920.bmp", control_type="CheckBox")
+   | 
+   | Static - 'Готово: 6,081 файлов, групп точных дублей: 2'    (L295, T915, R1238, B930)
+   | ['Static177', 'Готово: 6,081 файлов, групп точных дублей: 2Static', 'Готово: 6,081 файлов, групп точных дублей: 2']
+   | child_window(title="Готово: 6,081 файлов, групп точных дублей: 2", auto_id="Status", control_type="Text")
+   | 
+   | Static - '6,081 в библиотеке · 6,081 по фильтру · источников: 3/3'    (L295, T930, R1238, B943)
+   | ['6,081 в библиотеке · 6,081 по фильтру · источников: 3/3Static', '6,081 в библиотеке · 6,081 по фильтру · источников: 3/3', 'Static178']
+   | child_window(title="6,081 в библиотеке · 6,081 по фильтру · источников: 3/3", auto_id="Summary", control_type="Text")
+   | 
+   | Button - 'Обновить'    (L1250, T915, R1323, B943)
+   | ['Обновить', 'ОбновитьButton', 'Button84', 'Обновить0', 'Обновить1']
+   | child_window(title="Обновить", auto_id="ScanAction", control_type="Button")
+   |    | 
+   |    | Static - 'Обновить'    (L1261, T921, R1312, B936)
+   |    | ['Обновить2', 'ОбновитьStatic', 'Static179']
+   |    | child_window(title="Обновить", control_type="Text")
+   | 
+   | Button - 'Предыдущая страница'    (L1333, T915, R1361, B943)
+   | ['Button85', 'Предыдущая страница', 'Предыдущая страницаButton']
+   | child_window(title="Предыдущая страница", control_type="Button")
+   |    | 
+   |    | Static - '←'    (L1341, T921, R1352, B938)
+   |    | ['←Static', '←', 'Static180']
+   |    | child_window(title="←", control_type="Text")
+   | 
+   | Static - '1 / 85'    (L1369, T921, R1397, B936)
+   | ['1 / 85Static', '1 / 85', 'Static181']
+   | child_window(title="1 / 85", auto_id="PageCount", control_type="Text")
+   | 
+   | Button - 'Следующая страница'    (L1405, T915, R1433, B943)
+   | ['Следующая страница', 'Button86', 'Следующая страницаButton']
+   | child_window(title="Следующая страница", control_type="Button")
+   |    | 
+   |    | Static - '→'    (L1413, T921, R1424, B938)
+   |    | ['→Static', '→', 'Static182']
+   |    | child_window(title="→", control_type="Text")

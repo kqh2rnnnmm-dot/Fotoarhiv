@@ -1,0 +1,280 @@
+{
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "checks": [
+    {
+      "name": "empty real catalog and zero metrics",
+      "status": "PASS"
+    },
+    {
+      "name": "reference shell colors",
+      "status": "PASS"
+    },
+    {
+      "name": "two sources and recursive scan through native picker",
+      "status": "PASS"
+    },
+    {
+      "name": "real metric cards",
+      "status": "PASS"
+    },
+    {
+      "name": "month chronology",
+      "status": "PASS"
+    },
+    {
+      "name": "search by actual filename",
+      "status": "PASS"
+    },
+    {
+      "name": "year filter",
+      "status": "PASS"
+    },
+    {
+      "name": "first gallery page",
+      "status": "PASS"
+    },
+    {
+      "name": "gallery next page",
+      "status": "PASS"
+    },
+    {
+      "name": "photo opens right drawer rather than MessageBox",
+      "status": "PASS"
+    },
+    {
+      "name": "detail metadata fits drawer width",
+      "status": "PASS"
+    },
+    {
+      "name": "Escape closes photo drawer",
+      "status": "PASS"
+    },
+    {
+      "name": "GPS list and honest map placeholder",
+      "status": "PASS"
+    },
+    {
+      "name": "GPS privacy warning",
+      "status": "PASS"
+    },
+    {
+      "name": "albums remain honest empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "source cards show actual folders",
+      "status": "PASS"
+    },
+    {
+      "name": "same-size different image excluded from exact duplicates",
+      "status": "PASS"
+    },
+    {
+      "name": "archive operations and plan disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "modal blocks background keyboard actions",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported image is retained without UI crash",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive layout 1366x768",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive layout desktop-1920x1080",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive layout effective-125-percent",
+      "status": "PASS"
+    },
+    {
+      "name": "responsive layout effective-150-percent",
+      "status": "PASS"
+    },
+    {
+      "name": "catalog persists across real restart",
+      "status": "PASS"
+    },
+    {
+      "name": "original names paths bytes creation and write times unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "offline source entries preserved (simulation)",
+      "status": "PASS"
+    },
+    {
+      "name": "incomplete duplicate metric remains unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "original sources restored by test fixture without byte/time changes",
+      "status": "PASS"
+    },
+    {
+      "name": "GUI cancellation is honest and responsive",
+      "status": "PASS"
+    },
+    {
+      "name": "initial image bytes and dates remain unchanged after all scenarios",
+      "status": "PASS"
+    },
+    {
+      "name": "physical drive disconnect",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "NTFS ACL denied",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "GPS browser launch",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "Windows 10 desktop",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "Windows 11 desktop",
+      "status": "NOT RUN"
+    },
+    {
+      "name": "actual system DPI 125% and 150%",
+      "status": "NOT RUN"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "01-empty-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Empty catalog; no imported or demo photos"
+    },
+    {
+      "file": "02-photos-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Real catalog of deterministic artificial images; first page"
+    },
+    {
+      "file": "03-details-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Right drawer with real preview, metadata and source path"
+    },
+    {
+      "file": "04-map-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Honest map placeholder and actual GPS point; browser not opened"
+    },
+    {
+      "file": "05-albums-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Albums unavailable without fictional content"
+    },
+    {
+      "file": "06-sources-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Two actual synthetic-test source folders"
+    },
+    {
+      "file": "07-duplicates-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "True SHA-256 duplicate group and real previews; future categories disabled"
+    },
+    {
+      "file": "08-comparison-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "All actual paths in the selected duplicate group"
+    },
+    {
+      "file": "09-archive-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Archive placeholder; copying, moving and launch are disabled"
+    },
+    {
+      "file": "layout-1366x768.png",
+      "width": 1366,
+      "height": 768,
+      "source": "native WPF client on Windows desktop",
+      "description": "Native client 1366x768"
+    },
+    {
+      "file": "layout-desktop-1920x1080.png",
+      "width": 1920,
+      "height": 1009,
+      "source": "native WPF client on Windows desktop",
+      "description": "Native client 1920x1009; maximized on 1920x1080 desktop, native frame and taskbar retained"
+    },
+    {
+      "file": "layout-effective-125-percent.png",
+      "width": 1093,
+      "height": 614,
+      "source": "native WPF client on Windows desktop",
+      "description": "Native client 1093x614; effective workspace simulation, system DPI unchanged"
+    },
+    {
+      "file": "layout-effective-150-percent.png",
+      "width": 911,
+      "height": 512,
+      "source": "native WPF client on Windows desktop",
+      "description": "Native client 911x512; effective workspace simulation, system DPI unchanged"
+    },
+    {
+      "file": "10-incomplete-statistics-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Incomplete scan: duplicate count must stay unknown"
+    },
+    {
+      "file": "10-offline-detail-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Simulated missing temporary source; catalog entry preserved"
+    },
+    {
+      "file": "11-cancelled-1440x900.png",
+      "width": 1440,
+      "height": 900,
+      "source": "native WPF client on Windows desktop",
+      "description": "Real GUI scan cancellation, no false success"
+    }
+  ],
+  "status": "PASS",
+  "display_setup": {
+    "requested": [
+      1920,
+      1080
+    ],
+    "result": 0,
+    "actual": [
+      1920,
+      1080
+    ]
+  },
+  "cancellation_click_observed_button": "Остановить"
+}

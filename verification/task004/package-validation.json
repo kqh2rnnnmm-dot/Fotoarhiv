@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "archive": "Fotoarhiv_Windows_x64_TEST_0_2_3.zip",
+  "bytes": 75371811,
+  "sha256": "6c157fdc54c87822af4fea8bfbcd7c25d7bcdd2ba8a9e74d6d672b0c994b3e47",
+  "publish_files": 482,
+  "all_file_hashes_match": true,
+  "native_pe": "AMD64",
+  "prohibited_launchers": []
+}

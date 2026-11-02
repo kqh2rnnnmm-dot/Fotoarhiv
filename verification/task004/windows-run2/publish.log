@@ -1,0 +1,6 @@
+  Determining projects to restore...
+  Restored D:\a\Fotoarhiv\Fotoarhiv\src\Fotoarhiv.App\Fotoarhiv.App.csproj (in 9.2 sec).
+  Restored D:\a\Fotoarhiv\Fotoarhiv\src\Fotoarhiv.Core\Fotoarhiv.Core.csproj (in 9.2 sec).
+  Fotoarhiv.Core -> D:\a\Fotoarhiv\Fotoarhiv\src\Fotoarhiv.Core\bin\Release\net10.0\Fotoarhiv.Core.dll
+  Fotoarhiv.App -> D:\a\Fotoarhiv\Fotoarhiv\src\Fotoarhiv.App\bin\Release\net10.0-windows\win-x64\Fotoarhiv.dll
+  Fotoarhiv.App -> D:\a\Fotoarhiv\Fotoarhiv\publish\
