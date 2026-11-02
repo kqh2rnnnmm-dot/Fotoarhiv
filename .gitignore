@@ -6,3 +6,5 @@ publish/
 TestResults/
 **/__pycache__/
 *.pyc
+
+/design-task003/

@@ -1,0 +1,7 @@
+{
+  "src/Fotoarhiv.Core/DuplicateFinder.cs": "4dd8eb0418828519ba6774d6300f059ede4e7d058cec4b7d6ac7a58012c07f8b",
+  "src/Fotoarhiv.Core/Fotoarhiv.Core.csproj": "148fcf85106bd012fc8ada4e248f10e64d1753616715962630391ea95f6019f0",
+  "src/Fotoarhiv.Core/PhotoRecord.cs": "af2c418d867688603c6cc681414d728f8304db3c08724e4203330b39144cae69",
+  "src/Fotoarhiv.Core/CatalogStore.cs": "cbf1a1262e1e7d2844c216dad685ec6b0a95072fe6fc754fb8ffc9fe14ebf88e",
+  "src/Fotoarhiv.Core/PhotoScanner.cs": "9274e4208c80785746a19c2cde38aa34d80686a764b6ba413b9fe3161fde04ea"
+}

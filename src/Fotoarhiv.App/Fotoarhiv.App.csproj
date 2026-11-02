@@ -7,7 +7,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <AssemblyName>Fotoarhiv</AssemblyName>
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../Fotoarhiv.Core/Fotoarhiv.Core.csproj" />

@@ -48,7 +48,7 @@ def package_publish(publish, archive_base, evidence, report):
 def main():
     evidence = Path("TestResults")
     evidence.mkdir(exist_ok=True)
-    report = {"status": "NOT RUN", "p0_status": "OPEN: manual Windows 11 checklist required", "os": platform.platform(), "windows_version": platform.win32_ver(), "steps": [], "run_url": None, "commit": os.environ.get("GITHUB_SHA")}
+    report = {"status": "NOT RUN", "p0_status": "OPEN: manual Windows 10/11 and actual DPI checklist required", "os": platform.platform(), "windows_version": platform.win32_ver(), "steps": [], "run_url": None, "commit": os.environ.get("GITHUB_SHA")}
     if all(os.environ.get(k) for k in ["GITHUB_SERVER_URL", "GITHUB_REPOSITORY", "GITHUB_RUN_ID"]):
         report["run_url"] = f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}"
     write_json(evidence / "run.json", report)
@@ -66,13 +66,13 @@ def main():
         run_step("xunit", ["dotnet", "test", "tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj", "-c", "Release", "--no-build", "--logger", "trx;LogFileName=windows-tests.trx", "--results-directory", str(evidence)], evidence, report)
         trx = ET.parse(evidence / "windows-tests.trx")
         counters = trx.find(".//{http://microsoft.com/schemas/VisualStudio/TeamTest/2010}Counters")
-        if counters is None or int(counters.attrib["passed"]) < 18 or int(counters.attrib["passed"]) != int(counters.attrib["total"]):
-            raise RuntimeError("Expected all 18+ xUnit tests to pass without skips")
+        if counters is None or int(counters.attrib["passed"]) < 24 or int(counters.attrib["passed"]) != int(counters.attrib["total"]):
+            raise RuntimeError("Expected all 24+ xUnit tests to pass without skips")
         report["xunit"] = counters.attrib
         run_step("publish", ["dotnet", "publish", "src/Fotoarhiv.App/Fotoarhiv.App.csproj", "-c", "Release", "-r", "win-x64", "--self-contained", "true", "-p:PublishSingleFile=false", "-p:PublishTrimmed=false", "-o", "publish"], evidence, report)
         run_step("startup", [sys.executable, "tests/windows_smoke.py", "publish/Fotoarhiv.exe"], evidence, report)
         run_step("gui", [sys.executable, "tests/windows_gui.py", "publish/Fotoarhiv.exe", str(evidence / "gui")], evidence, report)
-        package_publish(Path("publish"), Path("Fotoarhiv_Windows_x64_TEST"), evidence, report)
+        package_publish(Path("publish"), Path("Fotoarhiv_Windows_x64_TEST_0_2_2"), evidence, report)
         report["status"] = "PASS"
     except Exception as error:
         report["status"] = "FAIL"
