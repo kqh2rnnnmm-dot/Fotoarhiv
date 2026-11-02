@@ -102,5 +102,17 @@ public sealed class ThumbnailCacheTests : IDisposable
         Assert.InRange(cache.MaximumObservedActive, 1, 1);
     }
 
+    [Fact]
+    public async Task Damaged_Resolution_Metadata_Is_Not_A_Valid_Offline_Thumbnail()
+    {
+        var photo = CreatePhoto();
+        await using var cache = new ThumbnailCache(CacheRoot, (_, _) => ValueTask.FromResult(Pixels()));
+        await cache.GetAsync(photo);
+        var path = Directory.GetFiles(CacheRoot, "*.thumb", SearchOption.AllDirectories).Single();
+        var bytes = await File.ReadAllBytesAsync(path); bytes[16] ^= 1; await File.WriteAllBytesAsync(path, bytes);
+        File.Move(photo.Path, photo.Path + ".own-fixture-offline");
+        Assert.Null((await cache.GetAsync(photo)).Image);
+    }
+
     public void Dispose() { if (Directory.Exists(_root)) Directory.Delete(_root, true); }
 }

@@ -1,0 +1,25 @@
+  Fotoarhiv.Core -> /workspace/Fotoarhiv_Task004/src/Fotoarhiv.Core/bin/Release/net10.0/Fotoarhiv.Core.dll
+  Fotoarhiv.Tests -> /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll
+Test run for /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.34]     Fotoarhiv.Tests.P1ViewTests.Rapid_Sort_Changes_Persist_The_Last_User_Choice [FAIL]
+  Failed Fotoarhiv.Tests.P1ViewTests.Rapid_Sort_Changes_Persist_The_Last_User_Choice [45 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: OldestFirst
+Actual:   NewestFirst
+  Stack Trace:
+     at Fotoarhiv.Tests.P1ViewTests.Rapid_Sort_Changes_Persist_The_Last_User_Choice() in /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/P1ViewTests.cs:line 124
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:00.39]     Fotoarhiv.Tests.ThumbnailCacheTests.Damaged_Resolution_Metadata_Is_Not_A_Valid_Offline_Thumbnail [FAIL]
+  Failed Fotoarhiv.Tests.ThumbnailCacheTests.Damaged_Resolution_Metadata_Is_Not_A_Valid_Offline_Thumbnail [6 ms]
+  Error Message:
+   Assert.Null() Failure: Value is not null
+Expected: null
+Actual:   ThumbnailPixels { EncodedImage = System.Byte[], Width = 32, Height = 24, OriginalWidth = 1201, OriginalHeight = 900 }
+  Stack Trace:
+     at Fotoarhiv.Tests.ThumbnailCacheTests.Damaged_Resolution_Metadata_Is_Not_A_Valid_Offline_Thumbnail() in /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/ThumbnailCacheTests.cs:line 114
+   at Fotoarhiv.Tests.ThumbnailCacheTests.Damaged_Resolution_Metadata_Is_Not_A_Valid_Offline_Thumbnail() in /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/ThumbnailCacheTests.cs:line 114
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:     2, Passed:    48, Skipped:     0, Total:    50, Duration: 1 s - Fotoarhiv.Tests.dll (net10.0)

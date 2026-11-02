@@ -114,6 +114,19 @@ public sealed class P1ViewTests
     }
 
     [Fact]
+    public async Task Rapid_Sort_Changes_Persist_The_Last_User_Choice()
+    {
+        var folder = Path.Combine(Path.GetTempPath(), "Fotoarhiv-P1-sort-" + Guid.NewGuid());
+        try
+        {
+            var settings = new SortPreferenceStore(folder);
+            var saves = Enumerable.Range(0, 20).Select(i => settings.SaveAsync(i % 2 == 0 ? SortDirection.NewestFirst : SortDirection.OldestFirst)).ToArray();
+            await Task.WhenAll(saves); Assert.Equal(SortDirection.OldestFirst, settings.Load());
+        }
+        finally { if (Directory.Exists(folder)) Directory.Delete(folder, true); }
+    }
+
+    [Fact]
     public async Task Sort_Persists_But_Source_Visibility_Does_Not()
     {
         var folder = Path.Combine(Path.GetTempPath(), "Fotoarhiv-P1-settings-" + Guid.NewGuid());

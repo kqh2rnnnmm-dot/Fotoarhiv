@@ -1,0 +1,7 @@
+{
+  "src/Fotoarhiv.Core/DuplicateFinder.cs": true,
+  "src/Fotoarhiv.Core/Fotoarhiv.Core.csproj": true,
+  "src/Fotoarhiv.Core/PhotoRecord.cs": true,
+  "src/Fotoarhiv.Core/CatalogStore.cs": true,
+  "src/Fotoarhiv.Core/PhotoScanner.cs": true
+}

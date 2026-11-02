@@ -2,7 +2,7 @@ name: Build Fotoarhiv Windows x64
 on:
   workflow_dispatch:
   push:
-    branches: [main, master, task003/ui-parity]
+    branches: [main, master, task003/ui-parity, task004/p1-1]
   pull_request:
 
 jobs:
@@ -38,8 +38,8 @@ jobs:
       - name: Upload Windows program after successful checks
         uses: actions/upload-artifact@v4
         with:
-          name: Fotoarhiv-Windows-x64-0.2.2-UI-TEST
-          path: Fotoarhiv_Windows_x64_TEST_0_2_2.zip
+          name: Fotoarhiv-Windows-x64-0.2.3-P1-TEST
+          path: Fotoarhiv_Windows_x64_TEST_0_2_3.zip
           if-no-files-found: error
       - name: Upload all verification evidence including failures
         if: always()

@@ -184,7 +184,7 @@ def main():
         # This is NOT evidence of a physical drive disconnect.
         offline=root/'held-offline';second.rename(offline)
         try:
-            app=start();control('NavSources').invoke();check('offline source entries preserved (simulation)',lambda:require(rows('SELECT count(*) FROM photos')==[(expected,)] and '○ Недоступен' in all_texts(),'Missing source was cleared or mislabelled'))
+            app=start();control('NavSources').invoke();wait_for(lambda:'○ Недоступен' in all_texts(),'Source availability probe');check('offline source entries preserved (simulation)',lambda:require(rows('SELECT count(*) FROM photos')==[(expected,)] and '○ Недоступен' in all_texts(),'Missing source was cleared or mislabelled'))
             control('ScanAction').invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Проверка неполная:'),'Offline scan warning')
             control('NavPhotos').invoke()
             screenshot('10-incomplete-statistics-1440x900','Incomplete scan: duplicate count must stay unknown')

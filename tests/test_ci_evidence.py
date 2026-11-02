@@ -51,9 +51,18 @@ class EvidenceTests(unittest.TestCase):
             manifest = json.loads((root / "publish-manifest.json").read_text())
             self.assertEqual(len(manifest), 6)
 
+    def test_no_archive_when_p1_gui_did_not_pass(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            report = self.passed()
+            report['steps'] = [step for step in report['steps'] if step['name'] != 'p1_gui']
+            with self.assertRaises(RuntimeError):
+                package_publish(root, root / 'program', root, report)
+            self.assertFalse((root / 'program.zip').exists())
+
     @staticmethod
     def passed():
-        return {"steps": [{"name": name, "status": "PASS"} for name in ["restore", "build", "xunit", "publish", "startup", "gui"]]}
+        return {"steps": [{"name": name, "status": "PASS"} for name in ["restore", "build", "xunit", "publish", "startup", "gui", "p1_gui"]]}
 
 
 if __name__ == "__main__":

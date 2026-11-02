@@ -47,18 +47,24 @@ public partial class MainWindow : Window
         var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Fotoarhiv");
         _store = new CatalogStore(Path.Combine(folder, "catalog.sqlite"));
         _records = _store.GetAll();
+        InitializeP1(folder);
         _initialized = true;
-        UpdateYearOptions(); UpdateSources(); UpdateStatistics(); UpdatePlaces();
+        UpdateSources(); UpdateYearOptions(); UpdateStatistics(); UpdatePlaces();
         SetPage("photos"); ApplyResponsiveLayout();
     }
 
     private void UpdateSources()
     {
-        var paths = _store.GetSources();
-        var sources = paths.Select(path => new SourceView(path, _records.Count(p => PhotoPresentation.BelongsToSource(p.Path, path)))).ToList();
-        SourcesList.ItemsSource = sources; SidebarSources.ItemsSource = sources.Take(3).ToList();
-        NoSidebarSources.Visibility = NoSourcesText.Visibility = sources.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+        var paths = _store.GetSources(); _view.Refresh(_records, paths);
+        _sourceProbes.Cancel(); _sourceProbes.Dispose(); _sourceProbes = new CancellationTokenSource();
+        _sourceViews = paths.Select(path => new SourceView(path, _records.Count(p => PhotoPresentation.BelongsToSource(p.Path, path)), _view.IsSourceVisible(path))).ToList();
+        SourcesList.ItemsSource = _sourceViews; SidebarSources.ItemsSource = _sourceViews.Take(3).ToList();
+        NoSidebarSources.Visibility = NoSourcesText.Visibility = _sourceViews.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+        ShowAllSourcesAction.IsEnabled = HideAllSourcesAction.IsEnabled = _sourceViews.Count > 0;
+        SourceVisibilitySummary.Text = $"Показано источников: {_view.VisibleSourceCount} из {_view.Sources.Count}";
+        RefreshSourceAvailability();
     }
+
     private async void AddFolder_Click(object sender, RoutedEventArgs e)
     {
         if (_scanCancellation is not null) return;
@@ -108,7 +114,7 @@ public partial class MainWindow : Window
             if (!_closing)
             {
                 ScanAction.Content = "Обновить"; AddFolderAction.IsEnabled = true;
-                UpdateYearOptions(); UpdateSources(); UpdateStatistics(); RefreshGallery(); RefreshDuplicateCards(); UpdatePlaces(); UpdateFooter();
+                UpdateSources(); UpdateYearOptions(); UpdateStatistics(); RefreshGallery(); RefreshDuplicateCards(); UpdatePlaces(); UpdateFooter();
             }
         }
     }
@@ -116,64 +122,71 @@ public partial class MainWindow : Window
     {
         _updatingYears = true; var previous = YearPicker.SelectedItem as string ?? "Все годы";
         var choices = new List<string> { "Все годы" };
-        choices.AddRange(_records.Select(p => p.TakenAt.Year).Distinct().OrderByDescending(y => y).Select(y => y.ToString(CultureInfo.InvariantCulture)));
-        YearPicker.ItemsSource = choices; YearPicker.SelectedItem = choices.Contains(previous) ? previous : "Все годы"; _updatingYears = false;
+        choices.AddRange(_view.SourcePhotos.Select(p => p.TakenAt.Year).Distinct().OrderByDescending(y => y).Select(y => y.ToString(CultureInfo.InvariantCulture)));
+        YearPicker.ItemsSource = choices; YearPicker.SelectedItem = choices.Contains(previous) ? previous : "Все годы";
+        _view.SetYear(int.TryParse(YearPicker.SelectedItem as string, out var year) ? year : null); _updatingYears = false;
     }
+
     private void UpdateStatistics()
     {
-        var stats = PhotoPresentation.Statistics(_records, _duplicatesChecked || _records.Count == 0 ? _duplicateGroups.Select(g => g.Photos) : null, _store.GetSources().Count);
+        var stats = PhotoPresentation.Statistics(_view.Photos, _duplicatesChecked || _records.Count == 0 ? VisibleGroups().Select(g => g.Photos) : null, _view.VisibleSourceCount);
         StatsCards.ItemsSource = new[] {
-            new StatisticView("images", stats.Photos.ToString("N0"), "Фотографий в каталоге", "MetricPhotos"),
+            new StatisticView("images", stats.Photos.ToString("N0"), "Фотографий в просмотре", "MetricPhotos"),
             new StatisticView("layers", stats.DuplicatePhotos?.ToString("N0") ?? "—", "Снимков в точных повторах", "MetricDuplicates"),
             new StatisticView("map", stats.Places.ToString("N0"), "Мест с координатами GPS", "MetricPlaces"),
-            new StatisticView("harddrive", stats.Sources.ToString("N0"), "Источников в каталоге", "MetricSources") };
-        DuplicateBadgeText.Text = _duplicatesChecked || _records.Count == 0 ? _duplicateGroups.Count.ToString("N0") : "—";
+            new StatisticView("harddrive", stats.Sources.ToString("N0"), "Источников включено", "MetricSources") };
+        DuplicateBadgeText.Text = _duplicatesChecked || _records.Count == 0 ? VisibleGroups().Count.ToString("N0") : "—";
     }
     private void RefreshGallery()
     {
         if (!_initialized) return;
-        _previews.Cancel(); _previews.Dispose(); _previews = new CancellationTokenSource();
-        IEnumerable<PhotoRecord> filtered = _records;
-        var keyword = SearchBox.Text.Trim(); if (keyword.Length > 0) filtered = filtered.Where(p => p.Path.Contains(keyword, StringComparison.OrdinalIgnoreCase));
-        if (int.TryParse(YearPicker.SelectedItem as string, CultureInfo.InvariantCulture, out var year)) filtered = filtered.Where(p => p.TakenAt.Year == year);
-        var selected = filtered.OrderByDescending(p => p.TakenAt).ThenBy(p => p.Path, StringComparer.OrdinalIgnoreCase).ToList();
+        _previews.Cancel(); _previews.Dispose(); _previews = new CancellationTokenSource(); _galleryElements.Clear();
+        var selected = _view.Photos; _orderedPhotos = selected;
         _filteredCount = selected.Count; _page = Math.Clamp(_page, 0, Math.Max(0, (selected.Count - 1) / PageSize));
         var page = selected.Skip(_page * PageSize).Take(PageSize).ToList();
-        var totals = PhotoPresentation.GroupMonths(selected).ToDictionary(g => g.Month, g => g.Photos.Count);
-        var duplicates = _duplicateGroups.SelectMany(g => g.Photos.Select(p => (p.Path, g.Photos.Count))).ToDictionary(p => p.Path, p => p.Count, StringComparer.OrdinalIgnoreCase);
-        PhotosGallery.ItemsSource = PhotoPresentation.GroupMonths(page).Select(group => new MonthView(group.Title,
+        bool oldest = _view.Sort == SortDirection.OldestFirst;
+        var totals = PhotoPresentation.GroupMonths(selected, oldest).ToDictionary(g => g.Month, g => g.Photos.Count);
+        var duplicates = VisibleGroups().SelectMany(g => g.Photos.Select(p => (p.Path, g.Photos.Count))).ToDictionary(p => p.Path, p => p.Count, StringComparer.OrdinalIgnoreCase);
+        var months = PhotoPresentation.GroupMonths(page, oldest).Select(group => new MonthView(group.Title,
             group.Photos.Count == totals[group.Month] ? $"Фото: {group.Photos.Count:N0}" : $"Фото: {group.Photos.Count:N0} из {totals[group.Month]:N0}",
-            group.Photos.Select(p => { var tile = new PhotoTile(p, duplicates.GetValueOrDefault(p.Path)); _ = tile.LoadAsync(_previews.Token); return tile; }).ToList())).ToList();
+            group.Photos.Select(p => Tile(p, duplicates.GetValueOrDefault(p.Path))).ToList())).ToList();
+        _galleryTiles = months.SelectMany(m => m.Tiles).ToList(); PhotosGallery.ItemsSource = months;
         PhotosEmpty.Visibility = selected.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
-        PhotosEmptyTitle.Text = _records.Count == 0 ? "Добавьте фотографии" : "Ничего не найдено";
-        PhotosEmptyText.Text = _records.Count == 0 ? "Выберите папку — оригиналы останутся на своих местах." : "Попробуйте другое имя, путь или год.";
-        UpdateFooter();
+        bool hidden = _view.Sources.Count > 0 && _view.VisibleSourceCount == 0;
+        PhotosEmptyTitle.Text = hidden ? "Источники скрыты" : _records.Count == 0 ? "Добавьте фотографии" : "Ничего не найдено";
+        PhotosEmptyText.Text = hidden ? "Каталог сохранён. Включите показ источников, чтобы вернуть фотографии." : _records.Count == 0 ? "Выберите папку — оригиналы останутся на своих местах." : "Попробуйте другое имя, путь или год.";
+        PhotosEmptyAction.Content = hidden ? "Показать источники" : "Добавить папку";
+        UpdateSelectionUI(); UpdateFooter(); SchedulePreviews();
     }
+
     private void RefreshDuplicateCards()
     {
-        _dupePreviews.Cancel(); _dupePreviews.Dispose(); _dupePreviews = new CancellationTokenSource();
-        _dupePage = Math.Clamp(_dupePage, 0, Math.Max(0, (_duplicateGroups.Count - 1) / DuplicatePageSize));
-        DuplicateGroups.ItemsSource = _duplicateGroups.Skip(_dupePage * DuplicatePageSize).Take(DuplicatePageSize).Select(g => g with {
-            PreviewPhotos = g.Photos.Take(3).Select(photo => { var tile = new PhotoTile(photo); _ = tile.LoadAsync(_dupePreviews.Token); return tile; }).ToList()
+        _dupePreviews.Cancel(); _dupePreviews.Dispose(); _dupePreviews = new CancellationTokenSource(); _duplicateElements.Clear();
+        var groups = VisibleGroups(); _dupePage = Math.Clamp(_dupePage, 0, Math.Max(0, (groups.Count - 1) / DuplicatePageSize));
+        DuplicateGroups.ItemsSource = groups.Skip(_dupePage * DuplicatePageSize).Take(DuplicatePageSize).Select(g => g with {
+            PreviewPhotos = g.Photos.Take(3).Select(photo => Tile(photo)).ToList()
         }).ToList();
-        DuplicatesEmpty.Visibility = _duplicateGroups.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
-        DuplicatesEmptyTitle.Text = _duplicatesChecked ? "Точных повторов не найдено" : "Проверьте точные повторы";
-        DuplicatesEmptyText.Text = _duplicatesChecked ? "Сравнивается только содержимое файлов. Ничего не удаляется." : "Нажмите «Обновить». Сравнение не изменяет фотографии.";
+        DuplicatesEmpty.Visibility = groups.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+        DuplicatesEmptyTitle.Text = _duplicatesChecked ? "В текущем просмотре повторов нет" : "Проверьте точные повторы";
+        DuplicatesEmptyText.Text = _duplicatesChecked ? "Учитываются выбранные источники и фильтры. Каталог не изменяется." : "Нажмите «Обновить». Сравнение не изменяет фотографии.";
+        SchedulePreviews();
     }
+
     private void UpdatePlaces()
     {
-        var places = _records.Where(PhotoPresentation.HasGps).OrderByDescending(p => p.TakenAt).Select(p => new LocationView(p)).ToList();
+        _placePreviews.Cancel(); _placePreviews.Dispose(); _placePreviews = new CancellationTokenSource();
+        var places = _view.Photos.Where(PhotoPresentation.HasGps).Select(p => new LocationView(p, _thumbnailService)).ToList();
         PlacesList.ItemsSource = places; NoGpsText.Visibility = places.Count == 0 ? Visibility.Visible : Visibility.Collapsed; OpenMapAction.IsEnabled = false;
     }
     private void Places_Changed(object sender, SelectionChangedEventArgs e) { if (_initialized) OpenMapAction.IsEnabled = PlacesList.SelectedItem is LocationView; }
-    private void GpsPreview_Loaded(object sender, RoutedEventArgs e) { if (!_closing && sender is FrameworkElement { DataContext: LocationView location }) _ = location.Tile.LoadAsync(_windowPreviews.Token); }
+    private void GpsPreview_Loaded(object sender, RoutedEventArgs e) { if (!_closing && sender is FrameworkElement { DataContext: LocationView location }) _ = location.Tile.LoadAsync(_placePreviews.Token); }
     private void UpdateFooter()
     {
         if (!_initialized) return;
         bool dupes = _currentPage == "duplicates";
-        int page = dupes ? _dupePage : _page, count = dupes ? _duplicateGroups.Count : _filteredCount, size = dupes ? DuplicatePageSize : PageSize;
+        int page = dupes ? _dupePage : _page, count = dupes ? VisibleGroups().Count : _filteredCount, size = dupes ? DuplicatePageSize : PageSize;
         PageCount.Text = $"{page + 1} / {Math.Max(1, (int)Math.Ceiling(count / (double)size))}";
-        Summary.Text = dupes ? $"Групп в каталоге: {_duplicateGroups.Count:N0}" : $"{_records.Count:N0} в библиотеке · {_filteredCount:N0} по фильтру";
+        Summary.Text = dupes ? $"Групп в просмотре: {VisibleGroups().Count:N0}" : $"{_records.Count:N0} в библиотеке · {_filteredCount:N0} по фильтру · источников: {_view.VisibleSourceCount}/{_view.Sources.Count}";
     }
     private void SetPage(string page)
     {
@@ -194,56 +207,84 @@ public partial class MainWindow : Window
         PageScroll.ScrollToTop();
         if (page == "photos") RefreshGallery();
         if (page == "duplicates") { RefreshDuplicateCards(); SetDuplicateFilter(AllDuplicatesFilter); }
-        UpdateFooter();
+        if (page == "sources") RefreshSourceAvailability();
+        if (page != "photos") _previews.Cancel();
+        if (page != "duplicates") _dupePreviews.Cancel();
+        UpdateFooter(); SchedulePreviews();
     }
     private void NavigatePhotos_Click(object sender, RoutedEventArgs e) => SetPage("photos");
     private void NavigatePlaces_Click(object sender, RoutedEventArgs e) => SetPage("places");
     private void NavigateDuplicates_Click(object sender, RoutedEventArgs e) => SetPage("duplicates");
     private void NavigateAlbums_Click(object sender, RoutedEventArgs e) => SetPage("albums");
     private void NavigateSources_Click(object sender, RoutedEventArgs e) => SetPage("sources");
-    private void Search_Changed(object sender, TextChangedEventArgs e) { if (!_initialized) return; _page = 0; if (_currentPage != "photos") SetPage("photos"); else RefreshGallery(); }
-    private void Year_Changed(object sender, SelectionChangedEventArgs e) { if (!_initialized || _updatingYears) return; _page = 0; RefreshGallery(); PageScroll.ScrollToTop(); }
+    private void Search_Changed(object sender, TextChangedEventArgs e)
+    {
+        if (!_initialized) return; _view.SetSearch(SearchBox.Text);
+        if (_currentPage != "photos") SetPage("photos"); RefreshFilteredView();
+    }
+    private void Year_Changed(object sender, SelectionChangedEventArgs e)
+    {
+        if (!_initialized || _updatingYears) return;
+        _view.SetYear(int.TryParse(YearPicker.SelectedItem as string, out var year) ? year : null); RefreshFilteredView();
+    }
+
     private void PreviousPage_Click(object sender, RoutedEventArgs e) { if (_currentPage == "duplicates") { _dupePage = Math.Max(0, _dupePage - 1); RefreshDuplicateCards(); } else { _page = Math.Max(0, _page - 1); RefreshGallery(); } UpdateFooter(); PageScroll.ScrollToTop(); }
     private void NextPage_Click(object sender, RoutedEventArgs e) { if (_currentPage == "duplicates") { _dupePage++; RefreshDuplicateCards(); } else { _page++; RefreshGallery(); } UpdateFooter(); PageScroll.ScrollToTop(); }
     private void DuplicateFilter_Click(object sender, RoutedEventArgs e) { if (sender is Button button) SetDuplicateFilter(button); }
     private void SetDuplicateFilter(Button selected) { foreach (var button in new[] { AllDuplicatesFilter, ExactDuplicatesFilter }) { button.Background = (Brush)FindResource(button == selected ? "Soft" : "Canvas"); button.Foreground = (Brush)FindResource(button == selected ? "Accent" : "Muted"); } }
-    private async void Photo_Click(object sender, RoutedEventArgs e) { if (sender is FrameworkElement { DataContext: PhotoTile tile }) await ShowPhotoAsync(tile); }
+    private async void Photo_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is not FrameworkElement { DataContext: PhotoTile tile }) return;
+        if ((Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) != 0) { SelectTile(tile); return; }
+        Keyboard.Focus((IInputElement)sender); await ShowPhotoAsync(tile);
+    }
     private async Task ShowPhotoAsync(PhotoTile tile)
     {
-        _selectedPhoto = tile.Photo; var photo = tile.Photo;
+        _selectedPhoto = tile.Photo; _detailTile = tile; var photo = tile.Photo;
         OpenOverlay(DetailsPanel); DetailsClose.Focus(); DetailName.Text = photo.Name; DetailPreview.Source = tile.Thumbnail;
-        UpdatePhotoMetadata(photo, tile.Resolution, tile.PreviewFailed);
-        await tile.LoadAsync(_windowPreviews.Token);
+        UpdatePhotoMetadata(photo, tile);
+        await tile.LoadAsync(_windowPreviews.Token, refresh: true);
         if (_closing || _selectedPhoto != photo) return;
-        DetailPreview.Source = tile.Thumbnail; UpdatePhotoMetadata(photo, tile.Resolution, tile.PreviewFailed);
+        DetailPreview.Source = tile.Thumbnail; UpdatePhotoMetadata(photo, tile);
     }
-    private void UpdatePhotoMetadata(PhotoRecord photo, string resolution, bool previewFailed)
+    private void UpdatePhotoMetadata(PhotoRecord photo, PhotoTile tile)
     {
         DetailMetadata.ItemsSource = new[] {
             new MetadataView("Дата", photo.TakenAt.ToString("dd MMMM yyyy HH:mm", PhotoPresentation.Russian)),
             new MetadataView("Источник даты", photo.DateSource), new MetadataView("GPS", PhotoPresentation.HasGps(photo) ? string.Format(CultureInfo.InvariantCulture,"{0:F6}, {1:F6}",photo.Latitude,photo.Longitude) : "Нет данных"),
-            new MetadataView("Разрешение", resolution), new MetadataView("Размер", new PhotoTile(photo).SizeLabel), new MetadataView("Исходная папка", Path.GetDirectoryName(photo.Path) ?? "Не определено"), new MetadataView("Путь", photo.Path) };
-        DetailAvailability.Text = photo.IsAvailable ? (previewFailed ? "Файл найден, но превью недоступно: формат не поддерживается или файл не прочитан." : "Файл доступен по исходному пути. Каталог не изменяет оригинал.") : "Источник недоступен. Запись сохранена; превью офлайн не кешируется.";
+            new MetadataView("Разрешение", tile.Resolution), new MetadataView("Размер", new PhotoTile(photo).SizeLabel), new MetadataView("Исходная папка", Path.GetDirectoryName(photo.Path) ?? "Не определено"), new MetadataView("Путь", photo.Path) };
+        DetailAvailability.Text = tile.SourceAvailable is null ? "Проверка доступности…" : tile.SourceAvailable == false
+            ? (tile.Thumbnail is null ? "Источник недоступен. Запись сохранена, миниатюры нет в кеше." : "Источник недоступен. Показана миниатюра из кеша; оригинал недоступен.")
+            : tile.PreviewFailed ? "Файл найден, но превью недоступно: формат не поддерживается или файл не прочитан."
+            : tile.SourceChanged ? "Файл изменился. Превью обновлено; обновите каталог для новых метаданных."
+            : tile.Persisted ? "Файл доступен. Миниатюра сохранена в локальном кеше. Оригинал не изменяется." : "Файл доступен; миниатюра не сохранена в кеш. Оригинал не изменяется.";
         DetailMapAction.Visibility = DetailMapWarning.Visibility = PhotoPresentation.HasGps(photo) ? Visibility.Visible : Visibility.Collapsed;
     }
     private void CompareGroup_Click(object sender, RoutedEventArgs e) { if (sender is FrameworkElement { DataContext: DuplicateGroupView group }) { DuplicateMembers.ItemsSource = group.Photos; OpenOverlay(ComparisonPanel); ComparisonClose.Focus(); } }
-    private async void DuplicateMember_Click(object sender, MouseButtonEventArgs e) { if (DuplicateMembers.SelectedItem is PhotoRecord photo) await ShowPhotoAsync(new PhotoTile(photo)); }
+    private async void DuplicateMember_Click(object sender, MouseButtonEventArgs e) { if (DuplicateMembers.SelectedItem is PhotoRecord photo) await ShowPhotoAsync(Tile(photo)); }
     private void OpenOverlay(Border panel)
     {
         if (OverlayLayer.Visibility != Visibility.Visible) _returnFocus = Keyboard.FocusedElement;
-        DetailsPanel.Visibility = ArchivePanel.Visibility = ComparisonPanel.Visibility = Visibility.Collapsed;
+        DetailsPanel.Visibility = ArchivePanel.Visibility = ComparisonPanel.Visibility = ViewerPanel.Visibility = Visibility.Collapsed;
         panel.Visibility = Visibility.Visible; OverlayLayer.Visibility = Visibility.Visible; MainShell.IsEnabled = false;
         MainShell.Effect = panel == DetailsPanel ? null : new BlurEffect { Radius = 3 };
         OverlayShade.Background = new SolidColorBrush(panel == DetailsPanel ? Color.FromArgb(51,17,30,48) : Color.FromArgb(82,16,29,49));
     }
     private void CloseOverlay()
     {
-        DetailsPanel.Visibility = ArchivePanel.Visibility = ComparisonPanel.Visibility = OverlayLayer.Visibility = Visibility.Collapsed;
+        DetailsPanel.Visibility = ArchivePanel.Visibility = ComparisonPanel.Visibility = ViewerPanel.Visibility = OverlayLayer.Visibility = Visibility.Collapsed;
+        CloseViewerResources();
         _selectedPhoto = null; MainShell.Effect = null; MainShell.IsEnabled = true; _returnFocus?.Focus();
     }
     private void CloseOverlay_Click(object sender, RoutedEventArgs e) => CloseOverlay();
     private void OverlayShade_Click(object sender, MouseButtonEventArgs e) => CloseOverlay();
-    private void Window_KeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Escape && OverlayLayer.Visibility == Visibility.Visible) { CloseOverlay(); e.Handled = true; } }
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && OverlayLayer.Visibility == Visibility.Visible) { CloseOverlay(); e.Handled = true; }
+        else if (ViewerPanel.Visibility == Visibility.Visible && e.Key == Key.Left) { ViewerPrevious_Click(sender, e); e.Handled = true; }
+        else if (ViewerPanel.Visibility == Visibility.Visible && e.Key == Key.Right) { ViewerNext_Click(sender, e); e.Handled = true; }
+    }
+
     private void ExportPlaceholder_Click(object sender, RoutedEventArgs e) { OpenOverlay(ArchivePanel); ArchiveClose.Focus(); }
     private void OpenMap_Click(object sender, RoutedEventArgs e) { if (PlacesList.SelectedItem is LocationView location) OpenMap(location.Photo); }
     private void DetailMap_Click(object sender, RoutedEventArgs e) { if (_selectedPhoto is { } photo) OpenMap(photo); }
@@ -268,11 +309,12 @@ public partial class MainWindow : Window
         AddFolderLabel.Visibility = ArchiveLabel.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
         AddFolderAction.Padding = ArchiveAction.Padding = new Thickness(compact ? 12 : 16,0,compact ? 12 : 16,0);
         SearchFrame.Width = Math.Max(120,Math.Min(compact ? 360 : 500,width-SidebarColumn.Width.Value-(width<=1230?46:66)-(compact?110:340)-19));
-        SafetyBadge.Visibility = width < 1000 ? Visibility.Collapsed : Visibility.Visible; SortLabel.Visibility = width < 1000 ? Visibility.Collapsed : Visibility.Visible;
+        SafetyBadge.Visibility = width < 1000 ? Visibility.Collapsed : Visibility.Visible; SortLabel.Visibility = Visibility.Visible;
         bool stackMap = compact; MapLeftColumn.Width = new GridLength(stackMap ? 1 : 2.25,GridUnitType.Star); MapGapColumn.Width = new GridLength(stackMap ? 0 : 20); MapRightColumn.Width = new GridLength(stackMap ? 0 : 1,GridUnitType.Star); MapRightColumn.MinWidth = stackMap ? 0 : 280;
         Grid.SetColumn(GpsCard,stackMap?0:2); Grid.SetRow(GpsCard,stackMap?1:0); GpsCard.Margin = new Thickness(0,stackMap?20:0,0,0);
         DetailsPanel.Width = Math.Min(420,Math.Max(300,width*0.9)); DetailPreviewFrame.Height = (DetailsPanel.Width-54)*0.75;
         ArchivePanel.Width = ComparisonPanel.Width = Math.Max(300,Math.Min(720,width-40)); ArchivePanel.MaxHeight = ComparisonPanel.MaxHeight = Math.Max(220,ActualHeight-80);
+        ApplyP1Layout();
     }
     protected override void OnClosed(EventArgs e)
     {

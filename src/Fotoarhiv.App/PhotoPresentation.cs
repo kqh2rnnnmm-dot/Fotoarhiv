@@ -12,11 +12,13 @@ public static class PhotoPresentation
 {
     public static readonly CultureInfo Russian = CultureInfo.GetCultureInfo("ru-RU");
 
-    public static List<PhotoMonth> GroupMonths(IEnumerable<PhotoRecord> photos) => photos
-        .OrderByDescending(p => p.TakenAt).ThenBy(p => p.Path, StringComparer.OrdinalIgnoreCase)
-        .GroupBy(p => new DateTime(p.TakenAt.Year, p.TakenAt.Month, 1))
-        .Select(g => new PhotoMonth(g.Key,
-            Russian.TextInfo.ToTitleCase(g.Key.ToString("MMMM yyyy", Russian)), g.ToList())).ToList();
+    public static List<PhotoMonth> GroupMonths(IEnumerable<PhotoRecord> photos, bool oldestFirst = false)
+    {
+        var ordered = oldestFirst ? photos.OrderBy(p => p.TakenAt) : photos.OrderByDescending(p => p.TakenAt);
+        return ordered.ThenBy(p => PathIdentity.Normalize(p.Path), StringComparer.Ordinal)
+            .GroupBy(p => new DateTime(p.TakenAt.Year, p.TakenAt.Month, 1))
+            .Select(g => new PhotoMonth(g.Key, Russian.TextInfo.ToTitleCase(g.Key.ToString("MMMM yyyy", Russian)), g.ToList())).ToList();
+    }
 
     public static LibraryStatistics Statistics(IEnumerable<PhotoRecord> records,
         IEnumerable<IEnumerable<PhotoRecord>>? duplicates, int sources)
@@ -33,9 +35,7 @@ public static class PhotoPresentation
     public static string DateCaption(PhotoRecord photo) => photo.TakenAt.ToString("dd MMMM yyyy", Russian) +
         (photo.DateSource == "EXIF" ? "" : " · Дата файла");
 
-    public static bool BelongsToSource(string file, string root) => Path.GetFullPath(file)
-        .StartsWith(Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar) +
-            Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase);
+    public static bool BelongsToSource(string file, string root) => PathIdentity.BelongsTo(file, root);
 }
 
 public sealed record PhotoMonth(DateTime Month, string Title, List<PhotoRecord> Photos);

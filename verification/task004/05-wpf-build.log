@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored /workspace/Fotoarhiv_Task004/src/Fotoarhiv.Core/Fotoarhiv.Core.csproj (in 1.08 sec).
+  Restored /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj (in 1.08 sec).
+  Restored /workspace/Fotoarhiv_Task004/src/Fotoarhiv.App/Fotoarhiv.App.csproj (in 15 ms).
+  Fotoarhiv.Core -> /workspace/Fotoarhiv_Task004/src/Fotoarhiv.Core/bin/Release/net10.0/Fotoarhiv.Core.dll
+  Fotoarhiv.Tests -> /workspace/Fotoarhiv_Task004/tests/Fotoarhiv.Tests/bin/Release/net10.0/Fotoarhiv.Tests.dll
+  Fotoarhiv.App -> /workspace/Fotoarhiv_Task004/src/Fotoarhiv.App/bin/Release/net10.0-windows/Fotoarhiv.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:09.67
