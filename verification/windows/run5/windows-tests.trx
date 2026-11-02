@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="0a3db48b-0672-4d40-b730-ab50c3814c35" name="runneradmin@runnervmdaln5 2026-11-01 20:44:17" runUser="runnervmdaln5\runneradmin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-01T20:44:17.9276430+00:00" queuing="2026-11-01T20:44:17.9276432+00:00" start="2026-11-01T20:44:16.0851479+00:00" finish="2026-11-01T20:44:18.7799033+00:00" />
+  <TestSettings name="default" id="af2a2937-d863-4c90-ab84-55de6997e0b8">
+    <Deployment runDeploymentRoot="runneradmin_runnervmdaln5_2026-11-01_20_44_17" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="96fcfcf8-f265-4471-9437-983463a5683a" testId="3082c0b9-2626-c69d-f1b7-c0a6fd29186e" testName="Fotoarhiv.Tests.P0Tests.Exclusive_Locked_File_Is_Skipped_By_Hasher_Without_False_Group" computerName="runnervmdaln5" duration="00:00:00.0078800" startTime="2026-11-01T20:44:18.7030714+00:00" endTime="2026-11-01T20:44:18.7082888+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96fcfcf8-f265-4471-9437-983463a5683a" />
+    <UnitTestResult executionId="6b112ba4-4129-4483-b1b5-5fd0a5d5029d" testId="253be8f1-7720-1ff4-9b4a-8fee6c394199" testName="Fotoarhiv.Tests.P0Tests.Same_Size_Real_Images_Require_Equal_Content" computerName="runnervmdaln5" duration="00:00:00.0188967" startTime="2026-11-01T20:44:18.6805644+00:00" endTime="2026-11-01T20:44:18.6996323+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6b112ba4-4129-4483-b1b5-5fd0a5d5029d" />
+    <UnitTestResult executionId="8824d42b-e331-4947-95d4-2ee76286166b" testId="6389d4d6-2533-5b21-a14d-f73516e62cf2" testName="Fotoarhiv.Tests.P0Tests.Unavailable_Source_Is_Reported_Instead_Of_Silent_Success" computerName="runnervmdaln5" duration="00:00:00.0061919" startTime="2026-11-01T20:44:17.0070922+00:00" endTime="2026-11-01T20:44:17.0138068+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8824d42b-e331-4947-95d4-2ee76286166b" />
+    <UnitTestResult executionId="5683b3f6-3063-45cd-926f-5094f3130e15" testId="8bf54bc7-1037-50d5-9cee-78126ae43e62" testName="Fotoarhiv.Tests.P0Tests.Disposing_Store_Releases_Database_File" computerName="runnervmdaln5" duration="00:00:00.7860379" startTime="2026-11-01T20:44:17.0424851+00:00" endTime="2026-11-01T20:44:17.8287919+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5683b3f6-3063-45cd-926f-5094f3130e15" />
+    <UnitTestResult executionId="752bb9eb-2941-4efa-9b50-b3af8690b2ef" testId="999a723f-a406-288d-8de6-a3c475dce167" testName="Fotoarhiv.Tests.P0Tests.Scan_And_Hash_Leave_Original_Bytes_And_Write_Creation_Times_Unchanged" computerName="runnervmdaln5" duration="00:00:00.0429787" startTime="2026-11-01T20:44:16.9818247+00:00" endTime="2026-11-01T20:44:17.0068443+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="752bb9eb-2941-4efa-9b50-b3af8690b2ef" />
+    <UnitTestResult executionId="f5e9d317-472a-4d5a-8acc-074762f966e3" testId="409baa8d-b6a7-b579-6906-7e12ed3ec04e" testName="Fotoarhiv.Tests.CatalogTests.Exact_Duplicates_Require_Same_Content_Not_Just_Same_Size" computerName="runnervmdaln5" duration="00:00:00.0105067" startTime="2026-11-01T20:44:17.9794331+00:00" endTime="2026-11-01T20:44:17.9926143+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5e9d317-472a-4d5a-8acc-074762f966e3" />
+    <UnitTestResult executionId="296c7d12-d45f-4661-8d3e-6ff1bd5788ec" testId="2838b157-1387-5b1c-7ff0-e04cffe08dd9" testName="Fotoarhiv.Tests.P0Tests.Rescan_Invalidates_Changed_File_And_Preserves_Unchanged_Hash" computerName="runnervmdaln5" duration="00:00:00.0126774" startTime="2026-11-01T20:44:17.8293942+00:00" endTime="2026-11-01T20:44:17.8425729+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="296c7d12-d45f-4661-8d3e-6ff1bd5788ec" />
+    <UnitTestResult executionId="fdaa0fb8-adbd-4f06-9749-6504e794973a" testId="552b1a8a-4dbb-c1c7-9617-d62114eba90d" testName="Fotoarhiv.Tests.P0Tests.Real_Image_Without_Exif_Uses_Labelled_File_Date_And_No_Gps" computerName="runnervmdaln5" duration="00:00:00.0059687" startTime="2026-11-01T20:44:18.4421471+00:00" endTime="2026-11-01T20:44:18.4486407+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdaa0fb8-adbd-4f06-9749-6504e794973a" />
+    <UnitTestResult executionId="057816b7-9a18-4310-a86d-accca459934e" testId="cdc34161-4c9a-2d28-802b-3562e2ed53c5" testName="Fotoarhiv.Tests.P0Tests.Sqlite_Roundtrip_Preserves_Metadata_Hashes_And_Sources" computerName="runnervmdaln5" duration="00:00:00.5020073" startTime="2026-11-01T20:44:17.8928598+00:00" endTime="2026-11-01T20:44:18.3746044+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="057816b7-9a18-4310-a86d-accca459934e" />
+    <UnitTestResult executionId="2e935ab4-e38c-4516-ba2b-78b77a7715e8" testId="144dde48-4e35-d01c-605b-ed94728309d9" testName="Fotoarhiv.Tests.CatalogTests.Scan_Indexes_Photos_Without_Modifying_Source" computerName="runnervmdaln5" duration="00:00:00.0112345" startTime="2026-11-01T20:44:16.9817879+00:00" endTime="2026-11-01T20:44:16.9819466+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e935ab4-e38c-4516-ba2b-78b77a7715e8" />
+    <UnitTestResult executionId="394edb74-cb7a-4d28-8e32-8eeb017f6d2c" testId="006afaf6-95fa-c74b-b3c3-78f9acda697b" testName="Fotoarhiv.Tests.P0Tests.Cancellation_During_Scan_Is_Observed" computerName="runnervmdaln5" duration="00:00:00.0663263" startTime="2026-11-01T20:44:18.3750031+00:00" endTime="2026-11-01T20:44:18.4417475+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="394edb74-cb7a-4d28-8e32-8eeb017f6d2c" />
+    <UnitTestResult executionId="bbc7b6cd-a052-41e1-b8c7-827fabc22c80" testId="3e97a06b-dc9b-c374-071c-f0db95a099e5" testName="Fotoarhiv.Tests.CatalogTests.Catalog_Persists_And_Retains_Entries_For_Offline_Disks" computerName="runnervmdaln5" duration="00:00:01.0024034" startTime="2026-11-01T20:44:16.9821332+00:00" endTime="2026-11-01T20:44:17.9786686+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bbc7b6cd-a052-41e1-b8c7-827fabc22c80" />
+    <UnitTestResult executionId="c1b9444d-af1d-4eba-8ac3-11a8cc4edf66" testId="41e493ce-09b8-75fd-4621-beb2b50b98d6" testName="Fotoarhiv.Tests.P0Tests.Missing_Source_Does_Not_Clear_Persisted_Records" computerName="runnervmdaln5" duration="00:00:00.2308003" startTime="2026-11-01T20:44:18.4489164+00:00" endTime="2026-11-01T20:44:18.6800769+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1b9444d-af1d-4eba-8ac3-11a8cc4edf66" />
+    <UnitTestResult executionId="1247c3b5-086e-4322-bf01-319f41b4f83f" testId="e7c99fe4-527c-79eb-0c40-de47fb371816" testName="Fotoarhiv.Tests.P0Tests.Precancelled_Scan_And_Duplicate_Search_Do_Not_Report_Success" computerName="runnervmdaln5" duration="00:00:00.0369749" startTime="2026-11-01T20:44:16.9025318+00:00" endTime="2026-11-01T20:44:16.9587054+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1247c3b5-086e-4322-bf01-319f41b4f83f" />
+    <UnitTestResult executionId="7a6f1da4-c315-4524-95f8-e111446db385" testId="461cdd93-ad6c-2864-a8a8-7359c3773d82" testName="Fotoarhiv.Tests.P0Tests.Exif_And_Gps_Are_Read_From_Synthetic_Tiff" computerName="runnervmdaln5" duration="00:00:00.0270000" startTime="2026-11-01T20:44:17.0140143+00:00" endTime="2026-11-01T20:44:17.0417349+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a6f1da4-c315-4524-95f8-e111446db385" />
+    <UnitTestResult executionId="a9e7bb32-0891-414e-a243-f113b784a003" testId="021775dd-aca3-0fde-3ff8-12361b1a0ce2" testName="Fotoarhiv.Tests.CatalogTests.Rescan_Reuses_Unchanged_Record_And_Preserves_Hash" computerName="runnervmdaln5" duration="00:00:00.0465874" startTime="2026-11-01T20:44:16.9051142+00:00" endTime="2026-11-01T20:44:16.9785458+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9e7bb32-0891-414e-a243-f113b784a003" />
+    <UnitTestResult executionId="59ffe93d-f0c2-4f42-bec6-96877f464e6d" testId="0d7a7cb2-c06d-4809-3fbe-319687f1a381" testName="Fotoarhiv.Tests.P0Tests.Cached_Hash_Is_Rejected_When_Source_Changed_Before_Duplicate_Search" computerName="runnervmdaln5" duration="00:00:00.0116527" startTime="2026-11-01T20:44:17.8923597+00:00" endTime="2026-11-01T20:44:17.8925452+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59ffe93d-f0c2-4f42-bec6-96877f464e6d" />
+    <UnitTestResult executionId="e99965e4-cc1e-4500-baf8-b12672483a30" testId="6509ccba-58b2-4e33-f04e-5c1e1b1ee53a" testName="Fotoarhiv.Tests.P0Tests.Valid_Zero_Gps_Is_Not_Treated_As_Missing" computerName="runnervmdaln5" duration="00:00:00.0162707" startTime="2026-11-01T20:44:17.8916000+00:00" endTime="2026-11-01T20:44:17.8918071+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e99965e4-cc1e-4500-baf8-b12672483a30" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Sqlite_Roundtrip_Preserves_Metadata_Hashes_And_Sources" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="cdc34161-4c9a-2d28-802b-3562e2ed53c5">
+      <Execution id="057816b7-9a18-4310-a86d-accca459934e" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Sqlite_Roundtrip_Preserves_Metadata_Hashes_And_Sources" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Valid_Zero_Gps_Is_Not_Treated_As_Missing" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="6509ccba-58b2-4e33-f04e-5c1e1b1ee53a">
+      <Execution id="e99965e4-cc1e-4500-baf8-b12672483a30" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Valid_Zero_Gps_Is_Not_Treated_As_Missing" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.CatalogTests.Scan_Indexes_Photos_Without_Modifying_Source" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="144dde48-4e35-d01c-605b-ed94728309d9">
+      <Execution id="2e935ab4-e38c-4516-ba2b-78b77a7715e8" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.CatalogTests" name="Scan_Indexes_Photos_Without_Modifying_Source" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Missing_Source_Does_Not_Clear_Persisted_Records" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="41e493ce-09b8-75fd-4621-beb2b50b98d6">
+      <Execution id="c1b9444d-af1d-4eba-8ac3-11a8cc4edf66" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Missing_Source_Does_Not_Clear_Persisted_Records" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Cancellation_During_Scan_Is_Observed" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="006afaf6-95fa-c74b-b3c3-78f9acda697b">
+      <Execution id="394edb74-cb7a-4d28-8e32-8eeb017f6d2c" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Cancellation_During_Scan_Is_Observed" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Precancelled_Scan_And_Duplicate_Search_Do_Not_Report_Success" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="e7c99fe4-527c-79eb-0c40-de47fb371816">
+      <Execution id="1247c3b5-086e-4322-bf01-319f41b4f83f" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Precancelled_Scan_And_Duplicate_Search_Do_Not_Report_Success" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.CatalogTests.Catalog_Persists_And_Retains_Entries_For_Offline_Disks" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="3e97a06b-dc9b-c374-071c-f0db95a099e5">
+      <Execution id="bbc7b6cd-a052-41e1-b8c7-827fabc22c80" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.CatalogTests" name="Catalog_Persists_And_Retains_Entries_For_Offline_Disks" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Exclusive_Locked_File_Is_Skipped_By_Hasher_Without_False_Group" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="3082c0b9-2626-c69d-f1b7-c0a6fd29186e">
+      <Execution id="96fcfcf8-f265-4471-9437-983463a5683a" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Exclusive_Locked_File_Is_Skipped_By_Hasher_Without_False_Group" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Real_Image_Without_Exif_Uses_Labelled_File_Date_And_No_Gps" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="552b1a8a-4dbb-c1c7-9617-d62114eba90d">
+      <Execution id="fdaa0fb8-adbd-4f06-9749-6504e794973a" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Real_Image_Without_Exif_Uses_Labelled_File_Date_And_No_Gps" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.CatalogTests.Rescan_Reuses_Unchanged_Record_And_Preserves_Hash" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="021775dd-aca3-0fde-3ff8-12361b1a0ce2">
+      <Execution id="a9e7bb32-0891-414e-a243-f113b784a003" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.CatalogTests" name="Rescan_Reuses_Unchanged_Record_And_Preserves_Hash" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Disposing_Store_Releases_Database_File" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="8bf54bc7-1037-50d5-9cee-78126ae43e62">
+      <Execution id="5683b3f6-3063-45cd-926f-5094f3130e15" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Disposing_Store_Releases_Database_File" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Scan_And_Hash_Leave_Original_Bytes_And_Write_Creation_Times_Unchanged" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="999a723f-a406-288d-8de6-a3c475dce167">
+      <Execution id="752bb9eb-2941-4efa-9b50-b3af8690b2ef" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Scan_And_Hash_Leave_Original_Bytes_And_Write_Creation_Times_Unchanged" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Rescan_Invalidates_Changed_File_And_Preserves_Unchanged_Hash" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="2838b157-1387-5b1c-7ff0-e04cffe08dd9">
+      <Execution id="296c7d12-d45f-4661-8d3e-6ff1bd5788ec" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Rescan_Invalidates_Changed_File_And_Preserves_Unchanged_Hash" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Unavailable_Source_Is_Reported_Instead_Of_Silent_Success" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="6389d4d6-2533-5b21-a14d-f73516e62cf2">
+      <Execution id="8824d42b-e331-4947-95d4-2ee76286166b" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Unavailable_Source_Is_Reported_Instead_Of_Silent_Success" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.CatalogTests.Exact_Duplicates_Require_Same_Content_Not_Just_Same_Size" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="409baa8d-b6a7-b579-6906-7e12ed3ec04e">
+      <Execution id="f5e9d317-472a-4d5a-8acc-074762f966e3" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.CatalogTests" name="Exact_Duplicates_Require_Same_Content_Not_Just_Same_Size" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Exif_And_Gps_Are_Read_From_Synthetic_Tiff" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="461cdd93-ad6c-2864-a8a8-7359c3773d82">
+      <Execution id="7a6f1da4-c315-4524-95f8-e111446db385" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Exif_And_Gps_Are_Read_From_Synthetic_Tiff" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Same_Size_Real_Images_Require_Equal_Content" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="253be8f1-7720-1ff4-9b4a-8fee6c394199">
+      <Execution id="6b112ba4-4129-4483-b1b5-5fd0a5d5029d" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Same_Size_Real_Images_Require_Equal_Content" />
+    </UnitTest>
+    <UnitTest name="Fotoarhiv.Tests.P0Tests.Cached_Hash_Is_Rejected_When_Source_Changed_Before_Duplicate_Search" storage="d:\a\fotoarhiv\fotoarhiv\tests\fotoarhiv.tests\bin\release\net10.0\fotoarhiv.tests.dll" id="0d7a7cb2-c06d-4809-3fbe-319687f1a381">
+      <Execution id="59ffe93d-f0c2-4f42-bec6-96877f464e6d" />
+      <TestMethod codeBase="D:\a\Fotoarhiv\Fotoarhiv\tests\Fotoarhiv.Tests\bin\Release\net10.0\Fotoarhiv.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Fotoarhiv.Tests.P0Tests" name="Cached_Hash_Is_Rejected_When_Source_Changed_Before_Duplicate_Search" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="3082c0b9-2626-c69d-f1b7-c0a6fd29186e" executionId="96fcfcf8-f265-4471-9437-983463a5683a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="253be8f1-7720-1ff4-9b4a-8fee6c394199" executionId="6b112ba4-4129-4483-b1b5-5fd0a5d5029d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6389d4d6-2533-5b21-a14d-f73516e62cf2" executionId="8824d42b-e331-4947-95d4-2ee76286166b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8bf54bc7-1037-50d5-9cee-78126ae43e62" executionId="5683b3f6-3063-45cd-926f-5094f3130e15" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="999a723f-a406-288d-8de6-a3c475dce167" executionId="752bb9eb-2941-4efa-9b50-b3af8690b2ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="409baa8d-b6a7-b579-6906-7e12ed3ec04e" executionId="f5e9d317-472a-4d5a-8acc-074762f966e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2838b157-1387-5b1c-7ff0-e04cffe08dd9" executionId="296c7d12-d45f-4661-8d3e-6ff1bd5788ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="552b1a8a-4dbb-c1c7-9617-d62114eba90d" executionId="fdaa0fb8-adbd-4f06-9749-6504e794973a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdc34161-4c9a-2d28-802b-3562e2ed53c5" executionId="057816b7-9a18-4310-a86d-accca459934e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="144dde48-4e35-d01c-605b-ed94728309d9" executionId="2e935ab4-e38c-4516-ba2b-78b77a7715e8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="006afaf6-95fa-c74b-b3c3-78f9acda697b" executionId="394edb74-cb7a-4d28-8e32-8eeb017f6d2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e97a06b-dc9b-c374-071c-f0db95a099e5" executionId="bbc7b6cd-a052-41e1-b8c7-827fabc22c80" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41e493ce-09b8-75fd-4621-beb2b50b98d6" executionId="c1b9444d-af1d-4eba-8ac3-11a8cc4edf66" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7c99fe4-527c-79eb-0c40-de47fb371816" executionId="1247c3b5-086e-4322-bf01-319f41b4f83f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="461cdd93-ad6c-2864-a8a8-7359c3773d82" executionId="7a6f1da4-c315-4524-95f8-e111446db385" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="021775dd-aca3-0fde-3ff8-12361b1a0ce2" executionId="a9e7bb32-0891-414e-a243-f113b784a003" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d7a7cb2-c06d-4809-3fbe-319687f1a381" executionId="59ffe93d-f0c2-4f42-bec6-96877f464e6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6509ccba-58b2-4e33-f04e-5c1e1b1ee53a" executionId="e99965e4-cc1e-4500-baf8-b12672483a30" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="18" executed="18" passed="18" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)&#xD;
+[xUnit.net 00:00:00.12]   Discovering: Fotoarhiv.Tests&#xD;
+[xUnit.net 00:00:00.19]   Discovered:  Fotoarhiv.Tests&#xD;
+[xUnit.net 00:00:00.22]   Starting:    Fotoarhiv.Tests&#xD;
+[xUnit.net 00:00:02.07]   Finished:    Fotoarhiv.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

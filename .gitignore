@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+publish/
+.vs/
+*.user
+TestResults/
+**/__pycache__/
+*.pyc
+
+/design-task003/

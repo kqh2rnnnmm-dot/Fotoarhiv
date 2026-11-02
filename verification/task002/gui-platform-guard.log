@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/workspace/Fotoarhiv_Task002/tests/windows_gui.py", line 173, in <module>
+    main()
+  File "/workspace/Fotoarhiv_Task002/tests/windows_gui.py", line 27, in main
+    raise RuntimeError("NOT RUN: requires disposable interactive Windows GitHub runner")
+RuntimeError: NOT RUN: requires disposable interactive Windows GitHub runner

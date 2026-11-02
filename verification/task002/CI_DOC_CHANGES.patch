@@ -1,0 +1,130 @@
+diff --git a/.github/workflows/build-windows.yml b/.github/workflows/build-windows.yml
+index ce1115c..c90785f 100644
+--- a/.github/workflows/build-windows.yml
++++ b/.github/workflows/build-windows.yml
+@@ -7,13 +7,17 @@ on:
+ 
+ jobs:
+   build-and-test:
+-    runs-on: windows-latest
++    runs-on: windows-2025
+     timeout-minutes: 20
+     permissions:
+       contents: read
+     defaults:
+       run:
+         shell: bash
++    env:
++      PYTHONIOENCODING: utf-8
++      PYTHONUTF8: '1'
++      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+     steps:
+       - name: Get project
+         uses: actions/checkout@v4
+@@ -25,25 +29,19 @@ jobs:
+         uses: actions/setup-python@v5
+         with:
+           python-version: '3.12'
+-      - name: Restore NuGet packages
+-        run: dotnet restore Fotoarhiv.slnx
+-      - name: Release build
+-        run: dotnet build Fotoarhiv.slnx -c Release --no-restore
+-      - name: Test catalog engine
+-        run: dotnet test tests/Fotoarhiv.Tests/Fotoarhiv.Tests.csproj -c Release --no-build --logger "trx;LogFileName=windows-tests.trx" --results-directory TestResults
+-      - name: Publish Windows application
+-        run: dotnet publish src/Fotoarhiv.App/Fotoarhiv.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=false -o publish
+-      - name: Check published application startup on Windows
+-        run: python tests/windows_smoke.py publish/Fotoarhiv.exe
+-      - name: Package complete publish directory
+-        run: python -c "import shutil; shutil.make_archive('Fotoarhiv_Windows_x64_v0_2_1', 'zip', 'publish')"
++      - name: Install CI-only UI Automation dependencies
++        run: python -m pip install -r tests/requirements-windows.txt
++      - name: Test evidence and packaging controls
++        run: python -m unittest discover -s tests -p test_ci_evidence.py -v
++      - name: Windows build, tests, publish, startup and GUI verification
++        run: python tests/windows_ci.py
+       - name: Upload Windows program after successful checks
+         uses: actions/upload-artifact@v4
+         with:
+           name: Fotoarhiv-Windows-x64-0.2.1-TEST
+-          path: Fotoarhiv_Windows_x64_v0_2_1.zip
++          path: Fotoarhiv_Windows_x64_TEST.zip
+           if-no-files-found: error
+-      - name: Upload test evidence
++      - name: Upload all verification evidence including failures
+         if: always()
+         uses: actions/upload-artifact@v4
+         with:
+diff --git a/.gitignore b/.gitignore
+index d2d4f9f..666350c 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -4,3 +4,5 @@ publish/
+ .vs/
+ *.user
+ TestResults/
++**/__pycache__/
++*.pyc
+diff --git a/AGENTS.md b/AGENTS.md
+index b8b8411..cb9b608 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -9,7 +9,7 @@
+ - Ядро: `src/Fotoarhiv.Core` (net10.0, SQLite, MetadataExtractor).
+ - Тесты: `tests/Fotoarhiv.Tests` (xUnit).
+ - CI: `.github/workflows/build-windows.yml`.
+-- Исходный v0.2 НЕ имеет подтверждённых успешных сборок/Windows-тестов. Первая задача: `tasks/CODEX_TASK_001.md`.
++- Контрольная точка v0.2.1: подтверждены Linux Release-компиляция WPF с Windows targeting, 18 xUnit-тестов и кросс-публикация win-x64. Windows-сборка, запуск и GUI пока НЕ подтверждены. Текущая задача: `tasks/CODEX_TASK_002.md`; статус — `BUILD_REPORT_RU.md`.
+ - Никогда не включать в поставку старую v0.1 с VBS, PowerShell или `.cmd` запуска.
+ 
+ ## Жёсткие инварианты
+diff --git a/INSTRUCTIONS_CHATGPT_PROJECT.md b/INSTRUCTIONS_CHATGPT_PROJECT.md
+index 0a99bbc..7c4f7a2 100644
+--- a/INSTRUCTIONS_CHATGPT_PROJECT.md
++++ b/INSTRUCTIONS_CHATGPT_PROJECT.md
+@@ -20,7 +20,7 @@
+ 11. Не переименовывать проект, существующие классы/папки и публичные пользовательские обозначения без веской причины и согласования. Не переписывать всё ради косметики; соблюдать контрольные точки.
+ 
+ ## Технология и состояние
+-Исходная база — C# / .NET 10 / WPF, SQLite, MetadataExtractor, xUnit. Версия исходников v0.2. Сканирование, EXIF/GPS, SQLite и SHA-256 описаны в коде, но НЕ подтверждены исполняемой сборкой на Windows. Версию v0.1 на VBS/PowerShell не использовать. Встроенной карты, поиска визуально похожих снимков, физической сборки архива пока нет. Прежде чем расширять функции, добиться компиляции, зелёных тестов и работающего Windows x64 exe.
++Исходная база — C# / .NET 10 / WPF, SQLite, MetadataExtractor, xUnit. Версия приложения v0.2.1. Linux-компиляция WPF с Windows targeting и 18 xUnit-тестов подтверждены. Сканирование, EXIF/GPS, SQLite и SHA-256 пока НЕ подтверждены исполняемой сборкой на Windows; текущий этап — Task 002. Версию v0.1 на VBS/PowerShell не использовать. Встроенной карты, поиска визуально похожих снимков, физической сборки архива пока нет. Прежде чем расширять функции, добиться компиляции, зелёных тестов и работающего Windows x64 exe.
+ 
+ ## Работа через ChatGPT и Codex при GitHub только для чтения
+ В этом чате GitHub доступен только для чтения: не рассчитывать на git push, запись файлов, pull request или автоматическое обновление удалённого репозитория. Не говорить, что изменения опубликованы, пока пользователь не подтвердил. Каждое задание передавать Codex как отдельный документ со входными файлами, границами работы, тестами, критериями завершения и форматом результата. Codex должен возвращать полный ZIP обновлённого проекта, перечень изменений, результаты проверок, известные ограничения и, когда среда позволяет, ZIP опубликованной Windows-сборки. Если Codex может редактировать локальную рабочую копию — использовать её, но перенос изменений в GitHub остаётся отдельным шагом пользователя через графический интерфейс.
+diff --git a/README_RU.md b/README_RU.md
+index a6bbaf1..e8ee0e4 100644
+--- a/README_RU.md
++++ b/README_RU.md
+@@ -10,10 +10,13 @@
+ 
+ В Linux x64 с .NET SDK 10.0.403 выполнены restore, Release-компиляция всего решения
+ (включая WPF, с `EnableWindowsTargeting=true`) и **18 автотестов: 18 pass, 0 fail, 0 skip**.
+-Кросс-публикация self-contained `win-x64` также успешна. Это не подтверждает запуск на Windows.
++Кросс-публикация self-contained `win-x64` также успешна (журнал Task 001).
++В Task 002 повторены restore, Release build и все 18 тестов на Linux; код приложения и версия 0.2.1 сохранены. Это не подтверждает запуск на Windows.
+ Windows runner и GUI в текущей сессии недоступны. **P0 остаётся незавершённым.**
+ ZIP с Windows-приложением не предоставлен. GitHub автоматически не обновлялся.
+-Подробности и логи — в `BUILD_REPORT_RU.md` и `verification/`.
++Подробности Task 002 — в `BUILD_REPORT_RU.md` и `verification/task002/`.
++Исходный отчёт Task 001 сохранён как `verification/BUILD_REPORT_TASK001_RU.md`.
++Проверка без терминала описана в `WINDOWS_CHECKLIST_RU.md`.
+ 
+ Исправлены ошибки компиляции GPS/WPF, проверка актуальности сохранённых хешей и отмена.
+ При недоступном источнике выводится сообщение о неполной проверке, записи сохраняются.
+@@ -42,13 +45,13 @@ ZIP с Windows-приложением не предоставлен. GitHub ав
+ 
+ ## Как получить .exe без ввода команд в терминал
+ 
+-В репозиторий GitHub необходимо загрузить содержимое этого ZIP, сохранив папку `.github/workflows/`.
+-При загрузке в ветку main/master GitHub Actions запускает сборку на Windows runner. Нужны права владельца на загрузку файлов; подключение ChatGPT только для чтения этого не делает. Workflow проверяет restore, Release build, xUnit, publish и появление/закрытие главного окна. Он ещё не был выполнен для этой версии. Дальнейшие действия:
++Репозиторий создан: https://github.com/kqh2rnnnmm-dot/Fotoarhiv . При повторной проверке в main найден только README.md, запусков Actions — 0. В него необходимо загрузить содержимое этого ZIP, сохранив папку `.github/workflows/`.
++При загрузке в ветку main/master GitHub Actions запускает сборку на Windows runner. Нужны права владельца на загрузку файлов; подключение ChatGPT только для чтения этого не делает. Workflow для `windows-2025` (Windows Server, не Windows 11) подготовлен для restore, Release build, xUnit, publish, запуска/закрытия окна и UI Automation. Он сохраняет логи, фактическую ОС, commit/run URL, TRX, снимки окна и SHA-256-манифест publish в артефакт `Fotoarhiv-Windows-test-results`. Подготовленные GUI-проверки охватывают добавление двух источников, подпапки, поиск, год, страницы, карточку EXIF, навигацию, дубли, повторный запуск и неизменность тестовых оригиналов. Выполнение этих проверок на Windows ещё не подтверждено. Он ещё не был выполнен для этой версии. Дальнейшие действия:
+ 
+ 1. Откройте репозиторий GitHub и вкладку **Actions**.
+ 2. Выберите **Build Fotoarhiv Windows x64** и **Run workflow** (если доступно).
+ 3. Дождитесь окончания проверки. При **зелёном** статусе в разделе **Artifacts** скачайте `Fotoarhiv-Windows-x64-0.2.1-TEST`.
+-4. Распакуйте скачанный артефакт, затем вложенный `Fotoarhiv_Windows_x64_v0_2_1.zip` в отдельную папку. Сохраните все файлы рядом с `Fotoarhiv.exe`. Это публикация папкой; отдельно установленный .NET не нужен.
++4. Распакуйте скачанный артефакт, затем вложенный `Fotoarhiv_Windows_x64_TEST.zip` в отдельную папку. Сохраните все файлы рядом с `Fotoarhiv.exe`. Это публикация папкой; отдельно установленный .NET не нужен.
+ 5. Запускайте только после проверки результата сборки и предупреждений защиты; сначала тестируйте на небольшой копии данных.
+ 
+ Если Actions выдаёт ошибку, это означает, что выпуск блокируется, а не что нужно отключать антивирус.

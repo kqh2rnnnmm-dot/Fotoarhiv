@@ -1,0 +1,9 @@
+PASS Python syntax; Windows execution NOT RUN
+PASS XML syntax: solution, csproj, XAML
+PASS workflow YAML parsing; Actions execution NOT RUN
+PASS cross-publish contains x64 PE Fotoarhiv.exe; execution NOT RUN
+PASS cross-publish contains x64 PE e_sqlite3.dll; execution NOT RUN
+PASS cross-publish contains x64 PE wpfgfx_cor3.dll; execution NOT RUN
+PASS cross-publish contains x64 PE coreclr.dll; execution NOT RUN
+PASS git diff --check
+PASS no launcher scripts or binaries in source delivery
