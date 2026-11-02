@@ -95,8 +95,8 @@ public partial class MainWindow : Window
             cts.Token.ThrowIfCancellationRequested(); if (_closing) return;
             _store.Upsert(_records);
             _duplicateGroups = duplicates.Select((group, index) => new DuplicateGroupView($"Точные копии · группа {index + 1}", group)).ToList();
-            _duplicatesChecked = true;
             var warnings = _scanner.WarningCount + _duplicateFinder.WarningCount;
+            _duplicatesChecked = warnings == 0;
             Status.Text = warnings == 0 ? $"Готово: {_records.Count:N0} файлов, групп точных дублей: {_duplicateGroups.Count:N0}"
                 : $"Проверка неполная: недоступно или изменилось объектов: {warnings:N0}. Записи сохранены.";
         }
