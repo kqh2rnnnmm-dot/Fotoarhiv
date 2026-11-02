@@ -187,11 +187,21 @@ def main():
             app=start();control('NavSources').invoke();check('offline source entries preserved (simulation)',lambda:require(rows('SELECT count(*) FROM photos')==[(expected,)] and '○ Недоступен' in all_texts(),'Missing source was cleared or mislabelled'))
             control('ScanAction').invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Проверка неполная:'),'Offline scan warning')
             control('NavPhotos').invoke()
+            screenshot('10-incomplete-statistics-1440x900','Incomplete scan: duplicate count must stay unknown')
+            window.print_control_identifiers(filename=str(output/'incomplete-controls.txt'))
+            wait_for(lambda:control('MetricDuplicates').exists(timeout=0.1),'Statistics peer after navigation',15)
             check('incomplete duplicate metric remains unknown',lambda:require(text('MetricDuplicates')=='—','Incomplete scan must not claim zero duplicate photos'))
             control('SearchBox').set_edit_text('identical-b');window.child_window(title='identical-b.bmp',control_type='Button').invoke()
             wait_for(lambda:'Источник недоступен' in text('DetailAvailability'),'Offline detail')
             screenshot('10-offline-detail-1440x900','Simulated missing temporary source; catalog entry preserved')
             send_keys('{ESC}');close()
+        except Exception:
+            report['offline_process_exit_code']=process.poll()
+            try:
+                window.capture_as_image().save(output/'offline-failure.png')
+                window.print_control_identifiers(filename=str(output/'offline-controls.txt'))
+            except Exception as diagnostic_error: report['offline_capture_error']=str(diagnostic_error)
+            raise
         finally:
             if process is not None and process.poll() is None: process.kill();process.wait(timeout=10)
             offline.rename(second);offline=None
