@@ -186,6 +186,7 @@ def main():
         try:
             app=start();control('NavSources').invoke();check('offline source entries preserved (simulation)',lambda:require(rows('SELECT count(*) FROM photos')==[(expected,)] and '○ Недоступен' in all_texts(),'Missing source was cleared or mislabelled'))
             control('ScanAction').invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Проверка неполная:'),'Offline scan warning')
+            control('NavPhotos').invoke()
             check('incomplete duplicate metric remains unknown',lambda:require(text('MetricDuplicates')=='—','Incomplete scan must not claim zero duplicate photos'))
             control('SearchBox').set_edit_text('identical-b');window.child_window(title='identical-b.bmp',control_type='Button').invoke()
             wait_for(lambda:'Источник недоступен' in text('DetailAvailability'),'Offline detail')
