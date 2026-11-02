@@ -212,8 +212,10 @@ def main():
         buffer=io.BytesIO();Image.new('RGB',(32,32),(9,19,29)).save(buffer,format='BMP');payload=buffer.getvalue()
         # Small files keep fixture memory bounded and create a deterministic cancellation window.
         for i in range(6000):(cancel_root/f'cancel-{i:05d}.bmp').write_bytes(payload)
-        choose_source(cancel_root);wait_for(lambda:text('ScanAction')=='Остановить','Scan entered cancellable phase',10)
-        control('ScanAction').invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Остановлено пользователем.'),'Cancellation must not report success')
+        cancel_button=control('ScanAction').wrapper_object()
+        choose_source(cancel_root);wait_for(lambda:cancel_button.window_text()=='Остановить','Scan entered cancellable phase',10)
+        report['cancellation_click_observed_button']=cancel_button.window_text()
+        cancel_button.invoke();wait_for(lambda:text('ScanAction')=='Обновить' and text('Status').startswith('Остановлено пользователем.'),'Cancellation must not report success')
         check('GUI cancellation is honest and responsive',lambda:require(control('AddFolderAction').is_enabled() and text('Status').startswith('Остановлено пользователем.'),'Cancellation state'))
         screenshot('11-cancelled-1440x900','Real GUI scan cancellation, no false success')
         close();check('initial image bytes and dates remain unchanged after all scenarios',lambda:require(before==snapshot(),'Original bytes/dates changed'))
