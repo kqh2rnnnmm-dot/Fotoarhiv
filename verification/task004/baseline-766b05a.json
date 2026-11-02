@@ -1,0 +1,17 @@
+{
+  "src/Fotoarhiv.App/App.xaml.cs": "98b89f0ad9b69709e8aa1ff1bdfdb80c63566632b2d835112fa424a57ebb6e9d",
+  "src/Fotoarhiv.App/UiPrimitives.cs": "35798d664a5556a4fc7c0fa84a33e660e7acbb06c0ef169b53f768f64b8c6033",
+  "src/Fotoarhiv.App/MainWindow.xaml.cs": "6f3f08e11c869c3bdb4e786540c1a09b277dbcca284bfc365c188f807cb9609c",
+  "src/Fotoarhiv.App/PhotoViews.cs": "ba6fcaf72f807d428402a16d9c4ea77c775d7db12398348faffbe50d091dd237",
+  "src/Fotoarhiv.App/app.manifest": "c723040bdf7ac2204e727673494d3ce39417524fb2f66fb3174605569f712519",
+  "src/Fotoarhiv.App/MainWindow.xaml": "e9b82e648d7b96af74540e01cc5747590e9e11f6316f8f2583c71915b026ecd6",
+  "src/Fotoarhiv.App/PhotoPresentation.cs": "cbe1e8073a73c09a39959a4d303c6156f985910fbdaad30077d6ec06d20dce00",
+  "src/Fotoarhiv.App/App.xaml": "e573c64095c81df3b24c01eccde30fd1f566095a3a8bcb3c400921bf6963f9ee",
+  "src/Fotoarhiv.App/Fotoarhiv.App.csproj": "6e6d2975ad800d30588f11d539b613f385f13ade7b2a858a1f87baabef444cd7",
+  "src/Fotoarhiv.Core/DuplicateFinder.cs": "4dd8eb0418828519ba6774d6300f059ede4e7d058cec4b7d6ac7a58012c07f8b",
+  "src/Fotoarhiv.Core/Fotoarhiv.Core.csproj": "148fcf85106bd012fc8ada4e248f10e64d1753616715962630391ea95f6019f0",
+  "src/Fotoarhiv.Core/PhotoRecord.cs": "af2c418d867688603c6cc681414d728f8304db3c08724e4203330b39144cae69",
+  "src/Fotoarhiv.Core/CatalogStore.cs": "cbf1a1262e1e7d2844c216dad685ec6b0a95072fe6fc754fb8ffc9fe14ebf88e",
+  "src/Fotoarhiv.Core/PhotoScanner.cs": "9274e4208c80785746a19c2cde38aa34d80686a764b6ba413b9fe3161fde04ea",
+  "src/Fotoarhiv.App/Themes/ReferenceTheme.xaml": "bf6432941c8be432cab5937b3e1470a945f83712cef634fe75fdf0dfb5b9871e"
+}

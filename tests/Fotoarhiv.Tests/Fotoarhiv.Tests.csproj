@@ -14,5 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="../../src/Fotoarhiv.App/PhotoPresentation.cs" Link="PhotoPresentation.cs" />
+    <Compile Include="../../src/Fotoarhiv.App/LibraryViewState.cs" Link="LibraryViewState.cs" />
+    <Compile Include="../../src/Fotoarhiv.App/SortPreferenceStore.cs" Link="SortPreferenceStore.cs" />
   </ItemGroup>
 </Project>
