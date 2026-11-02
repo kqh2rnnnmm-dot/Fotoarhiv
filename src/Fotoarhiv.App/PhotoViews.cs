@@ -66,7 +66,10 @@ public sealed class PhotoTile : INotifyPropertyChanged
 }
 
 public sealed record MonthView(string Title, string CountLabel, List<PhotoTile> Tiles);
-public sealed record StatisticView(string Icon, string Value, string Label, string AutomationId);
+public sealed record StatisticView(string Icon, string Value, string Label, string AutomationId)
+{
+    public override string ToString() => $"{Label}: {Value}";
+}
 public sealed record MetadataView(string Label, string Value);
 public sealed record DuplicateGroupView(string Title, List<PhotoRecord> Photos)
 {
