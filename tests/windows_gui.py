@@ -27,12 +27,12 @@ def main():
         from ui_fixtures import create_catalog_samples
         old_mode = win32api.EnumDisplaySettings(None, win32con.ENUM_CURRENT_SETTINGS)
         requested = win32api.EnumDisplaySettings(None, win32con.ENUM_CURRENT_SETTINGS)
-        requested.PelsWidth = 2560; requested.PelsHeight = 1440
+        requested.PelsWidth = 1920; requested.PelsHeight = 1080
         requested.Fields = win32con.DM_PELSWIDTH | win32con.DM_PELSHEIGHT
         change_result = win32api.ChangeDisplaySettings(requested, 0)
-        report['display_setup'] = {'requested':[2560,1440], 'result':change_result, 'actual':[win32api.GetSystemMetrics(0),win32api.GetSystemMetrics(1)]}
-        if change_result != 0 or win32api.GetSystemMetrics(0) < 1940 or win32api.GetSystemMetrics(1) < 1120:
-            raise RuntimeError('Desktop must fit a 1920x1080 client plus the native window frame')
+        report['display_setup'] = {'requested':[1920,1080], 'result':change_result, 'actual':[win32api.GetSystemMetrics(0),win32api.GetSystemMetrics(1)]}
+        if change_result != 0 or win32api.GetSystemMetrics(0) < 1920 or win32api.GetSystemMetrics(1) < 1080:
+            raise RuntimeError('Required 1920x1080 screenshot desktop is unavailable')
         db = Path(os.environ['LOCALAPPDATA'])/'Fotoarhiv/catalog.sqlite'
         def rows(sql):
             with sqlite3.connect(f'{db.as_uri()}?mode=ro',uri=True) as connection: return connection.execute(sql).fetchall()
@@ -69,6 +69,7 @@ def main():
         def close():
             window.close();require(process.wait(timeout=15)==0,'Normal window close expected')
         def set_client(width,height):
+            if window.is_maximized(): window.restore()
             hwnd=window.handle
             outer=win32gui.GetWindowRect(hwnd); client=win32gui.GetClientRect(hwnd)
             offset=win32gui.ClientToScreen(hwnd,(0,0))
@@ -165,9 +166,13 @@ def main():
         wait_for(lambda:'Превью недоступно' in text('DetailAvailability') or 'превью недоступно' in text('DetailAvailability'),'Unsupported image retained safely')
         check('unsupported image is retained without UI crash',lambda:require(text('DetailName')=='unsupported.jpg' and rows("SELECT count(*) FROM photos WHERE path LIKE '%unsupported.jpg'")==[(1,)],'Corrupt source must remain catalogued'))
         send_keys('{ESC}');control('SearchBox').set_edit_text('')
-        for width,height,label in [(1366,768,'1366x768'),(1920,1080,'1920x1080'),(1093,614,'effective-125-percent'),(911,512,'effective-150-percent')]:
-            set_client(width,height);control('NavPhotos').invoke();assert_actions_fit()
-            screenshot('layout-'+label,'Native client '+str(width)+'x'+str(height)+('; effective workspace simulation, system DPI unchanged' if 'percent' in label else ''))
+        for width,height,label in [(1366,768,'1366x768'),(1920,1080,'desktop-1920x1080'),(1093,614,'effective-125-percent'),(911,512,'effective-150-percent')]:
+            if label=='desktop-1920x1080':
+                window.maximize();wait_for(lambda:window.is_maximized(),'Native maximized window')
+                width,height=win32gui.GetClientRect(window.handle)[2:]
+            else: set_client(width,height)
+            control('NavPhotos').invoke();assert_actions_fit()
+            screenshot('layout-'+label,'Native client '+str(width)+'x'+str(height)+('; maximized on 1920x1080 desktop, native frame and taskbar retained' if label=='desktop-1920x1080' else '; effective workspace simulation, system DPI unchanged' if 'percent' in label else ''))
             control('ArchiveAction').invoke();wait_for(lambda:visible('ArchiveTitle'),'Archive at resized window')
             rect=control('ArchiveClose').rectangle();origin=win32gui.ClientToScreen(window.handle,(0,0));require(rect.right<=origin[0]+width and rect.bottom<=origin[1]+height,'Modal close clipped')
             send_keys('{ESC}');check('responsive layout '+label,lambda:None)
